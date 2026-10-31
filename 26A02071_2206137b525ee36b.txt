@@ -1,0 +1,356 @@
+(Allegato)
+Allegato
+Inserimento, in accordo all'art. 12,  comma  5,  della  legge  n.
+189/2012, in apposita sezione (denominata classe C (nn)) dedicata  ai
+farmaci non ancora valutati ai fini della rimborsabilita' nelle  more
+della presentazione da parte dell'azienda interessata di una  domanda
+di diversa classificazione. Le informazioni  riportate  costituiscono
+un estratto degli allegati alle decisioni della  Commissione  europea
+relative all'autorizzazione all'immissione in commercio dei  farmaci.
+Si rimanda quindi alla versione integrale di tali documenti.
+KISUNLA,
+Codice ATC - principio attivo: N06DX05 donanemab;
+Titolare: Eli Lilly Nederland B.V;
+Cod. procedura EMEA/H/C/006024/0000;
+GUUE 23 ottobre 2025.
+Medicinale   sottoposto   a   monitoraggio   addizionale.    Cio'
+permettera' la rapida identificazione  di  nuove  informazioni  sulla
+sicurezza.  Agli  operatori  sanitari  e'  richiesto   di   segnalare
+qualsiasi  reazione  avversa  sospetta.  Vedere  paragrafo  4.8   per
+informazioni sulle modalita' di segnalazione delle reazioni avverse.
+Indicazioni terapeutiche
+Donanemab e' indicato per il trattamento di pazienti  adulti  con
+una diagnosi clinica di disturbo  cognitivo  lieve  e  demenza  lieve
+dovuti alla malattia di Alzheimer (malattia di Alzheimer  sintomatica
+in fase iniziale) che sono eterozigoti  per  l'apolipoproteina  E  ε4
+(ApoE ε4) o non portatori, con patologia amiloide confermata  (vedere
+paragrafo 4.4).
+Modo di somministrazione
+Il trattamento deve essere iniziato da un  medico  esperto  nella
+diagnosi e nel trattamento della malattia di  Alzheimer  (Alzheimer's
+disease,  AD)  con  accesso  tempestivo  alla   risonanza   magnetica
+(Magnetic   resonance   imaging,   MRI).   Donanemab   deve    essere
+somministrato sotto la  supervisione  di  un  team  multidisciplinare
+formato nell'individuazione, nel monitoraggio e nella gestione  delle
+anomalie di imaging correlate all'amiloide  (Amyloid-related  imaging
+abnormalities, ARIA) ed esperto nell'individuazione e nella  gestione
+delle reazioni correlate all'infusione (Infusion  Related  Reactions,
+IRR).
+I pazienti trattati con donanemab devono ricevere la  scheda  per
+il paziente ed essere informati sui rischi di donanemab (vedere anche
+il foglio illustrativo).
+Test per ApoE ε4
+Il genotipo ApoE ε4  deve  essere  valutato  mediante  un  test
+diagnostico in vitro (In Vitro Diagnostic, IVD) con marchio CE e atto
+allo scopo specifico. Se un IVD con marchio CE non e' disponibile, e'
+necessario utilizzare un test alternativo validato (vedere  paragrafo
+5.1).
+Prima di iniziare il trattamento  con  donanemab,  deve  essere
+eseguito il test per determinare  lo  stato  ApoE  ε4  per  acquisire
+informazioni sul rischio di sviluppare ARIA (vedere paragrafi  4.1  e
+4.4).  Prima  di  eseguire  il  test,  i   pazienti   devono   essere
+adeguatamente informati e deve essere raccolto il consenso secondo le
+linee guida nazionali o locali, ove applicabili.
+Donanemab  e'  solo  per  uso  endovenoso.  Ogni  flaconcino   e'
+esclusivamente   monouso.   La   soluzione   diluita   deve    essere
+somministrata in un periodo  di  almeno  trenta  minuti.  I  pazienti
+devono essere tenuti  sotto  osservazione  dopo  l'infusione  per  un
+minimo di trenta minuti.  Per  le  istruzioni  sulla  diluizione  del
+medicinale prima della somministrazione, vedere paragrafo 6.6.
+Confezioni autorizzate:
+EU/1/25/1926/001 A.I.C.: 052446010 /E In base 32: 1L0JTU -  350
+mg - Concentrato per soluzione  per  infusione  -  Uso  endovenoso  -
+Flaconcino (vetro) 20 mL (17,5 mg/mL) - 1 flaconcino;
+EU/1/25/1926/002 A.I.C.: 052446022 /E In base 32: 1L0JU6 -  350
+mg - Concentrato per soluzione  per  infusione  -  Uso  endovenoso  -
+Flaconcino (vetro) 20  mL  (17,5  mg/mL)  -  2  (2  x  1)  flaconcini
+(confezione multipla).
+Altre condizioni e requisiti  dell'autorizzazione  all'immissione  in
+commercio
+Rapporti periodici di aggiornamento sulla sicurezza (PSUR):
+I requisiti per la presentazione dei PSUR per questo medicinale
+sono definiti nell'elenco delle  date  di  riferimento  per  l'Unione
+europea (elenco EURD) di cui all'art. 107-quater, paragrafo 7,  della
+direttiva 2001/83/CE e successive modifiche, pubblicato sul sito  web
+dell'Agenzia europea dei medicinali.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+presentare il  primo  PSUR  per  questo  medicinale  entro  sei  mesi
+successivi all'autorizzazione.
+Condizioni o limitazioni per quanto riguarda l'uso sicuro ed efficace
+del medicinale
+Piano di gestione del rischio (RMP):
+Il titolare  dell'autorizzazione  all'immissione  in  commercio
+deve  effettuare  le  attivita'  e  le  azioni  di   farmacovigilanza
+richieste e dettagliate nel RMP approvato  e  presentato  nel  modulo
+1.8.2 dell'autorizzazione  all'immissione  in  commercio  e  in  ogni
+successivo aggiornamento approvato del RMP.
+Il RMP aggiornato deve essere presentato:
+su richiesta dell'Agenzia europea dei medicinali;
+ogni  volta  che  il  sistema  di  gestione  del  rischio  e'
+modificato,  in  particolare  a  seguito  del  ricevimento  di  nuove
+informazioni che possono portare a un cambiamento  significativo  del
+profilo beneficio/rischio  o  a  seguito  del  raggiungimento  di  un
+importante obiettivo (di farmacovigilanza  o  di  minimizzazione  del
+rischio);
+Misure aggiuntive di minimizzazione del  rischio:  prima  del
+lancio   di   «Kisunla»   in   ogni   Stato   membro,   il   titolare
+dell'autorizzazione all'immissione in commercio deve  concordare  con
+l'Autorita' nazionale  competente  il  contenuto  e  il  formato  del
+programma  educazionale,  compresi  i  mezzi  di  comunicazione,   le
+modalita' di distribuzione e qualsiasi  altro  aspetto.  Il  titolare
+dell'autorizzazione  all'immissione   in   commercio   deve   inoltre
+concordare  i  dettagli  del   programma   di   accesso   controllato
+(Controlled Access Program, CAP).
+Il programma di accesso controllato ha  lo  scopo  di  promuovere
+l'uso  sicuro  ed  efficace  di  donanemab  confermando  la  corretta
+selezione dei  pazienti  in  base  all'indicazione  o  alla  diagnosi
+pertinente, al profilo genetico e alla disponibilita' della risonanza
+magnetica.  Tutti  i  pazienti  saranno  registrati  nel  sistema  di
+registrazione CAP prima dell'inizio del trattamento con donanemab.
+Il materiale educazionale ha lo scopo di  educare  gli  operatori
+sanitari e i pazienti/caregiver  sul  potenziale  e  sui  fattori  di
+rischio per lo sviluppo di ARIA (-E/-H),  inclusi  segni,  sintomi  e
+gestione.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+assicurare  che  in  ogni  Stato   membro   in   cui   «Kisunla»   e'
+commercializzato, prima del  lancio  e  dopo  il  lancio,  tutti  gli
+operatori  sanitari   e   i   pazienti/caregiver   che   si   prevede
+prescriveranno/riceveranno «Kisunla» abbiano accesso/abbiano ricevuto
+i seguenti materiali educazionali:
+materiali educazionali per gli operatori sanitari
+scheda per il paziente
+Materiale educazionale per gli operatori sanitari:  il  materiale
+educazionale per i medici prescrittori e i radiologi  deve  contenere
+una guida per gli operatori sanitari e una  checklist  per  i  medici
+prescrittori, che includa i seguenti elementi chiave:
+Guida per gli operatori sanitari:
+informazioni  sulle  condizioni  del  CAP  di   donanemab.   Il
+trattamento  con  donanemab  deve  essere  somministrato   sotto   la
+supervisione  di   un'equipe   multidisciplinare   formata   per   il
+monitoraggio  e  per  la  gestione   di   ARIA   e   con   esperienza
+nell'individuazione  e  nella  gestione  delle   reazioni   correlate
+all'infusione  per  garantire  un'adeguata  gestione   dei   pazienti
+trattati con donanemab;
+l'uso di donanemab puo' causare ARIA (-E o  -H)  e  i  pazienti
+devono essere avvertiti di consultare  immediatamente  un  medico  se
+compaiono segni o sintomi che suggeriscono ARIA;
+i sintomi di ARIA possono includere, a  titolo  esemplificativo
+ma non esaustivo,  mal  di  testa,  vomito,  instabilita',  capogiro,
+tremore,  confusione,  disturbi  visivi,  disturbi  del   linguaggio,
+peggioramento della funzione cognitiva, alterazione della coscienza e
+crisi  convulsive,  e  possono  mimare  l'ictus  o   sintomi   simili
+all'ictus;
+ARIA -E e -H possono essere classificate come lievi, moderate o
+severe in  base  alla  risonanza  magnetica  e  come  sintomatiche  o
+asintomatiche in base ai sintomi  clinici.  La  maggior  parte  delle
+reazioni  di  ARIA  gravi  si  e'  verificata  entro   12   settimane
+dall'inizio del trattamento. In caso di ARIA-E puo' essere  preso  in
+considerazione  un  trattamento  standard  di  supporto,  compresi  i
+corticosteroidi;
+i fattori di rischio per ARIA-E o -H  includono  microemorragia
+cerebrale pre-trattamento,  siderosi  superficiale  e  lo  status  di
+portatore di  ApoE  ε4 (per  gli  omozigoti  maggiore  rispetto  agli
+eterozigoti) rispetto ai non portatori.  Donanemab  e'  indicato  nei
+pazienti eterozigoti o non portatori di APOE ε4;
+il test per lo status di portatore di ApoE ε4  e'  obbligatorio
+prima di iniziare il trattamento con donanemab per avere informazioni
+sul rischio di sviluppare ARIA;
+il trattamento con donanemab deve essere iniziato o  continuato
+secondo   le   indicazioni   e   le    controindicazioni    descritte
+rispettivamente nei paragrafi 4.1 e 4.3 del RCP;
+devono essere seguite le raccomandazioni sulla somministrazione
+e sull'interruzione del trattamento nei pazienti con ARIA-E e  ARIA-H
+come descritto nel paragrafo 4.2 del RCP;
+eventi di ARIA-H ed emorragia intracerebrale superiore a  1  cm
+sono stati riportati in pazienti in  trattamento  con  donanemab.  Si
+deve  usare  cautela  quando   si   prende   in   considerazione   la
+somministrazione di antitrombotici o di un agente trombolitico  a  un
+paziente in trattamento con donanemab poiche' questo  puo'  aumentare
+il rischio di sanguinamento nel cervello come descritto nel paragrafo
+4.4 del RCP;
+il trattamento  con  donanemab  non  deve  essere  iniziato  in
+pazienti sottoposti ad una terapia anticoagulante in corso;
+le ARIA devono essere prese in  considerazione  nella  diagnosi
+differenziale dei pazienti che presentano sintomi simili all'ictus;
+le ARIA possono causare deficit  neurologici  focali  simili  a
+quelli osservati in un ictus ischemico. I medici che trattano l'ictus
+ischemico devono considerare se tali sintomi possano essere dovuti ad
+ARIA prima di somministrare la terapia trombolitica a un paziente  in
+trattamento con donanemab. La risonanza magnetica o l'identificazione
+dell'occlusione  vascolare  possono  contribuire  a   stabilire   che
+l'eziologia sia dovuta ad ictus ischemico piuttosto  che  ad  ARIA  e
+fornire indicazioni sull'uso di trombolitici o di trombectomia quando
+appropriato;
+lo scopo  e  l'uso  della  scheda  per  il  paziente,  compresa
+l'importanza di portare sempre con se' la scheda e di  fornirla  agli
+operatori sanitari in situazioni di emergenza;
+Checklist per il medico prescrittore:
+Prima dell'inizio del trattamento:
+l'inizio del trattamento con donanemab in  tutti  i  pazienti
+deve registrato nel «Sistema di registrazione  EU  CAP»  implementato
+come parte di un programma di accesso controllato;
+il test sullo status di portatore ApoE ε4 e' obbligatorio per
+avere informazioni sul rischio di sviluppare ARIA. L'uso di donanemab
+nei pazienti portatori omozigoti di ApoE ε4 non e'  indicato  (vedere
+paragrafo 4.1 del RCP);
+i pazienti trattati con donanemab devono ricevere  la  scheda
+per il paziente ed essere informati sui rischi di questo medicinale;
+la presenza di patologia beta-amiloide e una diagnosi clinica
+di decadimento cognitivo lieve dovuto ad AD o  demenza  lieve  da  AD
+devono  essere  confermate  prima  di  iniziare  il  trattamento  con
+donanemab;
+una risonanza magnetica deve essere eseguita al basale (entro
+6 mesi prima di iniziare il trattamento) per i fattori di rischio  di
+ARIA, tra cui la presenza  di  microemorragia  cerebrale  e  siderosi
+superficiale. L'uso di donanemab nei pazienti con microemorragie >  4
+o siderosi superficiale e' controindicato;
+il trattamento con donanemab non deve essere iniziato secondo
+le controindicazioni descritte nel paragrafo 4.3 del RCP.
+Monitoraggio durante il trattamento:
+il trattamento deve essere proseguito  fino  all'eliminazione
+delle placche amiloidi (ad es. a sei o dodici mesi, vedere  paragrafo
+5.1 del RCP) confermata utilizzando un metodo convalidato. La  durata
+massima del trattamento e' di diciotto  mesi,  che  non  deve  essere
+superata anche se la clearance della placca non e' confermata;
+una risonanza magnetica  deve  essere  eseguita  prima  della
+seconda dose, prima della terza dose, prima della quarta dose e prima
+della settima  dose.  Deve  essere  eseguita  un'ulteriore  risonanza
+magnetica a un anno di trattamento (prima della dodicesima dose)  nei
+pazienti con fattori di rischio per ARIA come gli eterozigoti ApoE ε4
+e pazienti  con  precedenti  eventi  di  ARIA  nelle  prime  fasi  di
+trattamento;
+in  caso  di  ARIA,  seguire  le   raccomandazioni   per   le
+interruzioni della somministrazione descritte nel paragrafo  4.2  del
+RCP. Se si verificano  sintomi  di  ARIA,  e'  indicata  un'ulteriore
+risonanza magnetica. Una risonanza magnetica di follow-up deve essere
+eseguita per valutare la risoluzione (ARIA-E)  o  la  stabilizzazione
+(ARIA-H) da 2 a 4 mesi dopo l'identificazione iniziale;
+in caso di ARIA-E puo'  essere  preso  in  considerazione  un
+trattamento standard di supporto, compresi i corticosteroidi;
+la ripresa della somministrazione o l'interruzione permanente
+dopo la risoluzione di ARIA-E e la stabilizzazione di  ARIA-H  devono
+essere guidate dal giudizio clinico, compresa  la  rivalutazione  dei
+fattori di rischio;
+donanemab deve essere interrotto definitivamente  dopo  grave
+ARIA-E, grave ARIA-H, emorragia intracerebrale superiore  a  1  cm  o
+eventi di ARIA ricorrenti sintomatici o radiograficamente moderati  o
+severi.
+Scheda per il paziente:
+elementi chiave rivolti al paziente/caregiver:
+la scheda per il paziente deve essere sempre tenuta  con  se'
+dal paziente/caregiver e deve essere condivisa  con  altri  operatori
+sanitari  coinvolti  nel  trattamento,  comprese  le  situazioni   di
+emergenza;
+il trattamento con donanemab puo' causare anomalie di imaging
+correlate all'amiloide (ARIA);
+i sintomi di ARIA possono includere mal di testa, confusione,
+capogiro,  alterazioni  della  vista,  nausea,  afasia,  debolezza  o
+convulsioni;
+i pazienti devono consultare un medico o  chiedere  consiglio
+se si verificano sintomi di ARIA;
+dati di contatto di emergenza del familiare o del caregiver;
+dati di contatto del medico prescrittore.
+elementi chiave rivolti agli operatori sanitari  coinvolti  nel
+trattamento del paziente:
+ARIA  (rilevata  dalla  risonanza  magnetica)  puo'   causare
+deficit neurologici focali simili a  quelli  osservati  in  un  ictus
+ischemico. Poiche' le ARIA si verificano piu' comunemente  nei  primi
+sei mesi di trattamento con donanemab, i medici che trattano  l'ictus
+ischemico devono considerare se tali sintomi possono essere dovuti ad
+ARIA prima di somministrare una terapia trombolitica in  un  paziente
+in trattamento con  donanemab  (per  ulteriori  dettagli,  vedere  il
+paragrafo 4.4 del RCP di «Kisunla» ARIA e Trattamento  antitrombotico
+concomitante).
+Programma di accesso controllato
+Il titolare  dell'autorizzazione  all'immissione  in  commercio
+deve concordare i dettagli di un programma di accesso controllato con
+ciascuna autorita' nazionale competente e deve attuare tale programma
+a livello  nazionale  per  garantire  che  un  Programma  di  accesso
+controllato (CAP) promuova l'uso sicuro ed efficace di donanemab.
+Il  programma  di  accesso  controllato  comprende  i  seguenti
+principi chiave che saranno incorporati in ciascun sistema  in  tutti
+gli Stati membri. Questi sono:
+1)   limitazione   dell'accesso   a   donanemab   a    centri
+preselezionati e
+2) attuazione di un sistema di  registrazione  per  assistere
+gli operatori sanitari
+i. nella valutazione dell'eleggibilita' del paziente,
+ii.  nel  fornire  un  rapido  riferimento   ai   materiali
+educazionali, e
+iii. nel confermare l'aderenza ai materiali.
+Il CAP consente  la  preselezione  dei  centri  con  i  criteri
+richiesti,   dei   medici   prescrittori   in   grado   di   valutare
+l'eleggibilita' per donanemab, l'accesso a un metodo convalidato  per
+valutare la patologia amiloide cerebrale,  l'accesso  alle  infusioni
+endovenose, l'accesso alla risonanza  magnetica  [programmata  e  non
+programmata] per  monitorare  ARIA  e  l'accesso  ai  test  ApoE  ε4.
+Seguira' la distribuzione del  medicinale  alle  farmacie  di  questi
+centri selezionati  con  medici  prescrittori  affiliati,  che  hanno
+ricevuto  materiale  educazionale  per  gli  operatori  sanitari  sul
+trattamento con  donanemab.  I  medici  prescrittori  all'interno  di
+questi centri, prima che un paziente riceva donanemab,  utilizzeranno
+il sistema di registrazione per
+attestare di aver ricevuto e compreso la guida educativa  per
+gli operatori sanitari richiesta,
+confermare che il paziente (anonimizzato) soddisfi i  criteri
+di eleggibilita' richiesti secondo l'etichettatura,
+e verificare che il paziente sia stato informato in merito ai
+rischi di donanemab e che gli sia stata  fornita  la  scheda  per  il
+paziente.
+obbligo di condurre attivita' post-autorizzative
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+completare, entro la tempistica stabilita, le seguenti attivita':
+===============================================================
+|              Descrizione              |     Tempistica      |
++=======================================+=====================+
+|Registro di sicurezza per la           |                     |
+|caratterizzazione di ARIA nei pazienti |                     |
+|trattati con donanemab Il titolare     |                     |
+|dell'autorizzazione all'immissione in  |                     |
+|commercio deve eseguire uno studio     |                     |
+|osservazionale di, registro per fornire|                     |
+|dati sulla sicurezza di donanemab nella|                     |
+|pratica di routine, con particolare    |                     |
+|attenzione alla caratterizzazione      |                     |
+|dell'incidenza e della gravita' di ARIA|                     |
+|sintomatiche (obiettivo primario) e di |                     |
+|ARIA asintomatiche (obiettivo          |                     |
+|secondario). I pazienti con eventi di  |Rapporto finale: 31  |
+|ARIA saranno seguiti per valutare gli  |dicembre 2031        |
+|interventi e le tempistiche di         |                     |
+|risoluzione (ARIA-E), o di             |                     |
+|stabilizzazione (ARIA-H), nonche' gli  |                     |
+|esiti cognitivi a lungo termine e      |                     |
+|l'impatto sulla progressione della     |                     |
+|malattia. Inoltre, verra' descritta    |                     |
+|l'incidenza di eventi di               |                     |
+|ipersensibilita' ed emorragia          |                     |
+|intracranica. L'emorragia intracranica |                     |
+|sara' valutata anche nel sottogruppo di|                     |
+|pazienti che ricevono una terapia      |                     |
+|antitrombotica o trombolitica          |                     |
+|concomitante.                          |                     |
++---------------------------------------+---------------------+
+|Studio secondario su database per      |                     |
+|caratterizzare i pazienti trattati con |                     |
+|donanemab Il titolare                  |                     |
+|dell'autorizzazione all'immissione in  |                     |
+|commercio eseguira' uno studio di      |                     |
+|coorte osservazionale utilizzando      |                     |
+|database secondari volto a fornire dati|                     |
+|su donanemab nella pratica di routine. |                     |
+|L'obiettivo di questo studio e' la     |Rapporto finale: 31  |
+|caratterizzazione dell'incidenza degli |dicembre 2030        |
+|eventi di ipersensibilita' e degli     |                     |
+|eventi di emorragia intracranica, la   |                     |
+|descrizione dell'utilizzo di donanemab |                     |
+|e la valutazione di misure come la     |                     |
+|ricezione della risonanza magnetica, la|                     |
+|popolazione di pazienti trattati e i   |                     |
+|paradigmi di dosaggio per supportare la|                     |
+|valutazione dell'efficacia delle misure|                     |
+|di minimizzazione del rischio.         |                     |
++---------------------------------------+---------------------+
+Regime di fornitura: medicinale soggetto  a  prescrizione  medica
+limitativa, utilizzabile esclusivamente in ambiente ospedaliero o  in
+strutture ad esso assimilabili (OSP).

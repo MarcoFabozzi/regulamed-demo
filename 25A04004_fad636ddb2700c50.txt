@@ -1,0 +1,198 @@
+(Allegato)
+Allegato
+Inserimento, in accordo all'art.  12,  comma  5  della  legge  n.
+189/2012, in apposita sezione (denominata Classe C (nn)) dedicata  ai
+farmaci non ancora valutati ai fini della rimborsabilita' nelle  more
+della presentazione da parte dell'azienda interessata di una  domanda
+di diversa classificazione. Le informazioni  riportate  costituiscono
+un estratto degli Allegati alle decisioni della  Commissione  europea
+relative all'autorizzazione all'immissione in commercio dei  farmaci.
+Si rimanda quindi alla versione integrale di tali documenti.
+Farmaco di nuova registrazione
+LEQEMBI.
+Codice ATC - Principio attivo: N06DX04 Lecanemab.
+Titolare: EISAI GMBH.
+Cod. procedura EMEA/H/C/005966/0000.
+GUUE 28 maggio 2025.
+Medicinale   sottoposto   a   monitoraggio   addizionale.    Cio'
+permettera' la rapida identificazione  di  nuove  informazioni  sulla
+sicurezza.  Agli  operatori  sanitari  e'  richiesto   di   segnalare
+qualsiasi  reazione  avversa  sospetta.  Vedere  paragrafo  4.8   per
+informazioni sulle modalita' di segnalazione delle reazioni avverse.
+Indicazioni terapeutiche
+Leqembi e' indicato per il trattamento  di  pazienti  adulti  con
+diagnosi clinica di disturbo cognitivo lieve o demenza di grado lieve
+dovuti alla malattia di Alzheimer  (malattia  di  Alzheimer  in  fase
+iniziale)  che  non  sono  portatori  dell'allele  ε4  del  gene  per
+l'apolipoproteina E  (ApoE  ε4)  o  sono  eterozigoti  con  patologia
+amiloide confermata (vedere paragrafo 4.4).
+Modo di somministrazione
+Il trattamento deve essere iniziato e  supervisionato  da  medici
+esperti nella diagnosi e nel trattamento della malattia di  Alzheimer
+con accesso tempestivo all'imaging con risonanza magnetica  (RM).  Le
+infusioni di  lecanemab  devono  essere  somministrate  da  operatori
+sanitari qualificati, formati per monitorare, riconoscere  e  gestire
+le reazioni correlate all'infusione.
+Ai pazienti trattati con  lecanemab  deve  essere  consegnata  la
+scheda paziente e i pazienti devono essere informati  sui  rischi  di
+lecanemab (vedere anche il foglio illustrativo).
+Test ApoE4
+Il  genotipo  ApoE4  deve  essere  valutato  mediante   un   test
+diagnostico  in  vitro  (IVD)  con  marchio  CE  e  atto  allo  scopo
+specifico. Se non e' disponibile un  test  IVD  con  marchio  CE,  e'
+necessario  utilizzare  un  test  alternativo   convalidato   (vedere
+paragrafo 5.1).
+Prima di iniziare il trattamento  con  lecanemab,  e'  necessario
+eseguire il test per lo stato ApoE ε4 per acquisire  informazioni  in
+merito al rischio di sviluppare ARIA (vedere paragrafi  4.1  e  5.1).
+Prima di sottoporre i pazienti al  test,  questi  devono  seguire  un
+percorso di consulenza e prestazione del consenso  secondo  le  linee
+guida nazionali o locali, ove applicabili.
+Lecanemab  e'  destinato   esclusivamente   all'uso   endovenoso.
+Lecanemab viene  somministrato  tramite  infusione  endovenosa  della
+durata di circa 1 ora una  volta  ogni  2  settimane.  Per  la  prima
+infusione, il paziente deve  essere  tenuto  sotto  osservazione  per
+circa 2,5 ore  dopo  il  completamento  dell'infusione  per  segni  e
+sintomi di reazioni correlate all'infusione (vedere paragrafo 4.4).
+Lecanemab viene diluito prima dell'infusione endovenosa.
+Per le istruzioni sulla diluizione  del  medicinale  prima  della
+somministrazione, vedere paragrafo 6.6.
+Confezioni autorizzate:
+EU/1/24/1891/001 AIC:051960019 /E In  base  32:  1KKQ6M  -  100
+mg/mL - Concentrato per soluzione per infusione -  Uso  endovenoso  -
+Flaconcino (vetro) 2 mL - 1 flaconcino;
+EU/1/24/1891/002 AIC:051960021 /E In  base  32:  1KKQ6P  -  100
+mg/mL - Concentrato per soluzione per infusione -  Uso  endovenoso  -
+Flaconcino (vetro) 5 mL - 1 flaconcino.
+Altre condizioni e requisiti  dell'autorizzazione  all'immissione  in
+commercio
+Rapporti periodici di aggiornamento sulla sicurezza (PSUR)
+I requisiti per la presentazione dei PSUR per  questo  medicinale
+sono definiti nell'elenco delle  date  di  riferimento  per  l'Unione
+europea (elenco EURD) di cui all'art. 107-quater, paragrafo 7,  della
+Direttiva 2001/83/CE e successive modifiche, pubblicato sul sito  web
+dell'Agenzia europea dei medicinali.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+presentare il  primo  PSUR  per  questo  medicinale  entro  sei  mesi
+successivi all'autorizzazione.
+Condizioni o limitazioni per quanto riguarda l'uso sicuro ed efficace
+del medicinale
+Piano di gestione del rischio (RMP)
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+effettuare le attivita' e le azioni di farmacovigilanza  richieste  e
+dettagliate  nel  RMP  approvato  e  presentato  nel   modulo   1.8.2
+dell'autorizzazione all'immissione in commercio e in ogni  successivo
+aggiornamento approvato del RMP.
+Il RMP aggiornato deve essere presentato:
+su richiesta dell'Agenzia europea dei medicinali;
+ogni  volta  che  il  sistema  di  gestione  del   rischio   e'
+modificato,  in  particolare  a  seguito  del  ricevimento  di  nuove
+informazioni che possono portare a un cambiamento  significativo  del
+profilo beneficio/rischio  o  a  seguito  del  raggiungimento  di  un
+importante obiettivo (di farmacovigilanza  o  di  minimizzazione  del
+rischio);
+misure aggiuntive di minimizzazione del rischio.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+garantire che in ogni Stato membro, prima che LEQEMBI  venga  immesso
+in  commercio,  tutti  gli  operatori  sanitari  e  i  pazienti   che
+dovrebbero prescrivere o utilizzare LEQEMBI abbiano  accesso/ricevano
+il seguente pacchetto educativo che deve  essere  concordato  con  le
+autorita' nazionali competenti di tali Stati membri:
+Guida per gli operatori sanitari
+La Guida per gli operatori sanitari dovrebbe contenere i seguenti
+elementi chiave:
+dichiarazione che  illustri  l'esistenza  di  un  programma  di
+accesso controllato;
+dichiarazione  secondo  cui  tutti  i  pazienti  trattati   con
+lecanemab nell'UE devono  essere  registrati  nel  registro  e  brevi
+informazioni sulle modalita' di arruolamento dei pazienti;
+controindicazioni;
+informazioni su ARIA: definizione, incidenza e sintomi  (ARIA-E
+e ARIA-H, microemorragie e siderosi superficiale);
+emorragia intracerebrale ARIA di diametro > 1 cm:  definizione,
+incidenza e uso concomitante di farmaci antitrombotici;
+attivita' da intraprendere prima del trattamento, tra cui RM al
+basale e test APOE4;
+come identificare e gestire le ARIA attraverso il  monitoraggio
+RM,  i  criteri  di  gravita'  radiografica  e   le   raccomandazioni
+terapeutiche (le informazioni possono essere adattate  in  base  alla
+pratica clinica nazionale);
+i pazienti omozigoti di APOE4 hanno un'incidenza  piu'  elevata
+di ARIA quando trattati  con  anticorpi  monoclonali  diretti  contro
+forme aggregate di Aβ, incluso lecanemab, rispetto aglieterozigoti di
+APOE4 e ai non portatori. Lecanemab non  e'  indicato  per  l'uso  in
+omozigoti di APOE4;
+dichiarazione che indichi che le ARIA-E possono causare deficit
+neurologici focali simili a quelli di un ictus ischemico;
+il foglio illustrativo  e  la  Scheda  paziente  devono  essere
+consegnati al paziente/caregiver;
+promemoria su come e dove segnalare gli effetti collaterali;
+elenco degli esami da effettuare per lo screening iniziale  del
+paziente:
+il paziente ha una diagnosi  clinica  di  disturbo  cognitivo
+lieve (MCI) dovuto alla malattia di  Alzheimer  o  alla  malattia  di
+Alzheimer lieve, inclusa la presenza di patologia betaamiloide. Prima
+di iniziare il trattamento con  Leqembi  e'  stata  eseguita  una  RM
+cerebrale al basale recente (da non piu' di sei mesi).
+APOE ε4 (gene) (la  comprensione  del  genotipo  APOE  ε4  e'
+importante per identificare i pazienti idonei al trattamento).
+nessun riscontro indicativo di CAA nella RM pre-trattamento.
+organizzazione degli appuntamenti per le RM di controllo.
+Scheda paziente
+La Scheda paziente deve contenere i seguenti elementi chiave:
+richiesta di lettura del foglio illustrativo;
+riepilogo delle indicazioni terapeutiche di Leqembi;
+informazione che indichino che il trattamento con  Leqembi  non
+deve essere iniziato nei pazienti sottoposti a terapia anticoagulante
+in corso;
+informazioni sulle modalita' di  somministrazione  di  Leqembi,
+sulla gestione dei tempi di  somministrazione  e  informazioni  sulla
+necessita' e sul numero di esami RM;
+un messaggio di avvertimento per i medici che hanno in cura  il
+paziente in qualsiasi momento, anche in condizioni di emergenza,  che
+il paziente sta assumendo lecanemab;
+segni o sintomi di problemi di sicurezza e quando e' il momento
+di rivolgersi a un operatore sanitario.
+Programma di accesso controllato
+Il  titolare  dell'autorizzazione  all'immissione  in   commercio
+dovra' concordare i dettagli di un Programma di  accesso  controllato
+con ciascuna autorita' nazionale  competente  e  dovra'  implementare
+tale programma a livello nazionale per garantire che un Programma  di
+accesso controllato  (CAP)  promuova  l'uso  sicuro  ed  efficace  di
+lecanemab e ne impedisca l'uso offlabel.
+Il Programma di accesso controllato comprende i seguenti principi
+chiave che saranno incorporati in ciascun sistema in tutti gli  Stati
+membri. Questi sono:
+ogni operatore sanitario dovra' registrarsi separatamente prima
+di poter arruolare i pazienti nel CAP. Come  parte  del  processo  di
+registrazione degli operatori sanitari, questi ultimi saranno  tenuti
+a confermare di aver ricevuto e compreso la Guida per  gli  operatori
+sanitari e l'RCP e di soddisfare i  requisiti  per  conformarsi  allo
+stato  di  medicinale  soggetto  a  prescrizione  medica   limitativa
+(descritto nel paragrafo 4.2 dell'RCP);
+il  trattamento  di  tutti  i  pazienti  deve  essere   avviato
+attraverso un sistema di registrazione centrale imposto.  Il  sistema
+garantira' informazioni  appropriate  e  pertinenti  sui  campi  dati
+specificati (come patologia amiloide, MCI o AD lieve, genotipo APOE4,
+RM, anamnesi di emorragia cerebrale, terapia  anticoagulante,  scheda
+paziente e FI, accettazione dei rischi) prima della  prima  infusione
+di lecanemab, per tutti i pazienti;
+obbligo di condurre attivita' post autorizzative.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+completare, entro la tempistica stabilita, le seguenti attivita':
+=====================================================
+|      Descrizione:       |       Tempistica        |
++=========================+=========================+
+|                         |Bozza di protocollo:     |
+|                         |gennaio 2025             |
+|                         |-------------------------+
+|Studio di tutti i        |Protocollo finale: marzo |
+|pazienti trattati con    |2025                     |
+|lecanemab nell'UE        |-------------------------+
+|                         |Relazioni di avanzamento:|
+|                         |annualmente a partire da |
+|                         |settembre 2026           |
++-------------------------+-------------------------+
+Regime di fornitura: Medicinale soggetto  a  prescrizione  medica
+limitativa, utilizzabile esclusivamente in ambiente ospedaliero o  in
+strutture ad esso assimilabili (OSP).
