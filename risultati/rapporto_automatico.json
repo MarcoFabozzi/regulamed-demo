@@ -1,22 +1,323 @@
 {
-  "fine_utc": "2026-10-31T06:42:07+00:00",
+  "inizio_utc": "2026-10-31T15:44:49+00:00",
+  "fine_utc": "2026-10-31T15:45:51+00:00",
   "modalita": "FONTI_UFFICIALI",
-  "data_liste_ah": "2026-06-30",
   "fonti": {
     "ema": {
-      "url": "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json"
+      "url": "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json",
+      "bytes": 6795651,
+      "sha256": "41077bbd9d24b715c9bf9bd55cd49329869b77aaa7aa7ad972beaf2009eac435"
     },
     "aifa": {
-      "url": "https://drive.aifa.gov.it/farmaci/confezioni_fornitura.csv"
+      "url": "https://drive.aifa.gov.it/farmaci/confezioni_fornitura.csv",
+      "bytes": 82660537,
+      "sha256": "de5f0f0977ce98bb053d94fa4e67115747160ac0bc73cfe66a42b10a678cf72d"
     },
     "aifa_a": {
-      "url": "https://www.aifa.gov.it/documents/20142/3815901/Classe-A_per_nome-commerciale_30-6-2026.csv"
+      "url": "https://www.aifa.gov.it/documents/20142/3815901/Classe-A_per_nome-commerciale_30-6-2026.csv",
+      "bytes": 1520349,
+      "sha256": "2ea1df4035c5495efe70472e6dd2589af223521956a978f39714fa14eb4a1827"
     },
     "aifa_h": {
-      "url": "https://www.aifa.gov.it/documents/20142/3815901/Classe-H_per_nome-commerciale_30-6-2026.csv"
+      "url": "https://www.aifa.gov.it/documents/20142/3815901/Classe-H_per_nome-commerciale_30-6-2026.csv",
+      "bytes": 396740,
+      "sha256": "dba87eb2512aef2c156de64c1385f953ed2ca44ddd6f8e86abf42edfd6655948"
     },
     "aifa_cnn": {
-      "url": "https://www.aifa.gov.it/documents/20142/847358/lista_farmaci_valutati_inserimento_classe_Cnn_14.10.2026.csv"
+      "url": "https://www.aifa.gov.it/documents/20142/847358/lista_farmaci_valutati_inserimento_classe_Cnn_14.10.2026.csv",
+      "bytes": 37610821,
+      "sha256": "4c8d85f3b9e30c559cb3da53ad7a3ffc8d4cde28f867ca13d9c5bae894462589"
     }
-  }
+  },
+  "data_liste_ah": "2026-06-30",
+  "validazione": {
+    "ema_estratti": 2357,
+    "aifa_confezioni_estratte": 160314,
+    "aifa_a_aic": 10766,
+    "aifa_h_aic": 2487,
+    "aifa_cnn_righe": 3098
+  },
+  "importazione": {
+    "ema_file": 2357,
+    "aifa_file": 160314,
+    "ema_selezionati": 30,
+    "confezioni_aifa_selezionate": 381,
+    "candidati": 371,
+    "verificati": 10
+  },
+  "archivio": {
+    "acquisizioni": 6,
+    "ema_medicinali": 30,
+    "aifa_confezioni": 381,
+    "link_verificati": 10,
+    "match_candidati": 371,
+    "classi_snapshot": 54,
+    "cnn_elenco_storico": 41,
+    "eventi_verificati": 4,
+    "anomalie": 0,
+    "esempi": [
+      {
+        "ema_id": "EMEA/H/C/005966",
+        "nome": "Leqembi",
+        "principio_attivo": "Lecanemab",
+        "data_decisione_ue": "2026-06-11",
+        "stato_ema": "Authorised",
+        "aic": "051960019",
+        "codice_presentazione_ue": "EU/1/24/1891/001",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2025/07/18/165/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C(nn)"
+      },
+      {
+        "ema_id": "EMEA/H/C/005966",
+        "nome": "Leqembi",
+        "principio_attivo": "Lecanemab",
+        "data_decisione_ue": "2026-06-11",
+        "stato_ema": "Authorised",
+        "aic": "051960021",
+        "codice_presentazione_ue": "EU/1/24/1891/002",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2025/07/18/165/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C(nn)"
+      },
+      {
+        "ema_id": "EMEA/H/C/006024",
+        "nome": "Kisunla",
+        "principio_attivo": "donanemab",
+        "data_decisione_ue": "2026-02-26",
+        "stato_ema": "Authorised",
+        "aic": "052446010",
+        "codice_presentazione_ue": "EU/1/25/1926/001",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2026/05/06/103/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C(nn)"
+      },
+      {
+        "ema_id": "EMEA/H/C/006024",
+        "nome": "Kisunla",
+        "principio_attivo": "donanemab",
+        "data_decisione_ue": "2026-02-26",
+        "stato_ema": "Authorised",
+        "aic": "052446022",
+        "codice_presentazione_ue": "EU/1/25/1926/002",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2026/05/06/103/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C(nn)"
+      },
+      {
+        "ema_id": "EMEA/H/C/005422",
+        "nome": "Wegovy",
+        "principio_attivo": "semaglutide",
+        "data_decisione_ue": "2026-09-21",
+        "stato_ema": "Authorised",
+        "aic": "049883061",
+        "codice_presentazione_ue": "EU/1/21/1608/006",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2022/12/01/281/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C"
+      },
+      {
+        "ema_id": "EMEA/H/C/005422",
+        "nome": "Wegovy",
+        "principio_attivo": "semaglutide",
+        "data_decisione_ue": "2026-09-21",
+        "stato_ema": "Authorised",
+        "aic": "049883073",
+        "codice_presentazione_ue": "EU/1/21/1608/007",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2022/12/01/281/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C"
+      },
+      {
+        "ema_id": "EMEA/H/C/005422",
+        "nome": "Wegovy",
+        "principio_attivo": "semaglutide",
+        "data_decisione_ue": "2026-09-21",
+        "stato_ema": "Authorised",
+        "aic": "049883085",
+        "codice_presentazione_ue": "EU/1/21/1608/008",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2022/12/01/281/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C"
+      },
+      {
+        "ema_id": "EMEA/H/C/005422",
+        "nome": "Wegovy",
+        "principio_attivo": "semaglutide",
+        "data_decisione_ue": "2026-09-21",
+        "stato_ema": "Authorised",
+        "aic": "049883097",
+        "codice_presentazione_ue": "EU/1/21/1608/009",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2022/12/01/281/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C"
+      },
+      {
+        "ema_id": "EMEA/H/C/005422",
+        "nome": "Wegovy",
+        "principio_attivo": "semaglutide",
+        "data_decisione_ue": "2026-09-21",
+        "stato_ema": "Authorised",
+        "aic": "049883109",
+        "codice_presentazione_ue": "EU/1/21/1608/010",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2022/12/01/281/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C"
+      },
+      {
+        "ema_id": "EMEA/H/C/005422",
+        "nome": "Wegovy",
+        "principio_attivo": "semaglutide",
+        "data_decisione_ue": "2026-09-21",
+        "stato_ema": "Authorised",
+        "aic": "049883111",
+        "codice_presentazione_ue": "EU/1/21/1608/011",
+        "fonte_provvedimento": "https://www.gazzettaufficiale.it/eli/gu/2022/12/01/281/sg/pdf",
+        "classe_da_anagrafica": "",
+        "stato_amministrativo": "Autorizzata",
+        "ultimo_atto_nel_campione": "C"
+      },
+      {
+        "ema_id": "EMEA/H/C/004662",
+        "nome": "Abecma",
+        "principio_attivo": "idecabtagene vicleucel",
+        "data_decisione_ue": "2025-11-13",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/005327",
+        "nome": "Abevmy",
+        "principio_attivo": "bevacizumab",
+        "data_decisione_ue": "2026-07-07",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/000471",
+        "nome": "Abilify",
+        "principio_attivo": "aripiprazole",
+        "data_decisione_ue": "2026-01-09",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/002755",
+        "nome": "Abilify Maintena",
+        "principio_attivo": "aripiprazole",
+        "data_decisione_ue": "2025-10-27",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/005408",
+        "nome": "Abiraterone Accord",
+        "principio_attivo": "abiraterone acetate",
+        "data_decisione_ue": "2025-12-19",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/005649",
+        "nome": "Abiraterone Krka",
+        "principio_attivo": "abiraterone acetate",
+        "data_decisione_ue": "2025-12-18",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/005368",
+        "nome": "Abiraterone Mylan",
+        "principio_attivo": "abiraterone acetate",
+        "data_decisione_ue": "2026-01-19",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/006620",
+        "nome": "Ablymico",
+        "principio_attivo": "liraglutide",
+        "data_decisione_ue": "2026-07-15",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/000778",
+        "nome": "Abraxane",
+        "principio_attivo": "paclitaxel",
+        "data_decisione_ue": "2026-01-20",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      },
+      {
+        "ema_id": "EMEA/H/C/006027",
+        "nome": "Abrysvo",
+        "principio_attivo": "respiratory syncytial virus vaccine (bivalent, recombinant)",
+        "data_decisione_ue": "2026-09-14",
+        "stato_ema": "Authorised",
+        "aic": null,
+        "codice_presentazione_ue": null,
+        "fonte_provvedimento": null,
+        "classe_da_anagrafica": null,
+        "stato_amministrativo": null,
+        "ultimo_atto_nel_campione": null
+      }
+    ],
+    "nota": "Dati dei soli atti e snapshot disponibili; non certifica stato vigente. Match candidati NON verificati."
+  },
+  "avvertenza": "I match per nome NON sono verificati. Le liste C(nn) e A/H non provano da sole la classificazione attuale."
 }
