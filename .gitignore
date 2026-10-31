@@ -1,0 +1,13 @@
+.venv/
+venv/
+.env
+.env.*
+.streamlit/secrets.toml
+__pycache__/
+*.pyc
+.vscode/
+*.sqlite-wal
+*.sqlite-shm
+*.zip
+risultati/*.csv
+risultati/report_*.json
