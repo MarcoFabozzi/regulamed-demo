@@ -1,0 +1,66 @@
+name: RegulaMed - aggiornamento automatico EMA AIFA
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regulamed-database-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'MarcoFabozzi/regulamed-demo'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Scarica repository
+        uses: actions/checkout@v4
+
+      - name: Installa Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Controlla dipendenze pipeline
+        run: |
+          test -f pipeline.py || { echo 'Manca pipeline.py: carica la versione collaudata dal PC'; exit 1; }
+          test -f aggiorna_automatico.py || { echo 'Manca aggiorna_automatico.py: carica la versione collaudata dal PC'; exit 1; }
+          python -m py_compile pipeline.py aggiorna_automatico.py verifica_snapshot.py
+
+      - name: Salva database attualmente pubblicato
+        run: |
+          mkdir -p "$RUNNER_TEMP/regulamed"
+          cp risultati/farmaci_automatico.sqlite "$RUNNER_TEMP/regulamed/prima.sqlite"
+          cp risultati/rapporto_automatico.json "$RUNNER_TEMP/regulamed/prima.json"
+
+      - name: Aggiorna database dalle cinque fonti
+        run: python aggiorna_automatico.py --limite 30 --senza-pilota
+
+      - name: Verifica integrita provenienza e storico
+        id: verify
+        run: |
+          python verifica_snapshot.py \
+            "$RUNNER_TEMP/regulamed/prima.sqlite" \
+            risultati/farmaci_automatico.sqlite \
+            "$RUNNER_TEMP/regulamed/prima.json" \
+            risultati/rapporto_automatico.json
+
+      - name: Pubblica snapshot solo se le fonti sono cambiate
+        if: steps.verify.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add risultati/farmaci_automatico.sqlite risultati/rapporto_automatico.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: aggiorna snapshot regolatorio verificato'
+            git push origin HEAD:main
+          fi
+
+      - name: Nessuna modifica delle fonti
+        if: steps.verify.outputs.changed == 'false'
+        run: echo 'Le fonti non sono cambiate; database pubblicato invariato.'
