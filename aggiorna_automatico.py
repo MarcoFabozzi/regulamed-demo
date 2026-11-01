@@ -22,6 +22,7 @@ import tempfile
 import time
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 import pipeline
 
@@ -56,18 +57,42 @@ def assicurati_ufficiale(url: str):
 
 
 def _request(url: str, timeout: float = 45):
+    """Scarica da fonti ufficiali con retry limitato per errori di rete temporanei.
+
+    Non ripete errori HTTP permanenti (es. 403, 404) né fallimenti dei
+    controlli di sicurezza. Il chiamante continua a validare i dati ricevuti.
+    """
     assicurati_ufficiale(url)
     req = Request(url, headers={
         'User-Agent': 'TesiFarmaciETL/1.0 (academic research, public regulatory data)',
         'Accept': 'application/json,text/csv,text/html,application/octet-stream,*/*'
     })
-    response = urlopen(req, timeout=timeout)
-    try:
-        assicurati_ufficiale(response.geturl())
-    except Exception:
-        response.close()
-        raise
-    return response
+    retry_codes = {408, 425, 429, 500, 502, 503, 504}
+    attempts = 4
+    for attempt in range(attempts):
+        try:
+            response = urlopen(req, timeout=timeout)
+        except (HTTPError, URLError, TimeoutError) as exc:
+            if isinstance(exc, HTTPError) and exc.code not in retry_codes:
+                raise
+            if attempt == attempts - 1:
+                raise
+            delay = (2, 5, 10)[attempt]
+            if isinstance(exc, HTTPError) and exc.code == 429:
+                retry_after = (exc.headers or {}).get('Retry-After', '')
+                if retry_after.isdigit():
+                    delay = min(45, max(delay, int(retry_after)))
+            print(f'RETE: tentativo {attempt + 1}/{attempts} non riuscito '
+                  f'per {url}: {exc}. Riprovo tra {delay}s.', flush=True)
+            time.sleep(delay)
+            continue
+        try:
+            assicurati_ufficiale(response.geturl())
+        except Exception:
+            response.close()
+            raise
+        return response
+    raise RuntimeError('Tentativi di connessione esauriti')
 
 
 def pagine_fonti(page_html: str, base_url: str = SOURCE_PAGE_AIFA):
