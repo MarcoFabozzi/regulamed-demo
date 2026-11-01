@@ -1,13 +1,19 @@
 {
   "fonte": "aifa_anagrafica",
   "esito": "OK",
-  "ultimo_successo_utc": "2026-11-01T11:01:23+00:00",
-  "precedente_successo_utc": null,
+  "ultimo_successo_utc": "2026-11-01T12:27:02+00:00",
+  "precedente_successo_utc": "2026-11-01T11:01:23+00:00",
   "statistiche": {
     "confezioni_file": 160314,
-    "confezioni_pertinenti": 1435,
-    "nuove_confezioni": 1054,
-    "nuovi_match_candidati": 1056,
+    "archivio_completo": {
+      "confezioni_totali": 160314,
+      "bytes_compressi": 4652576,
+      "sha256_archivio": "23a8a9661a1f70526028e9d46ebe2474677d30ee417e0526c226490edbe7dcce",
+      "file_archivio": "aifa_confezioni_complete.sqlite.gz"
+    },
+    "confezioni_pertinenti": 10606,
+    "nuove_confezioni": 9171,
+    "nuovi_match_candidati": 9293,
     "aic_precedenti_non_nel_file": 0,
     "nota": "L anagrafica non prova la classe vigente; le AIC assenti restano storiche"
   },
