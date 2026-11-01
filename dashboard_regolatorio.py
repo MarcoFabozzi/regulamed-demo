@@ -161,7 +161,7 @@ st.markdown('''<div class="hero"><div class="eyebrow">Tesi sperimentale · Data 
 stato = stato_aggiornamento(BASE) if 'importato' in selection else None
 if stato:
     a, b, c = st.columns([2, 1, 1])
-    a.metric('Ultima acquisizione completa riuscita', stato['ora'])
+    a.metric('Ultima importazione congiunta storica', stato['ora'])
     b.metric('AIFA A/H: data di riferimento', stato['classe_ah'])
     c.metric('AIFA A/H: pubblicazione', stato['pubblicazione_ah'])
     st.caption('**Acquisizione** = download e importazione completati. '
@@ -172,7 +172,7 @@ if stato:
     if stato['eta_giorni'] > 2:
         st.warning('L’ultima acquisizione completa risale a oltre 48 ore fa. '
                    'Potrebbero esserci stati errori di aggiornamento; consulta GitHub Actions. '
-                   'La Gazzetta Ufficiale non è ancora aggiornata automaticamente.')
+                   'Controlla le singole acquisizioni: EMA, AIFA e Gazzetta sono indipendenti.')
 else:
     st.info('Data dell’ultima importazione ufficiale non disponibile o non verificabile.')
 
@@ -358,6 +358,28 @@ with gu_tab:
 
 with qual_tab:
     st.subheader('Controlli di qualità e report per il relatore')
+    qa_file=DATA/'qualita_strutturale.json'
+    if qa_file.is_file():
+        try:
+            qa_report=json.loads(qa_file.read_text(encoding='utf-8'))
+            state=qa_report.get('stato','NON VERIFICATO')
+            st.markdown('#### Audit strutturale indipendente')
+            st.metric('Integrità e provenienza',state)
+            st.caption('Rapporto generato il: '+str(qa_report.get('generato_utc','non disponibile'))
+                       +' · Ultimo controllo salvato, non esecuzione in tempo reale.')
+            problems=qa_report.get('controlli_bloccanti',[])
+            warnings=qa_report.get('avvertenze',[])
+            if problems:st.error('Controlli da correggere: '+'; '.join(problems))
+            if warnings:
+                with st.expander('Avvertenze e dati non ancora completi'):
+                    for warning in warnings:st.write('• '+warning)
+            st.caption('Un audit strutturale superato non certifica la classe di rimborso corrente.')
+        except (ValueError,OSError,TypeError):
+            st.warning('Il rapporto strutturale non è leggibile.')
+    else:
+        st.info('Il rapporto strutturale sarà visibile dopo la prima esecuzione riuscita '
+                'di «RegulaMed - verifica qualita database» in GitHub Actions.')
+
     st.caption('Tutti i numeri sono calcolati dal database scelto, non sono valori dimostrativi hardcoded.')
     qa=[{'Indicatore':'Integrità SQLite','Valore':'OK' if report['integrita']['quick_check'] else 'ERRORE'},
         {'Indicatore':'Errori FK','Valore':report['integrita']['errori_foreign_key']},
