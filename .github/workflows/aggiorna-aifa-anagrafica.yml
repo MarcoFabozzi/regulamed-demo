@@ -59,6 +59,10 @@ jobs:
         if: steps.due.outputs.run == 'true'
         run: python -m unittest -v test_aifa_componenti.py
 
+      - name: Test archivio AIFA completo (senza rete)
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v test_aifa_archivio_completo.py
+
       - name: Update AIFA and validate snapshot
         if: steps.due.outputs.run == 'true'
         run: python aggiorna_indipendente.py --source aifa_anagrafica
