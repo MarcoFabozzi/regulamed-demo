@@ -196,23 +196,8 @@ def update_aifa(db, work):
 def update_gu(db, work):
     # L'importatore originale viene eseguito sul database di staging:
     # no modifica a classi o collegamenti documentati.
-    import importa_gazzetta
-    import integra_allegati
-    stage_db = work/'snapshot.sqlite'
-    summary = importa_gazzetta.update(dbpath=stage_db, recent=True,
-                                      max_issues=30,max_acts=100,pause=0.2)
-    if summary.get('atti_errori'):
-        raise ValueError('Atti GU non acquisiti: '+str(summary['atti_errori'][:3]))
-    codes=[x['codice'] for x in summary.get('atti_importati',[])]
-    annex = {'allegati_nuovi':0,'coppie_eu_aic_nuove':0,'errori':[]}
-    if codes:
-        annex=integra_allegati.run(stage_db,codes=codes)
-        if annex.get('errori'):
-            raise ValueError('Allegati GU parziali: '+str(annex['errori'][:3]))
-    return {'fascicoli_esaminati':30,'atti_individuati':summary['atti_individuati'],
-            'nuovi_atti':summary['nuovi_atti'], 'allegati_nuovi':annex['allegati_nuovi'],
-            'coppie_eu_aic_nuove':annex['coppie_eu_aic_nuove'],
-            'fonti':{'gazzetta':{'url':importa_gazzetta.RECENT}}}
+    import gazzetta_incrementale
+    return gazzetta_incrementale.run(db,work,limit_issues=30)
 
 
 def run(source, db_path=DEFAULT_DB):
