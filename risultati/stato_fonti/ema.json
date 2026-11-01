@@ -1,0 +1,19 @@
+{
+  "fonte": "ema",
+  "esito": "OK",
+  "ultimo_successo_utc": "2026-11-01T08:18:55+00:00",
+  "precedente_successo_utc": null,
+  "statistiche": {
+    "file_record": 2357,
+    "aggiornati": 30,
+    "nota_data": "data_decisione_ue: campo decisione CE del dataset EMA, non necessariamente prima autorizzazione"
+  },
+  "fonti": {
+    "ema": {
+      "url": "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json",
+      "bytes": 6795651,
+      "sha256": "64896e05f14b4d3687230e5f4a0cbc1a836491d9d1a4b6584b7a77a67e603c4f"
+    }
+  },
+  "nota": "Controllo della fonte completato, non certificazione di stato regolatorio corrente"
+}
