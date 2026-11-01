@@ -55,6 +55,10 @@ jobs:
         if: steps.due.outputs.run == 'true'
         run: python -m py_compile pipeline.py aggiorna_automatico.py aifa_componenti.py aggiorna_indipendente.py gazzetta_incrementale.py
 
+      - name: Test separazione fonti AIFA
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v test_aifa_componenti.py
+
       - name: Update AIFA and validate snapshot
         if: steps.due.outputs.run == 'true'
         run: python aggiorna_indipendente.py --source aifa_cnn
