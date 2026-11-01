@@ -25,7 +25,9 @@ Le nuove versioni dello snapshot devono essere rigenerate e revisionate prima de
 
 Sono configurati tre workflow distinti, tutti programmati ogni ora in UTC:
 - [EMA](.github/workflows/aggiorna-ema.yml), minuto 23
-- [AIFA](.github/workflows/aggiorna-aifa.yml), minuto 33
+- [AIFA anagrafica](.github/workflows/aggiorna-aifa-anagrafica.yml), minuto 31
+- [AIFA A/H](.github/workflows/aggiorna-aifa-ah.yml), minuto 41
+- [AIFA C(nn)](.github/workflows/aggiorna-aifa-cnn.yml), minuto 51
 - [Gazzetta Ufficiale](.github/workflows/aggiorna-gazzetta.yml), minuto 43
 
 Ogni fonte è acquisita **una volta al giorno con successo**, e ritentata ogni ora finché non riesce. L'ora di taglio giornaliera è 05:00 UTC. GitHub può ritardare/saltare occasionalmente le esecuzioni pianificate.
@@ -52,3 +54,10 @@ Le nuove versioni EMA si archiviano in `ema_revisioni_snapshot` con hash del rec
 Per evitare corruzioni, se il dataset non contiene più un EMA ID preesistente o ne modifica il nome, il processo fallisce senza pubblicare il database. Le nuove associazioni AIFA non sono dedotte automaticamente dall'EMA: verranno candidate solo quando sarà disponibile un nuovo download AIFA validato. L'archivio AIFA può quindi restare parziale anche dopo l'espansione EMA.
 
 Test della migrazione, senza rete: `python -m unittest -v test_catalogo_ema.py`. Sono inclusi nel workflow EMA. Il codice è presente su GitHub, ma **l'espansione sarà effettiva soltanto dopo una prima esecuzione del workflow EMA completata con successo**, verificando il report `risultati/stato_fonti/ema.json` e il conteggio nel database.
+
+
+## Tre flussi AIFA separati
+
+Il workflow combinato AIFA non è più pianificato. Il modulo `aifa_componenti.py` separa anagrafica confezioni (CSV diretto ufficiale), liste A/H (due file con la stessa data di riferimento) ed elenco storico C(nn). Ogni componente ha proprio workflow e report in `risultati/stato_fonti/`, ritenta ogni ora dopo i fallimenti e aggiorna solo i propri dati. I collegamenti EU-AIC già documentati non vengono alterati. Le classi A/H e C(nn) sono informazioni storiche, non certificazione di rimborsabilità vigente.
+
+Test offline: `python -m unittest -v test_aifa_componenti.py`. Il collaudo su GitHub Actions delle tre nuove pipeline è ancora necessario.
