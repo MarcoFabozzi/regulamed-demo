@@ -182,6 +182,14 @@ if 'importato' in selection:
     ema_col.metric('EMA · ultimo successo', leggi_stato_fonte(BASE, 'ema') or 'Da verificare')
     aifa_col.metric('AIFA · ultimo successo', leggi_stato_fonte(BASE, 'aifa') or 'Da verificare')
     gu_col.metric('Gazzetta · ultimo successo', leggi_stato_fonte(BASE, 'gazzetta') or 'Da verificare')
+    st.markdown('##### Dettaglio acquisizioni AIFA')
+    an_col, ah_col, cnn_col = st.columns(3)
+    an_col.metric('Anagrafica confezioni', leggi_stato_fonte(BASE, 'aifa_anagrafica') or 'Da verificare')
+    ah_col.metric('Liste A/H', leggi_stato_fonte(BASE, 'aifa_ah') or 'Da verificare')
+    cnn_col.metric('Elenco storico C(nn)', leggi_stato_fonte(BASE, 'aifa_cnn') or 'Da verificare')
+    st.caption('I tre flussi AIFA hanno download, controlli e tentativi separati. '
+               'La data di acquisizione non coincide con la data di riferimento delle liste '
+               'né certifica la classificazione corrente.')
     st.caption('I tre orari corrispondono a download/acquisizioni riuscite e pubblicate. '
                'Gli aggiornamenti sono indipendenti; un errore AIFA non blocca EMA o Gazzetta. '
                '«Da verificare» indica che non esiste ancora un report di successo per quella pipeline.')
@@ -392,7 +400,7 @@ with src_tab:
     show_table(acqu,height=340)
     st.markdown('#### Snapshot A/H archiviati')
     show_table(report['snapshot_ah'],height=220)
-    st.info('Le acquisizioni automatiche EMA, AIFA e Gazzetta Ufficiale sono indipendenti, con controlli e ultimo successo separati. Ogni fonte conserva i propri dati se un suo tentativo fallisce. La Gazzetta conserva evidenze documentali da revisionare, non classificazioni correnti confermate.')
+    st.info('EMA, Gazzetta e i tre componenti AIFA (anagrafica, A/H, C(nn)) si aggiornano autonomamente. I rapporti di successo sono separati. La Gazzetta conserva evidenze documentali da revisionare; A/H e C(nn) sono snapshot storici, non prove della classe vigente.')
     st.warning('Le acquisizioni ripetute possono conservare più record di provenienza per dataset. La data di download non coincide con la data di validità normativa.')
     st.markdown('#### Fonti istituzionali')
     st.markdown('• [EMA – Download medicine data](https://www.ema.europa.eu/en/medicines/download-medicine-data)')
