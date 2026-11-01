@@ -63,6 +63,10 @@ jobs:
         if: steps.due.outputs.run == 'true'
         run: python -m unittest -v test_aifa_archivio_completo.py
 
+      - name: Test collegamenti AIFA in ricerca
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v test_collegamenti_aifa.py
+
       - name: Update AIFA and validate snapshot
         if: steps.due.outputs.run == 'true'
         run: python aggiorna_indipendente.py --source aifa_anagrafica
