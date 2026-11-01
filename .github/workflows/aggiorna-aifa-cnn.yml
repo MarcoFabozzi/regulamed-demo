@@ -1,4 +1,4 @@
-name: RegulaMed - aifa cnn indipendente
+name: FarmaQuery - aifa cnn indipendente
 
 on:
   workflow_dispatch:
@@ -9,12 +9,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: regulamed-single-snapshot-writer
+  group: farmaquery-single-snapshot-writer
   cancel-in-progress: false
 
 jobs:
   refresh:
-    if: github.repository == 'MarcoFabozzi/regulamed-demo'
+    if: github.repository == 'MarcoFabozzi/regulamed-demo' || github.repository == 'MarcoFabozzi/farmaquery'
     runs-on: ubuntu-latest
     timeout-minutes: 50
     steps:
