@@ -1,10 +1,7 @@
-name: RegulaMed - aggiornamento automatico EMA AIFA
+name: RegulaMed - procedura legacy solo manuale EMA AIFA
 
 on:
   workflow_dispatch:
-  schedule:
-    # Tentativo alle 05:23 UTC e, se fallisce, ritentativo ogni ora al minuto 23.
-    - cron: '23 * * * *'
 
 permissions:
   contents: write
