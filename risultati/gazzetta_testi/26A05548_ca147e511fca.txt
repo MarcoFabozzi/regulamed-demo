@@ -1,0 +1,53 @@
+Estratto determina IP n. 603 del 7 ottobre 2026
+Descrizione del medicinale da importare e attribuzione del numero
+di identificazione: al medicinale CIRCADIN 2 mg Prolonged  -  Release
+Tablet - 30 Tablets autorizzato dall'European Medicines Agency -  EMA
+e identificato con n. EU/1/07/392/003, sono assegnati i seguenti dati
+identificativi nazionali.
+Importatore: GMM Farma S.r.l. con sede legale in via Lambretta  2
+20054 Segrate
+Confezione: CIRCADIN 2 mg - compressa a rilascio prolungato - uso
+orale - blister (pvc/pvdc/alu) - 30 compresse
+Codice A.I.C.: 053317018 (in base 10) 1LV3DU (in base 32)
+Forma farmaceutica: compressa a rilascio prolungato
+Composizione: ogni compressa a rilascio prolungato contiene:
+principio attivo: 2 mg di melatonina
+eccipienti:  ammonio  metacrilato  copolimero  tipo  B,  calcio
+idrogenofosfato biidrato,  lattosio  monoidrato,  silice  (colloidale
+anidra), talco e magnesio stearato.
+Classificazione ai fini della rimborsabilita'
+Confezione: CIRCADIN 2 mg - compressa a rilascio prolungato - uso
+orale - blister (pvc/pvdc/alu) - 30 compresse
+Codice A.I.C.: 053317018
+Classe di rimborsabilita': C
+Classificazione ai fini della fornitura
+Confezione: CIRCADIN 2 mg - compressa a rilascio prolungato - uso
+orale - blister (pvc/pvdc/alu) - 30 compresse
+Codice A.I.C.: 053317018
+RR - medicinale soggetto a prescrizione medica
+Stampati
+Le confezioni del medicinale importato  devono  essere  poste  in
+commercio con gli stampati conformi ai testi approvati  dall'EMA  con
+l'indicazione  nella  parte  di  pertinenza  nazionale  dei  dati  di
+identificazione di cui alla presente determina.
+In ottemperanza all'art. 80, commi 1 e 3, del decreto legislativo
+24 aprile 2006, n. 219 e successive modificazioni ed integrazioni, il
+foglio illustrativo e le etichette devono essere  redatti  in  lingua
+italiana e, limitatamente ai medicinali in commercio nella  Provincia
+di Bolzano, anche in lingua  tedesca.  Il  titolare  dell'A.I.C.  che
+intende avvalersi dell'uso complementare di lingue estere, deve darne
+preventiva  comunicazione  all'AIFA  e  tenere  a   disposizione   la
+traduzione giurata dei testi in lingua tedesca e/o  in  altra  lingua
+estera. In caso di inosservanza delle disposizioni sull'etichettatura
+e sul foglio illustrativo si applicano le sanzioni di cui all'art. 82
+del suddetto decreto legislativo.
+Farmacovigilanza e gestione delle segnalazioni di  sospette  reazioni
+avverse
+Il  titolare  dell'AIP  e'  tenuto  a  comunicare   al   titolare
+dell'A.I.C. del medicinale importato, l'avvenuto rilascio dell'AIP  e
+le eventuali segnalazioni di sospetta  reazione  avversa  di  cui  e'
+venuto a conoscenza, cosi' da consentire allo stesso di assolvere gli
+obblighi di farmacovigilanza.
+Decorrenza di efficacia della determina:  dal  giorno  successivo
+alla sua pubblicazione  nella  Gazzetta  Ufficiale  della  Repubblica
+italiana.

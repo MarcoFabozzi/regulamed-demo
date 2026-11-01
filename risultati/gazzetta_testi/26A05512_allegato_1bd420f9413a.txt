@@ -1,0 +1,223 @@
+(Allegato)
+Allegato
+Inserimento, in accordo all'art. 12,  comma  5,  della  legge  n.
+189/2012, in apposita sezione (denominata classe C (nn)) dedicata  ai
+farmaci non ancora valutati ai fini della rimborsabilita' nelle  more
+della presentazione da parte dell'azienda interessata di una  domanda
+di diversa classificazione.  Le  informazioni  riportate  di  seguito
+costituiscono  un  estratto  degli  allegati  alla  decisione   della
+Commissione europea  relativa  all'autorizzazione  all'immissione  in
+commercio del farmaco. Si rimanda quindi alla versione  integrale  di
+tali allegati.
+MYQORZO
+Principio attivo: Aficamten.
+Codice procedura: EMEA/H/C/006228/0000.
+Titolare: Cytokinetics (Ireland) Limited.
+GUUE: 31 marzo 2026.
+Medicinale   sottoposto   a   monitoraggio   addizionale.    Cio'
+permettera' la rapida identificazione  di  nuove  informazioni  sulla
+sicurezza.  Agli  operatori  sanitari  e'  richiesto   di   segnalare
+qualsiasi  reazione  avversa  sospetta.  Vedere  paragrafo  4.8   per
+informazioni sulle modalita' di segnalazione delle reazioni avverse.
+Indicazioni terapeutiche
+«Myqorzo» e' indicato per  il  trattamento  della  cardiomiopatia
+ipertrofica ostruttiva (CMIO) sintomatica (classe  II-III  della  New
+York Heart Association [NYHA]) in pazienti adulti  (vedere  paragrafo
+5.1).
+Modo di somministrazione
+Il trattamento deve essere iniziato sotto la supervisione  di  un
+medico esperto nella gestione dei pazienti con cardiomiopatia.
+Prima  dell'inizio  del  trattamento,  la  frazione  di  eiezione
+ventricolare sinistra (frazione  di  eiezione  ventricolare  sinistra
+(FEVS))  deve  essere  valutata  mediante   ecocardiografia   (vedere
+paragrafo 4.4). L'avvio o l'aumento graduale della dose di  «Myqorzo»
+in pazienti con  FEVS<55%  non  e'  raccomandato.  Durante  l'aumento
+graduale della dose devono essere eseguite valutazioni regolari della
+FEVS e del gradiente del tratto  di  efflusso  ventricolare  sinistro
+(left ventricular outflow  tract  gradient,  LVOT-G)  da  manovra  di
+Valsalva per raggiungere un obiettivo appropriato di LVOT-G Valsalva,
+mantenendo al contempo una FEVS ≥50%.
+Per uso orale.
+Il trattamento deve essere assunto una  volta  al  giorno  con  o
+senza cibo. La compressa deve essere ingerita intera con acqua e  non
+deve essere divisa, frantumata o masticata, in quanto  questi  metodi
+non sono stati studiati.
+Confezioni autorizzate:
+EU/1/25/2014/001 - A.I.C.: 052903010 - in base 32: 1LGH32  -  5
+mg  -  compressa  rivestita  con  film  -   uso   orale   -   blister
+(PVC/alluminio) - 28 compresse;
+EU/1/25/2014/002 - A.I.C.: 052903022 - in base 32: 1LGH3G -  10
+mg  -  compressa  rivestita  con  film  -   uso   orale   -   blister
+(PVC/alluminio) - 28 compresse;
+EU/1/25/2014/003 - A.I.C.: 052903034 - in base 32: 1LGH3U -  15
+mg  -  compressa  rivestita  con  film  -   uso   orale   -   blister
+(PVC/alluminio) - 28 compresse;
+EU/1/25/2014/004 - A.I.C.: 052903046 - in base 32: 1LGH46 -  20
+mg  -  compressa  rivestita  con  film  -   uso   orale   -   blister
+(PVC/alluminio) - 28 compresse.
+Altre condizioni e requisiti  dell'autorizzazione  all'immissione  in
+commercio
+Rapporti periodici di aggiornamento  sulla  sicurezza  (PSUR):  i
+requisiti per la presentazione dei PSUR per  questo  medicinale  sono
+definiti nell'elenco delle date di riferimento per  l'Unione  europea
+(elenco  EURD)  di  cui  all'art.  107-quater,  paragrafo  7,   della
+direttiva 2001/83/CE e successive modifiche, pubblicato sul sito  web
+dell'Agenzia europea dei medicinali.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+presentare il  primo  PSUR  per  questo  medicinale  entro  sei  mesi
+successivi all'autorizzazione.
+Condizioni o limitazioni per quanto riguarda l'uso sicuro ed efficace
+del medicinale
+Piano   di   gestione   del   rischio    (RMP):    il    titolare
+dell'autorizzazione all'immissione in commercio  deve  effettuare  le
+attivita' e le azioni di farmacovigilanza richieste e dettagliate nel
+RMP approvato  e  presentato  nel  modulo  1.8.2  dell'autorizzazione
+all'immissione  in  commercio  e  in  ogni  successivo  aggiornamento
+approvato del RMP.
+Il RMP aggiornato deve essere presentato:
+su richiesta dell'Agenzia europea dei medicinali;
+ogni  volta  che  il  sistema  di  gestione  del   rischio   e'
+modificato,  in  particolare  a  seguito  del  ricevimento  di  nuove
+informazioni che possono portare a un cambiamento  significativo  del
+profilo beneficio/rischio  o  a  seguito  del  raggiungimento  di  un
+importante obiettivo (di farmacovigilanza  o  di  minimizzazione  del
+rischio).
+Misure aggiuntive di minimizzazione del rischio.
+Prima del lancio di aficamten in ogni Stato membro,  il  titolare
+dell'autorizzazione   all'immissione    in    commercio    (Marketing
+Authorisation Holder, MAH) deve concordare il contenuto e il  formato
+del  programma  formativo,  inclusi  i  mezzi  di  comunicazione,  le
+modalita' di distribuzione e qualsiasi altro aspetto  del  programma,
+con l'Autorita' nazionale competente.
+Il programma formativo ha lo  scopo  di  istruire  gli  operatori
+sanitari (Healthcare Professionals, HCP) e i pazienti sull'importante
+potenziale rischio di insufficienza  cardiaca  dovuta  a  disfunzione
+sistolica e tossicita' embrio-fetale.
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+garantire che  in  ogni  Stato  membro  in  cui  e'  commercializzato
+aficamten,  tutti  gli  HCP   che   prescrivono   aficamten   abbiano
+accesso/abbiano ricevuto il pacchetto informativo per  gli  operatori
+sanitari che contiene:
+informazioni  su  dove   trovare   l'ultimo   Riassunto   delle
+caratteristiche del prodotto (RCP);
+lista di controllo per gli operatori sanitari;
+scheda paziente.
+Una dichiarazione recante «Medicinale sottoposto  a  monitoraggio
+addizionale» sara' inclusa in tutti  i  materiali  formativi  insieme
+alle istruzioni per la segnalazione delle reazioni avverse.
+La lista di controllo per  gli  operatori  sanitari  conterra'  i
+seguenti messaggi:
+Prima di iniziare il trattamento con aficamten:
+per le pazienti in eta' fertile:
+informare la paziente del potenziale  rischio  di  tossicita'
+embrio-fetale associata ad aficamten e della necessita' di  ulteriore
+monitoraggio (ecocardiografia fetale) in caso di gravidanza;
+offrire consulenza sulla necessita' di evitare una gravidanza
+e sulla necessita' di un metodo contraccettivo  efficace  durante  il
+trattamento con «Myqorzo»;
+discutere le considerazioni sul rapporto rischi-benefici  del
+trattamento durante la gravidanza e la necessita' di un  monitoraggio
+regolare (per es., ogni due settimane) della funzione cardiaca fetale
+durante la gravidanza;
+istruire la paziente di informare il medico immediatamente se
+e' in corso una  gravidanza,  se  sospetta  o  sta  pianificando  una
+gravidanza.
+per tutti i pazienti:
+assicurarsi  che  la  FEVS  del  paziente   sia   ≥55%   alla
+valutazione recente;
+informare il paziente del potenziale rischio  di  disfunzione
+sistolica che porta a insufficienza cardiaca durante  il  trattamento
+con aficamten e che deve consultare il proprio  medico  o  rivolgersi
+immediatamente a un medico  se  manifesta  aritmia,  dispnea,  dolore
+toracico, affaticamento o edema alle gambe di nuova insorgenza  o  in
+peggioramento;
+controllare che il paziente non stia attualmente pianificando
+di  assumere  fluconazolo  o  rifampicina  durante  l'assunzione   di
+aficamten;
+valutare le potenziali interazioni. Chiedere se  il  paziente
+e' in trattamento stabile con inibitori del CYP2C9 o un induttore del
+CYP2C9 o del CYP3A in base alle sezioni 4.2, 4.4 e 4.5 del RCP;
+consigliare al  paziente  di  non  iniziare,  interrompere  o
+sostituire alcun medicinale senza consultare il medico prescrittore;
+consigliare al paziente di assumere aficamten come prescritto
+e consigliare al paziente  cosa  fare  in  caso  di  dose  saltata  o
+sovradosaggio;
+evidenziare la scheda paziente in ogni confezione.
+Durante il trattamento a ogni visita clinica (come descritto  nel
+RCP).
+per le pazienti in eta' fertile:
+ricordare alle pazienti il potenziale rischio  di  tossicita'
+embrio-fetale associato ad aficamten e  la  necessita'  di  ulteriore
+monitoraggio (ecocardiografia fetale) in caso di gravidanza;
+ricordare  alle  donne  in  eta'  fertile  di  usare   misure
+contraccettive efficaci durante il trattamento;
+istruire la paziente di informare il medico se  e'  in  corso
+una gravidanza o sta pianificando una gravidanza e  della  necessita'
+di  monitoraggio  regolare  (per  es.,   ogni   due   settimane)   di
+ecocardiografia fetale in caso di gravidanza;
+assicurarsi che  la  paziente  sia  attentamente  monitorata;
+prendere in considerazione l'ecocardiografia  fetale  per  monitorare
+eventuali segni di disfunzione cardiaca fetale;
+per tutti i pazienti:
+valutare  il  paziente  per  individuare  segni,  sintomi   e
+risultati clinici di insufficienza cardiaca secondo  le  linee  guida
+fornite nel paragrafo 4.4 del RCP;
+eseguire un ecocardiogramma per valutare la FEVS (secondo  la
+frequenza indicata nel paragrafo 4.2 del RCP) e un LVOT-G Valsalva  e
+mantenere, aggiustare o sospendere il trattamento con aficamten  come
+indicato nel paragrafo 4.2 del RCP;
+valutare la presenza di malattie gravi  (per  es.,  infezione
+grave), aritmia di nuova insorgenza (per es.,  fibrillazione  atriale
+nuova o  non  controllata  o  altra  tachiaritmia  non  controllata),
+valutare il peggioramento della funzione sistolica;
+ricordare al paziente che deve consultare il proprio medico o
+rivolgersi immediatamente a un medico se manifesta aritmia,  dispnea,
+dolore toracico, affaticamento o edema alle gambe di nuova insorgenza
+o in peggioramento;
+controllare se il paziente prevede di iniziare  un  inibitore
+del CYP2C9 o di interrompere  un  induttore  del  CYP2C9  o  CYP3A  e
+regolare la dose come da sezione 4.2 del RCP;
+consigliare al  paziente  di  non  iniziare,  interrompere  o
+sostituire alcun medicinale senza consultare il medico prescrittore;
+consigliare al paziente di assumere aficamten come prescritto
+e consigliare al paziente  cosa  fare  in  caso  di  dose  saltata  o
+sovradosaggio.
+La scheda paziente,  che  fara'  parte  dell'allegato  III  delle
+informazioni sul prodotto, conterra' i seguenti messaggi chiave:  Per
+le pazienti in eta' fertile:
+gli effetti di «Myqorzo» su un nascituro  non  sono  pienamente
+noti;
+le donne in eta' fertile  devono  usare  misure  contraccettive
+efficaci durante il trattamento;
+se e' in corso una gravidanza, se sospetta o  sta  pianificando
+una gravidanza, informi immediatamente il medico;
+il medico discutera' con lei dei  potenziali  rischi  associati
+all'assunzione di questo medicinale durante la gravidanza e decidera'
+se il trattamento deve essere iniziato o continuato;
+se lei viene trattata con «Myqorzo» durante la  gravidanza,  il
+medico monitorera' attentamente la sua funzione cardiaca e quella del
+suo bambino mediante ecocardiogrammi. Se vi e' un  cambiamento  nella
+sua funzione cardiaca o in quella del suo  bambino,  il  medico  puo'
+aggiustare la sua dose o interrompere il trattamento.
+per tutti i pazienti:
+istruzioni per portare sempre con se' la  Scheda  paziente  e
+mostrarla a qualsiasi operatore sanitario che visita il paziente;
+dichiarazione  recante  l'informazione   che   aficamten   e'
+indicato  per  il  trattamento   della   cardiomiopatia   ipertrofica
+ostruttiva sintomatica;
+informazioni sul potenziale rischio di insufficienza cardiaca
+dovuto a disfunzione sistolica;
+informazione  che  e'  molto   importante   sottoporsi   agli
+appuntamenti  per   l'ecocardiogramma,   perche'   il   medico   deve
+controllare l'effetto di «Myqorzo» sul cuore;
+istruzioni per  informare  immediatamente  il  medico  se  il
+paziente manifesta battito cardiaco irregolare, respiro affannoso  di
+nuova insorgenza o in  peggioramento,  dolore  toracico,  stanchezza,
+gonfiore delle gambe o infezione grave;
+istruzioni per non iniziare, interrompere o modificare  alcun
+farmaco senza consultare il medico prescrittore di aficamten;
+recapiti del medico prescrittore.
+Regime di fornitura: medicinale soggetto  a  prescrizione  medica
+limitativa,  vendibile  al  pubblico  su   prescrizione   di   centri
+ospedalieri identificati dalle regioni o  di  specialista  cardiologo
+(RRL).

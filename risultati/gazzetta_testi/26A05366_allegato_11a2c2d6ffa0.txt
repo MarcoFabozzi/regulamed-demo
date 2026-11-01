@@ -1,0 +1,246 @@
+(Allegato)
+Allegato
+Inserimento, in accordo all'art. 12,  comma  5,  della  legge  n.
+189/2012, in apposita sezione (denominata classe C(nn))  dedicata  ai
+farmaci non ancora valutati ai fini della rimborsabilita' nelle  more
+della presentazione da parte dell'azienda interessata di una  domanda
+di diversa classificazione.  Le  informazioni  riportate  di  seguito
+costituiscono  un  estratto  degli  allegati  alla  decisione   della
+Commissione europea  relativa  all'autorizzazione  all'immissione  in
+commercio del farmaco. Si rimanda quindi alla versione  integrale  di
+tali allegati.
+Farmaco di nuova registrazione:
+ITVISMA;
+principio attivo: onasemnogene abeparvovec;
+codice procedura: EMEA/H/C/006498/0000;
+codice ATC: M09AX09;
+titolare: Novartis Europharm Limited;
+GUUE: 17 luglio 2026.
+Medicinale   sottoposto   a   monitoraggio   addizionale.    Cio'
+permettera' la rapida identificazione  di  nuove  informazioni  sulla
+sicurezza.  Agli  operatori  sanitari  e'  richiesto   di   segnalare
+qualsiasi  reazione  avversa  sospetta.  Vedere  paragrafo  4.8   per
+informazioni sulle modalita' di segnalazione delle reazioni avverse.
+Indicazioni terapeutiche
+«Itvisma» e' indicato per il trattamento  dell'atrofia  muscolare
+spinale (SMA) 5q con  una  mutazione  biallelica  nel  gene  SMN1  in
+pazienti di eta' pari o superiore a due anni.
+Modo di somministrazione
+Il trattamento deve essere  avviato  e  somministrato  in  centri
+clinici e supervisionato da  un  medico  esperto  nella  gestione  di
+pazienti con SMA.
+Prima di somministrare «Itvisma»,  occorre  effettuare  esami  di
+laboratorio al basale che comprendono, ma non si limitano a:
+test degli anticorpi AAV9  mediante  un  test  appropriatamente
+validato (vedere paragrafo 4.4);
+funzionalita'   epatica:   alanina   aminotransferasi    (ALT),
+aspartato  aminotransferasi  (AST)  e   bilirubina   totale   (vedere
+paragrafo 4.4);
+creatinina, e;
+emocromo completo  (inclusi  emoglobina  e  conta  piastrinica)
+(vedere paragrafo 4.4).
+Si raccomanda che i pazienti siano clinicamente stabili nel  loro
+stato di salute generale prima dell'iniezione (vedere paragrafo 4.4).
+Il  profilo  beneficio-rischio  di   «Itvisma»   nei   pazienti   con
+insufficienza respiratoria, sottoposti a ventilazione permanente  e/o
+incapaci di deglutire non e' stato stabilito.
+Poiche' il trattamento persiste nelle cellule non in divisione, i
+pazienti  precedentemente  trattati  con   onasemnogene   abeparvovec
+(qualsiasi via di somministrazione) non devono  essere  trattati  con
+«Itvisma» (vedere paragrafo 5.1).
+Per uso intratecale.
+Il trattamento deve  essere  somministrato  per  via  intratecale
+mediante puntura lombare  da  parte  di  operatori  sanitari  esperti
+nell'esecuzione di punture lombari:
+immediatamente  prima  della  somministrazione,   aspirare   il
+contenuto  del  flaconcino  nella  siringa,  eliminare  l'aria  dalla
+siringa, confermare il volume della  dose  di  3  mL  nella  siringa,
+tappare la siringa e iniettare nel sito di iniezione del paziente.
+se indicato dalle condizioni cliniche  del  paziente,  si  deve
+prendere in considerazione la sedazione.
+si puo' prendere in considerazione l'utilizzo  di  tecniche  di
+imaging per guidare l'iniezione intratecale.
+il paziente deve  essere  valutato  prima  e  dopo  l'iniezione
+intratecale per la presenza di potenziali condizioni  correlate  alla
+puntura lombare, al fine di evitare gravi complicazioni procedurali.
+prima  della  somministrazione,  prelevare  3  mL  di   liquido
+cerebrospinale (CSF) utilizzando un ago per puntura lombare.
+«Itvisma» viene somministrato  come  iniezione  intratecale  in
+bolo monodose della durata di circa un-due minuti.
+dopo l'iniezione intratecale, a seconda dello stato clinico del
+paziente,  si  raccomanda   il   posizionamento   in   posizione   di
+Trendelenburg.
+Per le istruzioni dettagliate sulla preparazione,  manipolazione,
+esposizione  accidentale  e  smaltimento   del   medicinale,   vedere
+paragrafo 6.6.2).
+Confezioni autorizzate:
+EU/1/26/2038/001 A.I.C.: 053145013 In base 32: 1LPVFP -  1,2  ×
+1014 vg -  Soluzione  iniettabile  -  Uso  intratecale  -  Flaconcino
+(polimero di olefine cicliche) 3 mL (4 × 1013 vg/mL) - 1 flaconcino.
+Altre condizioni e requisiti  dell'autorizzazione  all'immissione  in
+commercio
+Rapporti periodici di aggiornamento sulla sicurezza (PSUR)
+I requisiti per la presentazione dei PSUR per  questo  medicinale
+sono stabiliti nell'elenco  delle  date  di  riferimento  dell'Unione
+(elenco EURD)  previsto  dall'art.  107-quater,  paragrafo  7,  della
+direttiva 2001/83/CE e successive modifiche, pubblicato sul sito  web
+dell'Agenzia europea per i medicinali.
+Condizioni o limitazioni per quanto riguarda l'uso sicuro ed efficace
+del medicinale
+Piano di gestione del rischio (RMP)
+Il titolare dell'autorizzazione all'immissione in commercio  deve
+effettuare le attivita' e le azioni di farmacovigilanza  richieste  e
+dettagliate  nel  RMP  approvato  e  presentato  nel   modulo   1.8.2
+dell'autorizzazione all'immissione in commercio e in ogni  successivo
+aggiornamento approvato del RMP.
+Il RMP aggiornato deve essere presentato:
+su richiesta dell'Agenzia europea dei medicinali;
+ogni  volta  che  il  sistema  di  gestione  del   rischio   e'
+modificato,  in  particolare  a  seguito  del  ricevimento  di  nuove
+informazioni che possono portare a un cambiamento  significativo  del
+profilo beneficio/rischio  o  a  seguito  del  raggiungimento  di  un
+importante obiettivo (di farmacovigilanza  o  di  minimizzazione  del
+rischio).
+Misure aggiuntive di minimizzazione del rischio
+Prima  dell'uso  di  «Itvisma»  il  titolare  dell'autorizzazione
+all'immissione in commercio in ciascuno Stato membro deve  concordare
+con l'Autorita' nazionale competente il contenuto e  il  formato  del
+programma  educazionale,  inclusi  i  mezzi  di   comunicazione,   le
+modalita' di distribuzione e qualsiasi altro aspetto del programma.
+Il  titolare  dell'autorizzazione  all'immissione  in   commercio
+garantisce  che,  in  ciascuno  Stato  membro  in  cui  «Itvisma»  e'
+commercializzato, tutti i professionisti sanitari (HCP)  che  possono
+prescrivere, dispensare e somministrare «Itvisma» abbiano ricevuto il
+seguente pacchetto informativo per i professionisti sanitari:
+RCP;
+guida per il professionista sanitario.
+La guida per il professionista deve contenere i seguenti messaggi
+chiave:
+prima che inizi il trattamento:
+valutare il programma di vaccinazione del paziente;
+informare le persone che si prendono cura  del  paziente  sui
+principali rischi associati  a  «Itvisma»  e  sui  relativi  segni  e
+sintomi,  tra  cui   epatotossicita',   trombocitopenia,   neuropatia
+sensitiva periferica e TMA; sulla necessita' di regolari prelievi  di
+sangue; sull'importanza dei farmaci corticosteroidi;
+informare le persone che si prendono cura del paziente  della
+necessita'  di  una  maggiore  supervisione  nella  prevenzione,  nel
+monitoraggio  e  nella  gestione  dell'infezione  prima  e  dopo   la
+somministrazione di «Itvisma»;
+i pazienti devono essere testati per la presenza di anticorpi
+AAV9;
+al momento del trattamento:
+verificare se lo stato di salute  generale  del  paziente  e'
+idoneo alla somministrazione di «Itvisma» (ad es.  risoluzione  delle
+infezioni) o se e' giustificato un rinvio;
+verificare che il trattamento con corticosteroidi  sia  stati
+avviato prima della somministrazione di «Itvisma».
+dopo il trattamento:
+il  trattamento  con  corticosteroidi  deve  continuare   per
+almeno due mesi e non essere ridotto fino a quando AST/ALT  non  sono
+inferiori a 2 × ULN, e tutte le altre valutazioni, ad es.  bilirubina
+totale, non tornano al range normale;
+deve essere  eseguito  un  attento  e  regolare  monitoraggio
+(clinico e di laboratorio)  del  decorso  del  singolo  paziente  per
+almeno tre mesi;
+valutazione tempestiva dei  pazienti  con  peggioramento  dei
+test di funzionalita' epatica e/o segni o sintomi di malattia acuta;
+se i pazienti non rispondono adeguatamente ai corticosteroidi
+o si sospetta un danno  epatico,  il  professionista  sanitario  deve
+consultare un gastroenterologo o un epatologo;
+se si sospetta TMA, e' necessario consultare un ematologo e/o
+nefrologo.
+i pazienti e le persone  che  si  prendono  cura  del  paziente
+devono  essere  informati  sui  segni  e  sintomi  della   neuropatia
+sensitiva  periferica  e  invitati  a  informare  tempestivamente  il
+proprio medico qualora  tali  sintomi  si  manifestino.  In  caso  di
+sospetta  neuropatia  sensitiva  periferica,  si  deve  prendere   in
+considerazione una valutazione neurologica completa e altri esami e/o
+la gestione dei sintomi in base al quadro clinico del paziente.
+Il  titolare  dell'autorizzazione  all'immissione  in   commercio
+garantisce  che,  in  ciascuno  Stato  membro  in  cui  «Itvisma»  e'
+commercializzato, tutte le persone che si prendono cura dei  pazienti
+per i quali e' pianificato il trattamento con «Itvisma» o  che  hanno
+ricevuto «Itvisma» abbiano ricevuto il seguente pacchetto informativo
+per il paziente:
+foglio illustrativo;
+guida informativa per il paziente/la persona che si prende cura
+del paziente.
+La guida informativa per il paziente/la  persona  che  si  prende
+cura del paziente deve contenere i seguenti messaggi chiave:
+che cos'e' la SMA;
+che cos'e' «Itvisma» e come funziona;
+comprendere i rischi di «Itvisma»;
+il trattamento con «Itvisma»: informazioni importanti prima del
+trattamento, il giorno del trattamento e dopo il trattamento, incluso
+quando rivolgersi a un medico;
+si raccomanda che i pazienti presentino  uno  stato  di  salute
+generale adeguato (ad es. idratazione e stato  nutrizionale,  assenza
+di  infezione)  prima  del  trattamento  con  «Itvisma»,   altrimenti
+potrebbe essere necessario posticipare il trattamento.
+«Itvisma» puo' aumentare il rischio  di  coagulazione  anormale
+del sangue nei piccoli vasi sanguigni  (microangiopatia  trombotica).
+La microangiopatia trombotica e' grave e  puo'  portare  alla  morte.
+Informi immediatamente il suo medico o quello  del  bambino  se  nota
+segni  e  sintomi  come  lividi,  convulsioni  o  diminuzione   della
+produzione di urina. Lei o il bambino  sara'  sottoposto  a  regolari
+esami  del  sangue  per  verificare  l'eventuale  diminuzione   delle
+piastrine,  le  cellule  responsabili  della   coagulazione,   almeno
+settimanalmente per il primo mese dopo il trattamento. A seconda  dei
+valori e di altri  segni  e  sintomi,  potrebbero  essere  necessarie
+ulteriori valutazioni;
+«Itvisma»    puo'    abbassare     la     conta     piastrinica
+(trombocitopenia). I casi si sono generalmente  verificati  entro  la
+prima  settimana  dopo  che  al  paziente  e'   stato   somministrato
+«Itvisma». Possibili segni di un basso numero di piastrine a cui deve
+prestare attenzione dopo la somministrazione di «Itvisma» a lei o  al
+bambino includono lividi o sanguinamento anomali. Parli  con  il  suo
+medico o quello del bambino se vede segni come lividi o sanguinamento
+di durata piu' lunga del solito se lei o il bambino si e' fatto male;
+«Itvisma» puo' portare ad un  aumento  degli  enzimi  (proteine
+presenti nel corpo) prodotti dal fegato. In  alcuni  casi,  «Itvisma»
+puo' influenzare la funzione del fegato e causare  danni  al  fegato.
+Possibili segni a cui prestare attenzione dopo che lei o  il  bambino
+ha assunto questo medicinale includono vomito, ittero  (ingiallimento
+della pelle o del bianco degli occhi) o  vigilanza  ridotta.  Informi
+immediatamente il suo medico o il medico del bambino se nota  sintomi
+indicativi di danno al fegato. Lei o il bambino dovra'  sottoporsi  a
+un esame del sangue per  verificare  il  corretto  funzionamento  del
+fegato prima di iniziare il  trattamento  con  «Itvisma».  Lei  o  il
+bambino dovra' inoltre sottoporsi a regolari  esami  del  sangue  per
+almeno tre mesi dopo il trattamento per  monitorare  l'aumento  degli
+enzimi epatici. A seconda dei valori e  di  altri  segni  e  sintomi,
+potrebbero essere necessarie ulteriori valutazioni;
+a  lei  o  al  bambino  verra'  somministrato   un   medicinale
+corticosteroide  come  il  prednisolone  prima  del  trattamento  con
+«Itvisma», e per circa due  mesi  o  piu'  dopo  il  trattamento  con
+«Itvisma». Il  medicinale  corticosteroide  aiutera'  a  gestire  gli
+effetti di «Itvisma» come l'aumento degli enzimi epatici che lei o il
+bambino potrebbe manifestare dopo il trattamento con «Itvisma»;
+informi il suo medico o quello del bambino in  caso  di  vomito
+prima o dopo il trattamento con «Itvisma», per assicurarsi che lei  o
+il bambino non salti la somministrazione di corticosteroidi;
+prima  e  dopo  il  trattamento  con  «Itvisma»  e'  importante
+prevenire le infezioni evitando situazioni che possono  aumentare  il
+rischio che il  paziente  contragga  infezioni.  Le  persone  che  si
+prendono cura del paziente e i contatti  stretti  devono  seguire  le
+pratiche di prevenzione delle infezioni (ad es.  igiene  delle  mani,
+norme di comportamento in caso  di  tosse/starnuti,  limitazione  dei
+potenziali contatti). Informi immediatamente il  medico  in  caso  di
+segni e sintomi indicativi di infezione, come infezioni  respiratorie
+(tosse, respiro sibilante, starnuti, naso che cola,  mal  di  gola  o
+febbre)  prima  della  somministrazione   poiche'   potrebbe   essere
+necessario  ritardare  la  somministrazione  fino  alla   risoluzione
+dell'infezione o dopo  il  trattamento  con  «Itvisma»  poiche'  puo'
+portare a complicazioni mediche che possono richiedere  cure  mediche
+urgenti;
+informi immediatamente il suo medico o quello  del  bambino  se
+lei o il bambino avvertite intorpidimento, formicoloio,  pizzicore  o
+dolore alle braccia, alle mani, alle  gambe  e/o  ai  piedi  dopo  la
+somministrazione di «Itvisma».  Questi  potrebbero  essere  segni  di
+neuropatia sensitiva periferica;
+ulteriori informazioni utili (assistenza, associazioni locali);
+contatti del medico/prescrittore.
+Regime di fornitura: medicinale soggetto  a  prescrizione  medica
+limitativa, utilizzabile esclusivamente in ambiente ospedaliero o  in
+strutture ad esso assimilabili (OSP).

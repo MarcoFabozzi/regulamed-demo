@@ -1,0 +1,132 @@
+(Allegato)
+Allegato
+Inserimento, in accordo all'art. 12,  comma  5,  della  legge  n.
+189/2012, in apposita sezione (denominata classe C (nn)) dedicata  ai
+farmaci non ancora valutati ai fini della rimborsabilita' nelle  more
+della presentazione da parte dell'azienda interessata di una  domanda
+di diversa classificazione.  Le  informazioni  riportate  di  seguito
+costituiscono  un  estratto  degli  allegati  alla  decisione   della
+Commissione europea  relativa  all'autorizzazione  all'immissione  in
+commercio del farmaco. Si rimanda quindi alla versione  integrale  di
+tali allegati.
+Nuove confezioni
+HERZUMA
+Principio attivo: Trastuzumab.
+Codice procedura: EMA/VR/0000258549.
+Codice ATC: L01FD01.
+Titolare: Celltrion Healthcare Hungary KFT.
+GUUE: 31 agosto 2026.
+Indicazioni terapeutiche
+Carcinoma mammario
+Carcinoma mammario metastatico
+«Herzuma» e' indicato per il trattamento di pazienti  adulti  con
+carcinoma mammario metastatico (MBC) HER2 positivo:
+in  monoterapia  per  il  trattamento  di  pazienti  che  hanno
+ricevuto  almeno  due   regimi   chemioterapici   per   la   malattia
+metastatica. La chemioterapia precedentemente somministrata deve aver
+contenuto almeno una antraciclina e un taxano, tranne nel caso in cui
+il paziente non sia idoneo a tali trattamenti. I pazienti positivi al
+recettore ormonale devono inoltre  non  aver  risposto  alla  terapia
+ormonale, a meno che i pazienti non siano idonei a tali trattamenti;
+in associazione al paclitaxel per il  trattamento  di  pazienti
+che non  sono  stati  sottoposti  a  chemioterapia  per  la  malattia
+metastatica e  per  i  quali  non  e'  indicato  il  trattamento  con
+antracicline;
+in associazione al docetaxel per il trattamento di pazienti che
+non  sono  stati  sottoposti  a   chemioterapia   per   la   malattia
+metastatica.
+in associazione ad un inibitore dell'aromatasi nel trattamento di
+pazienti in postmenopausa affetti da MBC  positivo  per  i  recettori
+ormonali, non precedentemente trattati con trastuzumab.
+Carcinoma mammario in fase iniziale
+«Herzuma» e' indicato nel  trattamento  di  pazienti  adulti  con
+carcinoma mammario in fase iniziale (EBC) HER2 positivo:
+dopo chirurgia,  chemioterapia  (neoadiuvante  o  adiuvante)  e
+radioterapia (se applicabile) (vedere paragrafo 5.1);
+dopo chemioterapia adiuvante con doxorubicina e ciclofosfamide,
+in associazione a paclitaxel o docetaxel;
+in associazione  a  chemioterapia  adiuvante  con  docetaxel  e
+carboplatino;
+in  associazione  a  chemioterapia  neoadiuvante,  seguito   da
+terapia con «Herzuma» adiuvante, nella malattia  localmente  avanzata
+(inclusa la forma infiammatoria) o in  tumori  di  diametro  >  2  cm
+(vedere paragrafi 4.4 e 5.1).
+«Herzuma»  deve  essere  utilizzato  soltanto  in  pazienti   con
+carcinoma mammario metastatico  o  in  fase  iniziale  i  cui  tumori
+presentano iperespressione di HER2 o  amplificazione  del  gene  HER2
+come determinato mediante un  test  accurato  e  convalidato  (vedere
+paragrafi 4.4 e 5.1).
+Carcinoma gastrico metastatico
+«Herzuma» in associazione  a  capecitabina  o  5-fluorouracile  e
+cisplatino  e'  indicato  nel  trattamento  di  pazienti  adulti  con
+adenocarcinoma  metastatico   dello   stomaco   o   della   giunzione
+gastroesofagea HER2 positivo, che  non  siano  stati  precedentemente
+sottoposti a trattamento antitumorale per la malattia metastatica.
+«Herzuma» deve  essere  somministrato  soltanto  a  pazienti  con
+carcinoma  gastrico  metastatico  (MGC)  i  cui   tumori   presentano
+iperespressione  di  HER2,  definita  come  un  risultato   IHC2+   e
+confermata da un risultato SISH o FISH, o definita come un  risultato
+IHC3+. Devono essere utilizzati metodi di determinazione  accurati  e
+convalidati (vedere paragrafi 4.4 e 5.1).
+Modo di somministrazione
+La misurazione dell'espressione di HER2 e' obbligatoria prima  di
+iniziare la terapia (vedere paragrafi 4.4 e 5.1). Il trattamento  con
+«Herzuma» deve essere iniziato esclusivamente da  un  medico  esperto
+nella somministrazione di chemioterapia citotossica (vedere paragrafo
+4.4) e deve  essere  somministrato  esclusivamente  da  un  operatore
+sanitario.
+Al fine di evitare errori terapeutici e' importante verificare le
+etichette dei flaconcini per assicurarsi che il medicinale che si sta
+preparando e somministrando sia  «Herzuma»  (trastuzumab)  e  non  un
+altro medicinale a base di trastuzumab  (es.trastuzumab  emtansine  o
+trastuzumab deruxtecan).
+La dose di carico di «Herzuma» deve essere somministrata mediante
+solo infusione endovenosa della durata di novanta  minuti.  Non  deve
+essere somministrata come iniezione endovenosa o bolo endovenoso.
+L'infusione endovenosa di «Herzuma» deve essere somministrata  da
+personale sanitario preparato a gestire l'anafilassi e in presenza di
+strumentazione di emergenza. I pazienti devono  essere  tenuti  sotto
+osservazione per almeno sei ore dopo l'inizio della prima infusione e
+per due ore dopo l'inizio delle  successive  infusioni  per  rilevare
+sintomi,  quali  febbre  e  brividi   o   altri   sintomi   correlati
+all'infusione (vedere paragrafi 4.4  e  4.8).  Tali  sintomi  possono
+essere  controllati  interrompendo  l'infusione  o  rallentandone  la
+velocita'. L'infusione puo' essere ripresa una volta che i sintomi si
+sono alleviati.
+Se  la  dose  iniziale  di  carico  e'  ben  tollerata,  le  dosi
+successive  possono  essere  somministrate  in  infusione  da  trenta
+minuti.
+Per istruzioni sulla  ricostituzione  di  «Herzuma»  formulazione
+endovenosa prima della somministrazione, vedere paragrafo 6.6.
+Confezioni autorizzate:
+EU/1/17/1257/003 - A.I.C.: 046106035 - In base 32: 1CZ1FM - 420
+mg - polvere per  concentrato  per  soluzione  per  infusione  -  uso
+endovenoso - flaconcino (vetro) 420 mg - 2 flaconcini.
+Altre condizioni e requisiti  dell'autorizzazione  all'immissione  in
+commercio
+Rapporti periodici di  aggiornamento  sulla  sicurezza  (PSUR): i
+requisiti per la presentazione degli PSUR per questo medicinale  sono
+definiti nell'elenco delle date di riferimento per  l'Unione  europea
+(elenco  EURD)  di  cui  all'art.  107-quater,  paragrafo  7,   della
+direttiva 2001/83/CE e successive modifiche, pubblicato sul sito  web
+dell'Agenzia europea per i medicinali.
+Condizioni o limitazioni per quanto riguarda l'uso sicuro ed efficace
+del medicinale
+Piano   di   gestione   del   rischio    (RMP):    il    titolare
+dell'autorizzazione all'immissione in commercio  deve  effettuare  le
+attivita' e le azioni di farmacovigilanza richieste e dettagliate nel
+RMP approvato  e  presentato  nel  modulo  1.8.2  dell'autorizzazione
+all'immissione  in  commercio  e  in  ogni  successivo  aggiornamento
+approvato del RMP.
+Il RMP aggiornato deve essere presentato:
+su richiesta dell'Agenzia europea dei medicinali;
+ogni  volta  che  il  sistema  di  gestione  del   rischio   e'
+modificato,  in  particolare  a  seguito  del  ricevimento  di  nuove
+informazioni che possono portare a un cambiamento  significativo  del
+profilo beneficio/rischio  o  a  seguito  del  raggiungimento  di  un
+importante obiettivo (di farmacovigilanza  o  di  minimizzazione  del
+rischio).
+Regime di fornitura: medicinale soggetto  a  prescrizione  medica
+limitativa, da rinnovare volta per volta, vendibile  al  pubblico  su
+prescrizione di  centri  ospedalieri  o  di  specialisti  -  oncologo
+(RNRL).
