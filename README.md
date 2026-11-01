@@ -34,7 +34,7 @@ Ogni fonte è acquisita **una volta al giorno con successo**, e ritentata ogni o
 
 Tutti aggiornano **in sequenza** il medesimo archivio `risultati/farmaci_automatico.sqlite` usando un lock di concorrenza GitHub e una copia temporanea verificata. Gli aggiornamenti indipendenti scrivono la data di successo in `risultati/stato_fonti/{ema,aifa,gazzetta}.json`. Non interpretare queste date come date di efficacia normativa.
 
-- EMA aggiorna solo i dati dei medicinali già presenti nel campione, da JSON ufficiale.
+- EMA acquisisce tutti i medicinali presenti nel JSON ufficiale, conservando i dati precedenti e le versioni osservate.
 - AIFA aggiorna anagrafica campione, liste A/H storiche e C(nn) dal sito ufficiale. Se un CSV non è disponibile, **solo AIFA** fallisce; EMA e GU restano indipendenti.
 - Gazzetta esamina i sommari recenti di Serie Generale per medicinali del campione, acquisisce il testo disponibile e gli eventuali allegati HTML. Nuove coppie EU/AIC sono **evidenze da revisionare**, mai match automaticamente verificati. Non è una ricerca completa di tutti gli atti, né un certificato di rimborsabilità corrente.
 - Se una fonte fallisce, rimane online l'ultimo archivio valido. Errori di rete e formati non riconosciuti non sono aggirati con dati inventati.
@@ -68,3 +68,10 @@ Test offline: `python -m unittest -v test_aifa_componenti.py`. Il collaudo su Gi
 Il file `verifica_qualita_base_dati.py` esamina in sola lettura l'ultimo SQLite pubblicato e gli allegati GU presenti nel repository. Controlla `PRAGMA integrity_check`, chiavi esterne, ID orfani, conflitti delle classi A/H nella stessa data, completezza dello storico EMA, hash e percorsi degli allegati, formati EU/AIC e ultimo successo per fonte. Distingue errori bloccanti (strutturali) da avvertenze (AIFA non aggiornato, bassa copertura documentale). Non valuta la rimborsabilita vigente.
 
 Il workflow [verifica-qualita.yml](.github/workflows/verifica-qualita.yml) e programmato una volta al giorno, senza scaricare nuove fonti. Pubblica `risultati/qualita_strutturale.json` solo se tutti i controlli bloccanti sono superati. Il rapporto appare nella scheda *Qualita e report* della dashboard. Da collaudare con una prima esecuzione manuale GitHub Actions; un workflow salvato non equivale ad audit riuscito.
+
+
+## Catalogo EMA completo
+
+Dal novembre 2026 la procedura EMA importa **tutti** i record del catalogo ufficiale che superano il parser, senza limitarsi ai 300 del campione iniziale. Il numero effettivo varia con gli aggiornamenti EMA e va letto da `risultati/stato_fonti/ema.json`. Una risposta con meno di 2.000 record, un ID esistente mancante o un nome associato a un ID esistente cambiato blocca la pubblicazione per revisione manuale. Questo controllo è prudenziale e potrà essere adeguato se EMA modifica legittimamente il catalogo. Le confezioni AIFA, i collegamenti verificati e la Gazzetta non sono modificati da questa importazione.
+
+Il codice è predisposto, ma il conteggio definitivo sarà confermato solo dopo una nuova esecuzione riuscita del workflow EMA.
