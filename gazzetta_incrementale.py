@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Import incrementale conservativo dalla Gazzetta Ufficiale (Serie Generale).
-Solo atti pertinenti al campione; gli abbinamenti restano DA_VERIFICARE.
+Esamina anche il corpo degli atti farmaceutici, non solo il titolo.
+Lo screening negativo e incrementale; i collegamenti restano DA_VERIFICARE.
 """
 from __future__ import annotations
 from datetime import date,datetime,timezone
@@ -32,6 +33,10 @@ CREATE TABLE IF NOT EXISTS gazzetta_evidenze_aic (
 CREATE TABLE IF NOT EXISTS gu_allegati (
  codice TEXT NOT NULL,url TEXT NOT NULL,testo_file TEXT NOT NULL,
  sha256 TEXT NOT NULL,acquisito_utc TEXT NOT NULL,PRIMARY KEY(codice,url));
+CREATE TABLE IF NOT EXISTS gu_screening_atti (
+ codice TEXT PRIMARY KEY, data_pubblicazione TEXT NOT NULL, titolo TEXT NOT NULL,
+ esito TEXT NOT NULL, controllato_utc TEXT NOT NULL,
+ sha256_testo TEXT, motivo TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS gu_coppie_eu_aic (
  codice TEXT NOT NULL,eu TEXT NOT NULL,aic TEXT NOT NULL,url_allegato TEXT NOT NULL,
  estratto TEXT NOT NULL,aic_in_campione INTEGER NOT NULL,
@@ -113,7 +118,10 @@ def candidates(max_issues=30):
             u=urljoin(url,href)
             try:match=ident(u)
             except ValueError:continue
-            if not match or not re.search(r'farmac|medicinal|riclassific|rimborsabilit|autorizzazione all.immissione',label,re.I):continue
+            if not match or not re.search(
+                r'farmac|medicinal|riclassific|rimborsabilit|autorizzazione all.immissione'
+                r'|importazione.parallela|regime.di.fornitura|confezion|aifa',
+                label,re.I):continue
             code,when2=match
             outputs.setdefault(code,(when2,label))
         time.sleep(0.2)
@@ -167,17 +175,46 @@ def annex_urls(html,code,when):
             ans.append(u)
     return ans
 
-def run(con,work,limit_issues=30):
+
+def matcher_medicinali(names):
+    """Un solo pattern compilato per confrontare 2.000+ denominazioni in tutto il testo."""
+    clean={v.casefold():v for v in names if v and len(v.strip())>=4}
+    if not clean:
+        return lambda text: []
+    pattern=re.compile(r'(?<!\w)(?:'+ '|'.join(
+        re.escape(name) for name in sorted(clean.values(),key=len,reverse=True)
+    ) +r')(?!\w)',re.I)
+    def matched(text):
+        return sorted({clean[m.group(0).casefold()] for m in pattern.finditer(text)})
+    return matched
+
+
+def queue_screening(acts,names,known,screened,max_scans):
+    """Titoli con nome prima; a seguire titoli generici. Salta i gia' esaminati."""
+    if max_scans<=0:raise ValueError('Limite screening non valido')
+    titles={code for code,_,_ in atti_pertinenti(acts,names)}
+    todo=[(code,when,title) for code,(when,title) in acts.items()
+          if code not in known and code not in screened]
+    todo.sort(key=lambda item:(0 if item[0] in titles else 1,
+                               item[1],item[0]),reverse=False)
+    # Su ogni classe (nome / generici), esamina prima gli atti più vecchi per
+    # evitare che escano dalla finestra dei 30 giorni prima della scansione.
+    return todo[:max_scans],len(todo),len(titles)
+
+
+def run(con,work,limit_issues=30,limit_scans=80):
+    """Screening incrementale dei sommari recenti, con scansioni documentali datate."""
     con.executescript(SCHEMA)
-    names=[r[0] for r in con.execute('SELECT nome FROM ema_medicinali') if r[0]]
-    def matched(t):return [n for n in names if len(n)>=3 and re.search(r'(?<!\w)'+re.escape(n)+r'(?!\w)',t,re.I)]
+    names=[r[0] for r in con.execute('SELECT DISTINCT nome FROM ema_medicinali') if r[0]]
+    match_names=matcher_medicinali(names)
     acts,issues=candidates(limit_issues)
     known={r[0] for r in con.execute('SELECT codice FROM gazzetta_atti')}
-    pertinent = atti_pertinenti(acts, names)
+    screened={r[0] for r in con.execute('SELECT codice FROM gu_screening_atti')}
+    chosen,waiting,named_titles=queue_screening(acts,names,known,screened,limit_scans)
+    known_aics={r[0] for r in con.execute('SELECT aic FROM aifa_confezioni')}
     outdir=Path(work)/'gazzetta_testi';outdir.mkdir(exist_ok=True)
-    new=0;pending=0;new_annex=0
-    for code,when,title in pertinent:
-        if code in known:continue
+    new=pending=new_annex=examined=negative=from_text=0
+    for code,when,title in chosen:
         typ=re.search(r'\b(DETERMINA|COMUNICATO|DECRETO)\b',title,re.I)
         typ=typ[1].upper() if typ else 'DETERMINA'
         url='https://'+HOST+'/eli/id/'+when.replace('-','/')+'/'+code+'/sg'
@@ -186,19 +223,36 @@ def run(con,work,limit_issues=30):
         p=Parser();p.feed(fetch(article));txt=p.result()
         if len(txt)<100 or not re.search(r'\b(art|determina|medicinal|farmac|a\.?i\.?c\.?)\b',txt,re.I):
             raise ValueError('Testo incompleto per '+code)
-        mentions=matched(txt+' '+title)
-        if not mentions:continue
-        ev=aic_evidences(txt);digest=sha256(txt.encode()).hexdigest()
-        name=code+'_'+digest[:12]+'.txt';(outdir/name).write_text(txt,encoding='utf-8')
+        mentioned=match_names(txt+' '+title)
+        ev=aic_evidences(txt)
+        linked_aics=set(ev)&known_aics
+        digest=sha256(txt.encode()).hexdigest()
+        now=datetime.now(timezone.utc).isoformat(timespec='seconds')
+        examined+=1
+        if not mentioned and not linked_aics:
+            con.execute("""INSERT INTO gu_screening_atti
+                (codice,data_pubblicazione,titolo,esito,controllato_utc,sha256_testo,motivo)
+                VALUES (?,?,?,?,?,?,?)""",
+                (code,when,title,'NON_PERTINENTE_AL_CATALOGO',now,digest,
+                 'Nessuna denominazione EMA o AIC del database nel testo del provvedimento'))
+            negative+=1
+            continue
+
+        match_in_title=bool(match_names(title))
+        origin=('NOME_NEL_TITOLO' if match_in_title else
+                'NOME_NEL_TESTO' if mentioned else 'AIC_NEL_TESTO')
+        if not match_in_title:
+            from_text+=1
+        name=code+'_'+digest[:12]+'.txt'
+        (outdir/name).write_text(txt,encoding='utf-8')
         con.execute('''INSERT INTO gazzetta_atti VALUES(?,?,?,?,?,?,?,?,?,?,?,?)''',(
             code,when,title,typ,url,article,'gazzetta_testi/'+name,digest,
-            datetime.now(timezone.utc).isoformat(),json.dumps(mentions,ensure_ascii=False),
-            len(ev),'TESTO_PARZIALE_O_NON_VERIFICATO'))
+            now,json.dumps(mentioned,ensure_ascii=False),len(ev),
+            'TESTO_PARZIALE_O_NON_VERIFICATO_'+origin))
         for aic,(snip,cls) in ev.items():
-            in_db=con.execute('SELECT 1 FROM aifa_confezioni WHERE aic=?',(aic,)).fetchone() is not None
             con.execute('''INSERT INTO gazzetta_evidenze_aic
-              (codice,aic,presente_in_anagrafica,snippet,ipotesi_classe) VALUES(?,?,?,?,?)''',
-              (code,aic,int(in_db),snip,cls))
+              (codice,aic,presente_in_anagrafica,snippet,ipotesi_classe)
+              VALUES(?,?,?,?,?)''', (code,aic,int(aic in known_aics),snip,cls))
         new+=1
         menu='https://'+HOST+'/atto/vediMenuHTML?'+urlencode({
             'atto.codiceRedazionale':code,'atto.dataPubblicazioneGazzetta':when,
@@ -210,19 +264,30 @@ def run(con,work,limit_issues=30):
             hash_=sha256(text.encode()).hexdigest();name=code+'_allegato_'+hash_[:12]+'.txt'
             (outdir/name).write_text(text,encoding='utf8')
             con.execute('INSERT INTO gu_allegati VALUES(?,?,?,?,?)',(
-                code,link,'gazzetta_testi/'+name,hash_,datetime.now(timezone.utc).isoformat()))
+                code,link,'gazzetta_testi/'+name,hash_,now))
             for (eu,aic),estratto in coppie_eu_aic_da_testo(text).items():
-                known_aic=con.execute('SELECT 1 FROM aifa_confezioni WHERE aic=?',(aic,)).fetchone() is not None
                 cur=con.execute('''INSERT OR IGNORE INTO gu_coppie_eu_aic
-                  (codice,eu,aic,url_allegato,estratto,aic_in_campione) VALUES (?,?,?,?,?,?)''',(
-                    code,eu,aic,link,estratto,int(known_aic)))
+                  (codice,eu,aic,url_allegato,estratto,aic_in_campione)
+                  VALUES (?,?,?,?,?,?)''',(
+                    code,eu,aic,link,estratto,int(aic in known_aics)))
                 pending+=cur.rowcount
             new_annex+=1
+        con.execute("""INSERT INTO gu_screening_atti
+             (codice,data_pubblicazione,titolo,esito,controllato_utc,sha256_testo,motivo)
+             VALUES (?,?,?,?,?,?,?)""",
+             (code,when,title,'ARCHIVIATO_DA_REVISIONARE',now,digest,origin))
         time.sleep(0.2)
     return {'fascicoli_disponibili':issues,'atti_candidati':len(acts),
-            'atti_con_medicinale_del_campione_nel_titolo':len(pertinent),
-            'atti_gia_archiviati_tra_i_pertinenti':sum(code in known for code,_,_ in pertinent),
-            'nuovi_atti':new,'allegati_nuovi':new_annex,
+            'atti_con_medicinale_nel_titolo':named_titles,
+            'atti_gia_archiviati':len(set(acts)&known),
+            'atti_gia_esaminati_senza_archiviazione':len(set(acts)&screened-known),
+            'atti_in_coda_prima_del_controllo':waiting,
+            'atti_esaminati_in_questa_esecuzione':examined,
+            'atti_non_pertinenti_al_catalogo':negative,
+            'nuovi_atti':new,'atti_recuperati_da_titoli_generici':from_text,
+            'allegati_nuovi':new_annex,
             'coppie_documentali_da_revisionare':pending,
-            'criterio_selezione':'Corrispondenza nome medicinale nel titolo; screening selettivo non esaustivo',
+            'criterio_selezione':(
+                'Screening incrementale dei testi di atti con titolo farmaceutico: '
+                'denominazioni EMA o AIC gia presenti. Non esaustivo; nessuna verifica automatica dello stato vigente.'),
             'fonti':{'gazzetta':{'url':RECENT}}}
