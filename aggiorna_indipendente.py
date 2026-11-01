@@ -227,6 +227,11 @@ def run(source, db_path=DEFAULT_DB):
                 target.mkdir(exist_ok=True)
                 for file in staged_txt.glob('*.txt'):
                     shutil.copy2(file,target/file.name)
+        if source=='aifa_anagrafica':
+            archived=work/'aifa_confezioni_complete.sqlite.gz'
+            if not archived.is_file():
+                raise ValueError('Archivio AIFA completo non generato')
+            shutil.copy2(archived,db_path.parent/archived.name)
         os.replace(staged,db_path)
         record={'fonte':source,'esito':'OK','ultimo_successo_utc':now(),
                 'precedente_successo_utc':old.get('ultimo_successo_utc'),
