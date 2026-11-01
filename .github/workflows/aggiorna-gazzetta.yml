@@ -55,6 +55,10 @@ jobs:
         if: steps.due.outputs.run == 'true'
         run: python -m py_compile pipeline.py aggiorna_automatico.py aggiorna_indipendente.py gazzetta_incrementale.py
 
+      - name: Test di regressione Gazzetta (senza rete)
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v test_gazzetta_incrementale.py
+
       - name: Update Gazzetta Ufficiale and validate snapshot
         if: steps.due.outputs.run == 'true'
         run: python aggiorna_indipendente.py --source gazzetta
