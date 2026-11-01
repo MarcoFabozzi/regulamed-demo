@@ -57,7 +57,7 @@ jobs:
 
       - name: Test di regressione Gazzetta (senza rete)
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_gazzetta_incrementale.py
+        run: python -m unittest -v tests.test_gazzetta_incrementale
 
       - name: Update Gazzetta Ufficiale and validate snapshot
         if: steps.due.outputs.run == 'true'
@@ -65,7 +65,7 @@ jobs:
 
       - name: Test audit documentale (senza rete)
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_valida_evidenze_gazzetta.py
+        run: python -m unittest -v tests.test_valida_evidenze_gazzetta
 
       - name: Verifica coppie EU-AIC e integrita allegati
         if: steps.due.outputs.run == 'true'
