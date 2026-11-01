@@ -76,7 +76,7 @@ def update_ema(db, work):
     if len(rows)<100:
         raise ValueError('Catalogo EMA troppo piccolo')
     sid=source_id(db,'ema',p,src)
-    result=importa_catalogo_ema(db,rows,sid,target=300)
+    result=importa_catalogo_ema(db,rows,sid,target=None)
     return {**result,'fonti':{'ema':dict(url=src,**meta)}}
 
 
