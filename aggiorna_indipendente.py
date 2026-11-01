@@ -206,6 +206,9 @@ def run(source, db_path=DEFAULT_DB):
                 info=update_aifa(con,work)
             elif source=='gazzetta':
                 info=update_gu(con,work)
+            elif source in ('aifa_anagrafica','aifa_ah','aifa_cnn'):
+                from aifa_componenti import aggiorna
+                info=aggiorna(source,con,work)
             else:
                 raise ValueError('Fonte non autorizzata')
             con.commit()
@@ -238,7 +241,7 @@ def run(source, db_path=DEFAULT_DB):
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser()
-    ap.add_argument('--source',choices=['ema','aifa','gazzetta'],required=True)
+    ap.add_argument('--source',choices=['ema','aifa','gazzetta','aifa_anagrafica','aifa_ah','aifa_cnn'],required=True)
     ap.add_argument('--db',type=Path,default=DEFAULT_DB)
     a=ap.parse_args()
     try:
