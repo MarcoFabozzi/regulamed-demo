@@ -1,0 +1,72 @@
+{
+  "generato_utc": "2026-11-01T10:43:41+00:00",
+  "stato": "OK",
+  "controlli_bloccanti": [],
+  "avvertenze": [
+    "Hash di alcuni allegati GU da verificare",
+    "La percentuale di medicinali con link EU-AIC documentato è ancora bassa",
+    "aifa_anagrafica: non esiste ancora un rapporto di successo",
+    "aifa_ah: non esiste ancora un rapporto di successo",
+    "aifa_cnn: non esiste ancora un rapporto di successo"
+  ],
+  "metriche": {
+    "errori_foreign_key": 0,
+    "conteggi": {
+      "acquisizioni": 7,
+      "aifa_confezioni": 381,
+      "classi_snapshot": 54,
+      "cnn_elenco_storico": 41,
+      "ema_medicinali": 300,
+      "ema_revisioni_snapshot": 300,
+      "eventi_verificati": 4,
+      "gazzetta_atti": 6,
+      "gu_allegati": 4,
+      "gu_coppie_eu_aic": 25,
+      "link_verificati": 10,
+      "match_candidati": 371
+    },
+    "riferimenti_orfani": {
+      "link_senza_ema": 0,
+      "link_senza_aic": 0,
+      "candidato_senza_ema": 0,
+      "candidato_senza_aic": 0,
+      "snapshot_senza_aic": 0,
+      "evento_senza_ema": 0
+    },
+    "aic_formato_invalido": 0,
+    "acquisizioni_senza_hash_valido": 0,
+    "conflitti_classi_stessa_data": 0,
+    "date_snapshot_non_valide": 0,
+    "medicinali_senza_storico_ema": 0,
+    "stato_ema_non_nello_storico": 0,
+    "gu_file_mancanti": 0,
+    "gu_allegati_mancanti": 0,
+    "gu_allegati_hash_errato": 2,
+    "coppie_gu_formato_invalido": 0,
+    "medicinali_con_link_documentato": 3,
+    "percentuale_copertura_documentata": 1.0
+  },
+  "fonti": {
+    "ema": {
+      "stato": "OK",
+      "ultima_acquisizione_utc": "2026-11-01T10:15:24+00:00"
+    },
+    "aifa_anagrafica": {
+      "stato": "NON_ANCORA_VERIFICATO",
+      "ultima_acquisizione_utc": null
+    },
+    "aifa_ah": {
+      "stato": "NON_ANCORA_VERIFICATO",
+      "ultima_acquisizione_utc": null
+    },
+    "aifa_cnn": {
+      "stato": "NON_ANCORA_VERIFICATO",
+      "ultima_acquisizione_utc": null
+    },
+    "gazzetta": {
+      "stato": "OK",
+      "ultima_acquisizione_utc": "2026-11-01T10:01:32+00:00"
+    }
+  },
+  "nota": "Solo qualita strutturale e provenienza locale: non verifica la classe vigente."
+}
