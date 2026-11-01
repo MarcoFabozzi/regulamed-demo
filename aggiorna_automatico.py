@@ -223,6 +223,7 @@ def aggiorna(dest_db=DEFAULT_DB, limite=30, include_lists=True, min_ema=30,
     dest_db = Path(dest_db).resolve()
     dest_db.parent.mkdir(parents=True, exist_ok=True)
     discovered = sources
+    fallback_discovery_date = None
     if discovered is None:
         if reader is not None:
             discovered, data_liste = scopri_fonti(include_lists, reader)
@@ -234,7 +235,8 @@ def aggiorna(dest_db=DEFAULT_DB, limite=30, include_lists=True, min_ema=30,
                 if not report_file.is_file():
                     raise RuntimeError('Pagina AIFA indisponibile e nessun report precedente') from exc
                 previous = json.loads(report_file.read_text(encoding='utf-8'))
-                last = datetime.fromisoformat(previous['fine_utc'].replace('Z', '+00:00'))
+                fallback_discovery_date = previous.get('ultima_scoperta_fonti_utc') or previous['fine_utc']
+                last = datetime.fromisoformat(fallback_discovery_date.replace('Z', '+00:00'))
                 if (previous.get('modalita') != 'FONTI_UFFICIALI'
                     or last.tzinfo is None
                     or datetime.now(timezone.utc) - last > timedelta(days=14)):
@@ -311,7 +313,9 @@ def aggiorna(dest_db=DEFAULT_DB, limite=30, include_lists=True, min_ema=30,
             'inizio_utc': started,
             'fine_utc': datetime.now(timezone.utc).isoformat(timespec='seconds'),
             'modalita': 'TEST_SIMULATO' if reader is not None or sources is not None else 'FONTI_UFFICIALI',
-            'fonti': metadata, 'data_liste_ah': data_liste, 'validazione': validation,
+            'fonti': metadata,
+            'ultima_scoperta_fonti_utc': fallback_discovery_date or datetime.now(timezone.utc).isoformat(timespec='seconds'),
+            'data_liste_ah': data_liste, 'validazione': validation,
             'importazione': counts, 'archivio': report,
             'avvertenza': 'I match per nome NON sono verificati. Le liste C(nn) e A/H non provano da sole la classificazione attuale.'
         }
