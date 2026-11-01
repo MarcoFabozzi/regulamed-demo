@@ -1,9 +1,7 @@
-name: RegulaMed - AIFA indipendente
+name: RegulaMed - AIFA legacy solo manuale
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '33 * * * *'
 
 permissions:
   contents: write
