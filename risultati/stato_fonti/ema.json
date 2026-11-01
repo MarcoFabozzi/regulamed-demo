@@ -1,12 +1,15 @@
 {
   "fonte": "ema",
   "esito": "OK",
-  "ultimo_successo_utc": "2026-11-01T08:18:55+00:00",
-  "precedente_successo_utc": null,
+  "ultimo_successo_utc": "2026-11-01T10:15:24+00:00",
+  "precedente_successo_utc": "2026-11-01T08:18:55+00:00",
   "statistiche": {
-    "file_record": 2357,
-    "aggiornati": 30,
-    "nota_data": "data_decisione_ue: campo decisione CE del dataset EMA, non necessariamente prima autorizzazione"
+    "catalogo_sorgente": 2357,
+    "target": 300,
+    "nuovi_medicinali": 270,
+    "medicinali_archiviati": 300,
+    "versioni_ema_osservate": 300,
+    "nota": "Versioni osservate nel dataset, non eventi normativi o date di prima autorizzazione"
   },
   "fonti": {
     "ema": {
