@@ -41,3 +41,14 @@ Tutti aggiornano **in sequenza** il medesimo archivio `risultati/farmaci_automat
 **Collaudo:** i nuovi workflow devono superare almeno una prima esecuzione reale nella scheda Actions. Prima di allora, la loro presenza nel repository non prova che abbiano scaricato e pubblicato nuovi dati. La dashboard mostra "Da verificare" per una fonte senza rapporto di successo.
 
 Link: [Esecuzioni GitHub Actions](https://github.com/MarcoFabozzi/regulamed-demo/actions).
+
+
+## Ampliamento controllato EMA (fase database)
+
+La pipeline EMA indipendente usa `catalogo_ema.py` per estendere gradualmente da **30 a 300** medicinali mantenendo i 30 ID precedenti, i link documentati, gli eventi e gli allegati. L'importatore legge dal dataset ufficiale EMA (più di 2.300 record disponibili) ma **non** pubblica ancora l'intero catalogo: 300 è un campione intermedio per validare copertura e prestazioni.
+
+Le nuove versioni EMA si archiviano in `ema_revisioni_snapshot` con hash del record, prima/ultima osservazione e ID dell'acquisizione. Sono **osservazioni dei file importati**, non nuove autorizzazioni o decreti. Il campo `data_decisione_ue` esistente può indicare una decisione successiva; non deve essere presentato come data della prima autorizzazione.
+
+Per evitare corruzioni, se il dataset non contiene più un EMA ID preesistente o ne modifica il nome, il processo fallisce senza pubblicare il database. Le nuove associazioni AIFA non sono dedotte automaticamente dall'EMA: verranno candidate solo quando sarà disponibile un nuovo download AIFA validato. L'archivio AIFA può quindi restare parziale anche dopo l'espansione EMA.
+
+Test della migrazione, senza rete: `python -m unittest -v test_catalogo_ema.py`. Sono inclusi nel workflow EMA. Il codice è presente su GitHub, ma **l'espansione sarà effettiva soltanto dopo una prima esecuzione del workflow EMA completata con successo**, verificando il report `risultati/stato_fonti/ema.json` e il conteggio nel database.
