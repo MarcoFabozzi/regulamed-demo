@@ -53,7 +53,11 @@ jobs:
 
       - name: Check Python source files
         if: steps.due.outputs.run == 'true'
-        run: python -m py_compile pipeline.py aggiorna_automatico.py aggiorna_indipendente.py gazzetta_incrementale.py
+        run: python -m py_compile pipeline.py aggiorna_automatico.py aggiorna_indipendente.py catalogo_ema.py gazzetta_incrementale.py
+
+      - name: Test migrazione catalogo e storico EMA
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v test_catalogo_ema.py
 
       - name: Update EMA and validate snapshot
         if: steps.due.outputs.run == 'true'
