@@ -7,7 +7,9 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import json
+import re
 from html import escape
+from urllib.parse import urlsplit
 import sqlite3
 import tempfile
 
@@ -58,6 +60,10 @@ div[data-testid="stButton"] button:hover {background:#dff5ee;border-color:#169b8
 .regula-packages .regula-more {margin-top:8px;padding:8px;background:#eef9f5;
   border-radius:8px;line-height:1.75;overflow-wrap:anywhere;}
 .regula-packages a {color:#08766f;text-decoration:underline;}
+.regula-detail-link {display:inline-block;color:#086f72!important;font-weight:700;
+  text-decoration:underline!important;overflow-wrap:break-word;}
+.regula-detail-link:hover {color:#0c9e8b!important;}
+
 
 @media(max-width:650px) {
   .regula-packages {font-size:.76rem;}
@@ -112,6 +118,139 @@ def archivio_aifa(path,version):
         expected=obj.get('statistiche',{}).get('archivio_completo',{}).get('sha256_archivio')
     estrai_archivio(path,temp,expected_sha256=expected)
     return temp
+
+
+def scheda_confezione(aic):
+    """Scheda AIFA consultabile mediante ?aic=XXXXXXXXX; solo query in lettura."""
+    st.markdown('### 📋 Scheda della confezione')
+    if st.button('← Torna all’elenco dei farmaci',key='back_to_catalog'):
+        st.query_params.clear()
+        st.rerun()
+    if not re.fullmatch(r'\d{9}',str(aic)):
+        st.error('Codice AIC non valido.')
+        st.stop()
+
+    package=None
+    archive_source=False
+    if AIFA.is_file():
+        try:
+            archive=archivio_aifa(str(AIFA),AIFA.stat().st_mtime_ns)
+            with closing(sqlite3.connect(archive.as_uri()+'?mode=ro',uri=True)) as con:
+                con.row_factory=sqlite3.Row
+                con.execute('PRAGMA query_only=ON')
+                row=con.execute('SELECT aic,nome,principio_attivo,descrizione,'
+                    'stato_amministrativo,classe_da_anagrafica FROM confezioni WHERE aic=?',
+                    (aic,)).fetchone()
+                if row:
+                    package=dict(row)
+                    archive_source=True
+        except (OSError,ValueError,sqlite3.DatabaseError):
+            st.warning('Archivio AIFA completo non leggibile. Consulto i dati principali.')
+
+    if package is None:
+        records=query('SELECT aic,nome,principio_attivo,descrizione,'
+                      'stato_amministrativo,classe_da_anagrafica '
+                      'FROM aifa_confezioni WHERE aic=?',(aic,))
+        if records:
+            package=records[0]
+    if not package:
+        st.warning('Non risulta alcuna confezione con questo codice AIC nel database acquisito.')
+        st.stop()
+
+    st.subheader(package['nome'])
+    st.caption('Dati della confezione AIFA · AIC '+package['aic'])
+    st.markdown('#### Dati della confezione')
+    st.write('**Codice AIC:**',package['aic'])
+    st.write('**Denominazione:**',package['nome'])
+    st.write('**Principio attivo:**',package['principio_attivo'] or 'Non disponibile nel file acquisito')
+    st.write('**Descrizione completa:**')
+    st.write(package['descrizione'] or 'Non disponibile nel file acquisito')
+    st.write('**Stato amministrativo nel file:**',
+             package['stato_amministrativo'] or 'Non disponibile')
+
+    classes=query('SELECT classe,data_riferimento FROM classi_snapshot '
+                  'WHERE aic=? ORDER BY data_riferimento DESC,classe',(aic,))
+    registry_class=str(package['classe_da_anagrafica'] or '').strip()
+    st.markdown('#### Classe e riferimenti temporali')
+    st.write('**Classe riportata nell’anagrafica AIFA:**',registry_class or 'Non disponibile')
+    if classes:
+        st.write('**Classificazioni A/H conservate (storiche):**')
+        for c in classes:
+            st.write(f"{c['classe']} — riferimento {c['data_riferimento']}")
+    else:
+        st.write('**Elenchi A/H:** nessuna classificazione storica presente per questa AIC.')
+    st.caption('I dati mostrati non certificano la classe o la rimborsabilità attualmente vigente. '
+               'L’assenza di una classe non implica automaticamente la classe C.')
+
+    documented=query('SELECT l.ema_id,e.nome,l.codice_presentazione_ue,'
+                     'l.metodo,l.fonte_provvedimento FROM link_verificati l '
+                     'LEFT JOIN ema_medicinali e ON e.ema_id=l.ema_id '
+                     'WHERE l.aic=? ORDER BY e.nome',(aic,))
+    candidates=query('SELECT m.ema_id,e.nome,m.criterio,m.stato '
+                     'FROM match_candidati m '
+                     'LEFT JOIN ema_medicinali e ON e.ema_id=m.ema_id '
+                     'WHERE m.aic=? ORDER BY e.nome LIMIT 20',(aic,))
+    st.markdown('#### Collegamenti con EMA')
+    if documented:
+        for item in documented:
+            st.write(f"**{item['nome'] or item['ema_id']}** — {item['ema_id']}")
+            st.write('Codice presentazione UE:',item['codice_presentazione_ue'])
+            st.caption('Collegamento documentato nel progetto.')
+            source=item['fonte_provvedimento'] or ''
+            u=urlsplit(source)
+            if u.scheme=='https' and u.hostname in {
+                'www.gazzettaufficiale.it','www.ema.europa.eu','www.aifa.gov.it'
+            }:
+                st.link_button('Apri il documento di riferimento',source)
+    elif candidates:
+        st.info('Sono disponibili soltanto corrispondenze candidate, non verificate.')
+        st.dataframe([{
+            'Medicinale EMA':x['nome'] or x['ema_id'],
+            'Identificativo EMA':x['ema_id'],
+            'Criterio proposto':x['criterio']
+        } for x in candidates],hide_index=True,use_container_width=True)
+    else:
+        st.write('Non risultano collegamenti EMA documentati per questa confezione.')
+
+    evidence=query('SELECT g.codice,g.titolo,g.data_pubblicazione,g.url_ufficiale,'
+                   'v.snippet,v.ipotesi_classe '
+                   'FROM gazzetta_evidenze_aic v JOIN gazzetta_atti g ON g.codice=v.codice '
+                   'WHERE v.aic=? ORDER BY g.data_pubblicazione DESC LIMIT 20',(aic,))
+    pairs=query('SELECT p.codice,p.eu,g.url_ufficiale,g.data_pubblicazione '
+                'FROM gu_coppie_eu_aic p JOIN gazzetta_atti g ON g.codice=p.codice '
+                'WHERE p.aic=? ORDER BY g.data_pubblicazione DESC LIMIT 20',(aic,))
+    st.markdown('#### Gazzetta Ufficiale')
+    if evidence or pairs:
+        seen_codes=set()
+        for item in evidence:
+            if item['codice'] not in seen_codes:
+                st.write(f"**{item['codice']}** — {item['data_pubblicazione']}")
+                st.write(item['titolo'])
+                if item['url_ufficiale'].startswith('https://www.gazzettaufficiale.it/'):
+                    st.link_button('Consulta l’atto ufficiale',item['url_ufficiale'],
+                                   key='gu_'+item['codice'])
+                seen_codes.add(item['codice'])
+        if pairs:
+            st.caption('Codici UE–AIC individuati automaticamente negli allegati; '
+                       'non costituiscono collegamenti normativi confermati.')
+            st.dataframe([{'Atto':x['codice'],'Presentazione UE':x['eu']}
+                         for x in pairs],hide_index=True,use_container_width=True)
+    else:
+        st.write('Nessuna evidenza Gazzetta collegata a questa AIC nel database attuale.')
+
+    st.markdown('#### Fonte e aggiornamento')
+    st.write('**Origine della scheda:**', 'Archivio nazionale AIFA completo' if archive_source
+             else 'Database principale RegulaMed')
+    st.write('**Ultima acquisizione riuscita dell’anagrafica AIFA:**',ultimo('aifa_anagrafica'))
+    st.link_button('Consulta le liste ufficiali AIFA',
+                   'https://www.aifa.gov.it/liste-dei-farmaci')
+    st.caption('Prototipo accademico in sola lettura, non sostituisce le fonti ufficiali.')
+
+
+requested_aic=st.query_params.get('aic')
+if requested_aic is not None:
+    scheda_confezione(requested_aic)
+    st.stop()
 
 
 ema=query('SELECT COUNT(*) AS n FROM ema_medicinali')[0]['n']
@@ -291,16 +430,8 @@ try:
                 snapshots=escape(', '.join(historic_classes) or 'Nessuno')
                 # Il tag HTML details e' espandibile senza altri clic o ricaricamenti.
                 extra=(
-                    '<details><summary>ℹ️ Dettagli</summary>'
-                    '<div class="regula-more">'
-                    '<strong>Codice AIC:</strong> '+aic+'<br>'
-                    '<strong>Denominazione:</strong> '+escape(str(package['nome'] or ''))+'<br>'
-                    '<strong>Stato amministrativo nel file:</strong> '+admin+'<br>'
-                    '<strong>Classe da anagrafica:</strong> '+cls+'<br>'
-                    '<strong>Snapshot A/H (storici):</strong> '+snapshots+'<br>'
-                    '<strong>Fonte:</strong> <a href="https://www.aifa.gov.it/liste-dei-farmaci" '
-                    'target="_blank" rel="noopener noreferrer">Elenchi ufficiali AIFA</a>'
-                    '</div></details>'
+                    '<a class="regula-detail-link" href="?aic='+aic+'">'
+                    '🔎 Apri scheda</a>'
                 )
                 table_rows.append(
                     f'<tr><td>{aic}</td><td>{active}</td><td>{description}</td>'
