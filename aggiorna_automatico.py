@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import argparse
 from contextlib import closing
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import hashlib
 from html.parser import HTMLParser
 import json
@@ -28,7 +28,7 @@ import pipeline
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_DB = HERE / 'risultati' / 'farmaci_automatico.sqlite'
-SOURCE_PAGE_AIFA = 'https://www.aifa.gov.it/it/liste-dei-farmaci'
+SOURCE_PAGE_AIFA = 'https://www.aifa.gov.it/liste-dei-farmaci'
 EMA_MEDICINES_JSON = 'https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json'
 ALLOWED_HOSTS = {'www.ema.europa.eu', 'www.aifa.gov.it', 'drive.aifa.gov.it'}
 MAX_BYTES = {'ema': 120_000_000, 'aifa': 180_000_000, 'aifa_a': 20_000_000,
@@ -224,7 +224,34 @@ def aggiorna(dest_db=DEFAULT_DB, limite=30, include_lists=True, min_ema=30,
     dest_db.parent.mkdir(parents=True, exist_ok=True)
     discovered = sources
     if discovered is None:
-        discovered, data_liste = scopri_fonti(include_lists, reader)
+        if reader is not None:
+            discovered, data_liste = scopri_fonti(include_lists, reader)
+        else:
+            try:
+                discovered, data_liste = scopri_fonti(include_lists)
+            except Exception as exc:
+                report_file = Path(report_path or (dest_db.parent / 'rapporto_automatico.json'))
+                if not report_file.is_file():
+                    raise RuntimeError('Pagina AIFA indisponibile e nessun report precedente') from exc
+                previous = json.loads(report_file.read_text(encoding='utf-8'))
+                last = datetime.fromisoformat(previous['fine_utc'].replace('Z', '+00:00'))
+                if (previous.get('modalita') != 'FONTI_UFFICIALI'
+                    or last.tzinfo is None
+                    or datetime.now(timezone.utc) - last > timedelta(days=14)):
+                    raise RuntimeError('Impossibile riutilizzare URL AIFA: report non valido o troppo vecchio') from exc
+                required = ('ema', 'aifa', 'aifa_a', 'aifa_h', 'aifa_cnn') if include_lists else ('ema', 'aifa')
+                discovered = {k: previous['fonti'][k]['url'] for k in required}
+                for url in discovered.values():
+                    assicurati_ufficiale(url)
+                if discovered['ema'] != EMA_MEDICINES_JSON or not discovered['aifa'].endswith('/confezioni_fornitura.csv'):
+                    raise RuntimeError('Indirizzi precedenti non riconosciuti') from exc
+                if include_lists:
+                    dates = {data_liste_da_url(discovered[k]) for k in ('aifa_a', 'aifa_h')}
+                    if len(dates) != 1 or None in dates:
+                        raise RuntimeError('Date precedenti liste A/H non affidabili') from exc
+                    data_liste = dates.pop()
+                print('AVVISO: indice AIFA indisponibile; riscarico gli URL ufficiali '
+                      'del precedente report, con date originali.', flush=True)
     if not {'ema', 'aifa'} <= set(discovered):
         raise ValueError('Le fonti EMA e AIFA sono obbligatorie')
     if include_lists and not {'aifa_a', 'aifa_h', 'aifa_cnn'} <= set(discovered):
