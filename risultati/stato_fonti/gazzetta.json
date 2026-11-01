@@ -1,0 +1,19 @@
+{
+  "fonte": "gazzetta",
+  "esito": "OK",
+  "ultimo_successo_utc": "2026-11-01T08:19:53+00:00",
+  "precedente_successo_utc": null,
+  "statistiche": {
+    "fascicoli_disponibili": 25,
+    "atti_candidati": 213,
+    "nuovi_atti": 0,
+    "allegati_nuovi": 0,
+    "coppie_documentali_da_revisionare": 0
+  },
+  "fonti": {
+    "gazzetta": {
+      "url": "https://www.gazzettaufficiale.it/30giorni/serie_generale"
+    }
+  },
+  "nota": "Controllo della fonte completato, non certificazione di stato regolatorio corrente"
+}
