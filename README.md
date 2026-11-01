@@ -85,3 +85,8 @@ L'aggiornamento `aifa_anagrafica` ora produce anche `risultati/aifa_confezioni_c
 ## Gazzetta: screening incrementale dei testi
 
 La pipeline non si limita più ai titoli che nominano direttamente un medicinale. Tra gli atti farmaceutici dei fascicoli recenti esamina progressivamente il testo (fino a 80 nuovi atti per esecuzione), dando precedenza ai titoli nominativi. La tabella `gu_screening_atti` conserva i codici già controllati e i relativi esiti, anche quando non sono emerse corrispondenze con il catalogo. Sono archiviati solo gli atti in cui il testo cita un nome EMA oppure una AIC già nel database relazionale. I nuovi documenti restano `DA_REVISIONARE`; l'individuazione per nome o AIC non prova una corrispondenza autorizzativa, né l'attualità della rimborsabilità. La scansione riguarda i sommari farmaceutici recenti della Serie Generale, non costituisce copertura storica integrale. I risultati e i conteggi andranno collaudati con una nuova esecuzione riuscita del workflow Gazzetta.
+
+
+## Perimetro finale della base dati (tesi triennale)
+
+La base informativa è sufficiente per iniziare la sperimentazione accademica: catalogo EMA acquisito (2.357 medicinali), anagrafica AIFA integrale in archivio separato (160.314 confezioni), 60 atti GU nel database e un rapporto di confronto su 100 coppie EU–AIC. La sezione **Gazzetta e allegati** della dashboard mostra una tabella filtrabile dei collegamenti già documentati e delle corrispondenze nominali da verificare. Le 90 corrispondenze per nome **non** vengono trasformate in associazioni confermate. La fase successiva sarà un benchmark piccolo e riproducibile per Text-to-SQL, RAG e TAG, non la ricostruzione esaustiva di tutto il diritto farmaceutico italiano.
