@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   audit:
-    if: github.repository == 'MarcoFabozzi/regulamed-demo' || github.repository == 'MarcoFabozzi/farmaquery'
+    if: github.repository == 'MarcoFabozzi/farmaquery'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
