@@ -227,8 +227,7 @@ def scheda_confezione(aic):
                 st.write(f"**{item['codice']}** — {item['data_pubblicazione']}")
                 st.write(item['titolo'])
                 if item['url_ufficiale'].startswith('https://www.gazzettaufficiale.it/'):
-                    st.link_button('Consulta l’atto ufficiale',item['url_ufficiale'],
-                                   key='gu_'+item['codice'])
+                    st.link_button('Consulta l’atto ufficiale',item['url_ufficiale'])
                 seen_codes.add(item['codice'])
         if pairs:
             st.caption('Codici UE–AIC individuati automaticamente negli allegati; '
