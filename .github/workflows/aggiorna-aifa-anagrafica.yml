@@ -57,15 +57,15 @@ jobs:
 
       - name: Test separazione fonti AIFA
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_aifa_componenti.py
+        run: python -m unittest -v tests.test_aifa_componenti
 
       - name: Test archivio AIFA completo (senza rete)
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_aifa_archivio_completo.py
+        run: python -m unittest -v tests.test_aifa_archivio_completo
 
       - name: Test collegamenti AIFA in ricerca
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_collegamenti_aifa.py
+        run: python -m unittest -v tests.test_collegamenti_aifa
 
       - name: Update AIFA and validate snapshot
         if: steps.due.outputs.run == 'true'
