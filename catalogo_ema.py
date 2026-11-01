@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ampliamento graduale EMA e storico delle versioni osservate.
+"""Importazione del catalogo EMA completo e storico delle versioni osservate.
 Le versioni osservate NON equivalgono a nuove autorizzazioni o atti normativi.
 """
 from __future__ import annotations
@@ -9,6 +9,9 @@ import json
 import re
 
 FIELDS=('nome','principio_attivo','stato_ema','data_decisione_ue','indicazione_ema','url_ema')
+# Il dataset EMA validato in precedenza conteneva 2357 record. Una risposta
+# significativamente più piccola deve essere esaminata prima della pubblicazione.
+MIN_CATALOGO_COMPLETO = 2000
 SCHEMA="""
 CREATE TABLE IF NOT EXISTS ema_revisioni_snapshot(
  ema_id TEXT NOT NULL REFERENCES ema_medicinali(ema_id),
@@ -41,9 +44,13 @@ def osserva(db,ema_id,values,when,acquisition):
      DO UPDATE SET ultima_osservazione_utc=MAX(ema_revisioni_snapshot.ultima_osservazione_utc,excluded.ultima_osservazione_utc)""",
      (ema_id,h,when,when,acquisition,raw))
 
-def importa_catalogo_ema(db,rows,sid,target=300,stamp=None):
-    """Estende senza rimuovere gli ID storici o creare nuovi match verificati."""
-    if target<30:
+def importa_catalogo_ema(db,rows,sid,target=None,stamp=None):
+    """Se target=None importa TUTTO il dataset ufficiale, senza tagli arbitrari.
+
+    Un target numerico resta supportato per i test e le vecchie migrazioni.
+    Le righe storiche e i collegamenti documentati non vengono cancellati.
+    """
+    if target is not None and target<30:
         raise ValueError('Target inferiore al campione minimo (30)')
     stamp=stamp or datetime.now(timezone.utc).isoformat(timespec='seconds')
     db.executescript(SCHEMA)
@@ -59,19 +66,24 @@ def importa_catalogo_ema(db,rows,sid,target=300,stamp=None):
         if ident in catalog and payload(catalog[ident])!=payload(item):
             raise ValueError('Record EMA duplicato con valori discordanti: '+ident)
         catalog[ident]=item
-    if len(catalog)<max(100,len(existing)):
-        raise ValueError('Catalogo EMA troppo piccolo: non aggiornare lo snapshot')
+    minimo = max(len(existing), MIN_CATALOGO_COMPLETO if target is None else 100)
+    if len(catalog)<minimo:
+        raise ValueError(f'Catalogo EMA troppo piccolo ({len(catalog)} < {minimo}): importazione bloccata')
     missing=set(existing)-set(catalog)
     if missing:
         raise ValueError(f'{len(missing)} medicinali preesistenti mancanti nel dataset')
     for ident,prior in existing.items():
         if norm(prior['nome'])!=norm(catalog[ident]['nome']):
             raise ValueError('Denominazione EMA cambiata per '+ident)
-    aifa_names={norm(r[0]) for r in db.execute('SELECT DISTINCT nome FROM aifa_confezioni')}
-    candidates=sorted((r for k,r in catalog.items() if k not in existing),
-        key=lambda r:(0 if norm(r['nome']) in aifa_names else 1,norm(r['nome']),r['ema_id']))
-    selected=[catalog[k] for k in sorted(existing)]
-    selected.extend(candidates[:max(0,max(target,len(existing))-len(existing))])
+    if target is None:
+        # Modalita definitiva: ogni ID EMA valido presente nel file ufficiale.
+        selected=[catalog[key] for key in sorted(catalog)]
+    else:
+        aifa_names={norm(r[0]) for r in db.execute('SELECT DISTINCT nome FROM aifa_confezioni')}
+        candidates=sorted((r for k,r in catalog.items() if k not in existing),
+            key=lambda r:(0 if norm(r['nome']) in aifa_names else 1,norm(r['nome']),r['ema_id']))
+        selected=[catalog[k] for k in sorted(existing)]
+        selected.extend(candidates[:max(0,max(target,len(existing))-len(existing))])
     added=0
     for r in selected:
         ident=r['ema_id']
@@ -95,6 +107,9 @@ def importa_catalogo_ema(db,rows,sid,target=300,stamp=None):
         osserva(db,ident,payload(r),stamp,sid)
     total=db.execute('SELECT COUNT(*) FROM ema_medicinali').fetchone()[0]
     revisions=db.execute('SELECT COUNT(*) FROM ema_revisioni_snapshot').fetchone()[0]
-    return {'catalogo_sorgente':len(catalog),'target':target,'nuovi_medicinali':added,
+    if target is None and total!=len(catalog):
+        raise ValueError(f'Importazione EMA incompleta: {total} record rispetto a {len(catalog)} record sorgente')
+    return {'catalogo_sorgente':len(catalog),'modalita':'CATALOGO_EMA_COMPLETO' if target is None else 'CAMPIONE',
+            'target':target if target is not None else len(catalog),'nuovi_medicinali':added,
             'medicinali_archiviati':total,'versioni_ema_osservate':revisions,
             'nota':'Versioni osservate nel dataset, non eventi normativi o date di prima autorizzazione'}
