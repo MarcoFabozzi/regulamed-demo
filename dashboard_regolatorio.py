@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import json
+from html import escape
 import sqlite3
 import tempfile
 
@@ -38,6 +39,24 @@ div[data-testid="stTextInput"] input {background:#f5fbf9;border-radius:10px;}
 div[data-testid="stButton"] button {border-radius:11px;border:1px solid #cce8e2;
     background:#f4fbf9;color:#164c5c;font-weight:550;}
 div[data-testid="stButton"] button:hover {background:#dff5ee;border-color:#169b85;color:#105c5b;}
+
+.regula-packages-scroll {max-height:410px;overflow-y:auto;overflow-x:hidden;
+  border:1px solid #cce8e2;border-radius:13px;background:white;}
+.regula-packages {border-collapse:collapse;width:100%;table-layout:fixed;
+  font-size:.84rem;color:#163b4a;}
+.regula-packages th {position:sticky;top:0;z-index:1;background:#e5f5f0;
+  color:#185a58;text-align:left;padding:11px 9px;border-bottom:2px solid #cce8e2;}
+.regula-packages td {padding:11px 9px;vertical-align:top;line-height:1.45;
+  border-bottom:1px solid #e5efeb;white-space:normal;overflow-wrap:anywhere;}
+.regula-packages tr:nth-child(even) {background:#f5fbf9;}
+.regula-packages th:first-child,.regula-packages td:first-child {width:21%;}
+.regula-packages th:nth-child(2),.regula-packages td:nth-child(2) {width:25%;}
+.regula-packages th:nth-child(3),.regula-packages td:nth-child(3) {width:54%;}
+@media(max-width:650px) {
+  .regula-packages {font-size:.76rem;}
+  .regula-packages th,.regula-packages td {padding:9px 6px;}
+}
+
 
 @media(max-width:650px) {
     .regula-hero {padding:20px 18px;border-radius:17px;}
@@ -238,26 +257,22 @@ try:
                     "SELECT aic,nome,principio_attivo,descrizione FROM "+source_table+
                     " WHERE nome=? ORDER BY aic LIMIT 101",(name,))]
             st.markdown('#### Confezioni di '+name)
-            st.caption('Tocca una riga della tabella per leggere la descrizione completa.')
-            shown=rows[:100]
-            selected_package=st.dataframe([{
-                'AIC':r['aic'],
-                'Principio attivo':r['principio_attivo'] or 'Non disponibile nel file acquisito',
-                'Confezione':r['descrizione'] or 'Non disponibile'
-            } for r in shown],
-                hide_index=True,use_container_width=True,height=260,
-                column_config={'Confezione':st.column_config.TextColumn(
-                    'Confezione',width='large')},
-                on_select='rerun',selection_mode='single-row',
-                key='aifa_package_'+name)
-            package_rows=selected_package.selection.rows
-            if package_rows:
-                package=shown[package_rows[0]]
-                st.markdown('**Descrizione completa della confezione**')
-                st.write(package['descrizione'] or 'Non disponibile nel file acquisito')
-                st.caption('Codice AIC: '+str(package['aic']))
-                st.write('Principio attivo:',
-                         package['principio_attivo'] or 'Non disponibile nel file acquisito')
+            st.caption('Le descrizioni lunghe continuano su più righe, nella stessa colonna.')
+            table_rows=[]
+            for package in rows[:100]:
+                aic=escape(str(package['aic'] or ''))
+                active=escape(str(package['principio_attivo'] or 'Non disponibile'))
+                description=escape(str(package['descrizione'] or 'Non disponibile'))
+                table_rows.append(
+                    f'<tr><td>{aic}</td><td>{active}</td><td>{description}</td></tr>'
+                )
+            st.markdown(
+                '<div class="regula-packages-scroll">'
+                '<table class="regula-packages">'
+                '<thead><tr><th>AIC</th><th>Principio attivo</th><th>Confezione</th></tr></thead>'
+                '<tbody>'+''.join(table_rows)+'</tbody></table></div>',
+                unsafe_allow_html=True
+            )
             if len(rows)>100:
                 st.caption('Visualizzate le prime 100 confezioni.')
         else:
