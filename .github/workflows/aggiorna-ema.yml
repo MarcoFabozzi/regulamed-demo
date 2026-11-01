@@ -1,0 +1,78 @@
+name: RegulaMed - EMA indipendente
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regulamed-single-snapshot-writer
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.repository == 'MarcoFabozzi/regulamed-demo'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Decide whether source is due or retry is needed
+        id: due
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          from datetime import datetime,time,timedelta,timezone
+          now=datetime.now(timezone.utc)
+          cutoff=datetime.combine(now.date(),time(5,0),tzinfo=timezone.utc)
+          if now<cutoff:cutoff-=timedelta(days=1)
+          path=Path('risultati/stato_fonti/ema.json')
+          try:
+              info=json.loads(path.read_text(encoding='utf-8'))
+              timestamp=datetime.fromisoformat(info['ultimo_successo_utc'].replace('Z','+00:00'))
+              if timestamp.tzinfo is None or info.get('esito')!='OK':timestamp=None
+          except (OSError,ValueError,KeyError,TypeError):
+              timestamp=None
+          due=os.environ.get('EVENT_NAME')=='workflow_dispatch' or timestamp is None or timestamp<cutoff
+          print('Fonte: ema | ultimo successo:',timestamp,'| tentativo:',due)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('run='+str(due).lower()+'\n')
+          PY
+
+      - name: Check Python source files
+        if: steps.due.outputs.run == 'true'
+        run: python -m py_compile pipeline.py aggiorna_automatico.py aggiorna_indipendente.py gazzetta_incrementale.py
+
+      - name: Update EMA and validate snapshot
+        if: steps.due.outputs.run == 'true'
+        run: python aggiorna_indipendente.py --source ema
+
+      - name: Publish EMA on success
+        if: steps.due.outputs.run == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add risultati/farmaci_automatico.sqlite risultati/stato_fonti/ema.json
+          if [ 'ema' = 'gazzetta' ]; then
+            git add risultati/gazzetta_testi/
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: ema fonte aggiornata e validata'
+            git push origin HEAD:main
+          fi
+
+      - name: Source already up to date today
+        if: steps.due.outputs.run == 'false'
+        run: echo 'Fonte ema verificata nella finestra giornaliera; nessun download necessario.'
