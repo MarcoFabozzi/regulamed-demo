@@ -5,6 +5,8 @@ Esegui: python -m streamlit run dashboard_regolatorio.py --server.port 8504
 from __future__ import annotations
 from contextlib import closing
 from pathlib import Path
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from urllib.parse import urlsplit
 import json
 import sqlite3
@@ -104,12 +106,45 @@ except Exception as exc:
     st.error(f'Impossibile leggere l’archivio: {exc}')
     st.stop()
 
+def stato_aggiornamento(folder):
+    """Ultimo import riuscito, non ultimo tentativo GitHub Actions."""
+    path = folder / 'risultati' / 'rapporto_automatico.json'
+    try:
+        obj = json.loads(path.read_text(encoding='utf-8'))
+        dt = datetime.fromisoformat(obj['fine_utc'].replace('Z', '+00:00'))
+        if dt.tzinfo is None or obj.get('modalita') != 'FONTI_UFFICIALI':
+            raise ValueError('provenienza o timestamp non verificabile')
+        days = max(0, (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)).total_seconds()/86400)
+        return {
+            'ora': dt.astimezone(ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y alle %H:%M'),
+            'eta_giorni': days,
+            'classe_ah': obj.get('data_liste_ah') or 'non disponibile'
+        }
+    except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
+        return None
+
+
 counts=report['tabelle']; coverage=report['copertura']; evidences=report['evidenze_gazzetta']
 last=report['ultima_importazione'] or {}
 st.markdown('''<div class="hero"><div class="eyebrow">Tesi sperimentale · Data integration</div>
 <h1>RegulaMed <span style="font-weight:400;opacity:.8">/ Osservatorio regolatorio</span></h1>
 <p>Autorizzazioni EMA · Confezioni AIFA · Determine della Gazzetta Ufficiale · Provenienza delle informazioni</p>
 <div class="chip">Database documentale · Nessuna risposta generata da LLM</div></div>''',unsafe_allow_html=True)
+stato = stato_aggiornamento(BASE) if 'importato' in selection else None
+if stato:
+    a, b = st.columns([2, 1])
+    a.metric('Ultima importazione riuscita (ora italiana)', stato['ora'])
+    b.metric('Riferimento elenchi AIFA A/H', stato['classe_ah'])
+    if stato['eta_giorni'] > 2:
+        st.warning('I dati dell’archivio sono stati importati oltre 48 ore fa. '
+                   'L’aggiornamento automatico potrebbe essere in ritardo: '
+                   'controlla GitHub Actions. La data non certifica la situazione normativa corrente.')
+    else:
+        st.caption('Data dell’ultimo aggiornamento riuscito pubblicato, non dell’ultimo tentativo. '
+                   'Le fonti AIFA possono avere date di riferimento precedenti.')
+else:
+    st.info('Data dell’ultima importazione ufficiale non disponibile o non verificabile.')
+
 if 'importato' in selection:
     st.info('**Ambito:** campione locale importato. Le classi A/H sono snapshot datati; l’assenza dalle liste non significa classe C. Le corrispondenze candidate non sono verificate.')
 else:
