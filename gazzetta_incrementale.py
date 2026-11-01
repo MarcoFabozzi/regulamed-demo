@@ -127,6 +127,34 @@ def aic_evidences(t):
         matches.setdefault(m[1],(' '.join(around.split()),c[1].replace(' ','') if c else None))
     return matches
 
+def coppie_eu_aic_da_testo(text):
+    """Coppie ricavate esclusivamente da occorrenze ravvicinate nel testo.
+    Evidenze da revisionare, non conferme di abbinamento normativo."""
+    pairs = {}
+    for m in EMA.finditer(text):
+        tail = text[m.end():m.end()+150]
+        a = AIC.search(tail)
+        next_eu = EMA.search(tail)
+        if not a or (next_eu and next_eu.start() < a.start()):
+            continue
+        eu, aic = m.group(0).upper(), a.group(1)
+        if (eu, aic) not in pairs:
+            pairs[(eu, aic)] = ' '.join(
+                text[max(0,m.start()-35):m.end()+a.end()+45].split())
+    return pairs
+
+
+def atti_pertinenti(acts, nomi):
+    """Seleziona da TUTTO il sommario; nessun taglio arbitrario ai primi 100 atti."""
+    def matches(title):
+        return any(
+            len(name) >= 3 and re.search(r'(?<!\\w)' + re.escape(name) + r'(?!\\w)', title, re.I)
+            for name in nomi
+        )
+    return [(code, when, title) for code, (when, title) in acts.items()
+            if matches(title)]
+
+
 def annex_urls(html,code,when):
     p=Parser();p.feed(html);ans=[]
     for href,label in p.links:
@@ -145,11 +173,11 @@ def run(con,work,limit_issues=30):
     def matched(t):return [n for n in names if len(n)>=3 and re.search(r'(?<!\w)'+re.escape(n)+r'(?!\w)',t,re.I)]
     acts,issues=candidates(limit_issues)
     known={r[0] for r in con.execute('SELECT codice FROM gazzetta_atti')}
+    pertinent = atti_pertinenti(acts, names)
     outdir=Path(work)/'gazzetta_testi';outdir.mkdir(exist_ok=True)
     new=0;pending=0;new_annex=0
-    for code,(when,title) in list(acts.items())[:100]:
+    for code,when,title in pertinent:
         if code in known:continue
-        if not matched(title):continue
         typ=re.search(r'\b(DETERMINA|COMUNICATO|DECRETO)\b',title,re.I)
         typ=typ[1].upper() if typ else 'DETERMINA'
         url='https://'+HOST+'/eli/id/'+when.replace('-','/')+'/'+code+'/sg'
@@ -183,16 +211,18 @@ def run(con,work,limit_issues=30):
             (outdir/name).write_text(text,encoding='utf8')
             con.execute('INSERT INTO gu_allegati VALUES(?,?,?,?,?)',(
                 code,link,'gazzetta_testi/'+name,hash_,datetime.now(timezone.utc).isoformat()))
-            for m in EMA.finditer(text):
-                tail=text[m.end():m.end()+110];a=AIC.search(tail)
-                if not a or (EMA.search(tail) and EMA.search(tail).start()<a.start()):continue
-                known_aic=con.execute('SELECT 1 FROM aifa_confezioni WHERE aic=?',(a[1],)).fetchone() is not None
+            for (eu,aic),estratto in coppie_eu_aic_da_testo(text).items():
+                known_aic=con.execute('SELECT 1 FROM aifa_confezioni WHERE aic=?',(aic,)).fetchone() is not None
                 cur=con.execute('''INSERT OR IGNORE INTO gu_coppie_eu_aic
                   (codice,eu,aic,url_allegato,estratto,aic_in_campione) VALUES (?,?,?,?,?,?)''',(
-                    code,m[0].upper(),a[1],link,' '.join(text[m.start():m.end()+a.end()+45].split()),int(known_aic)))
+                    code,eu,aic,link,estratto,int(known_aic)))
                 pending+=cur.rowcount
             new_annex+=1
         time.sleep(0.2)
-    return {'fascicoli_disponibili':issues,'atti_candidati':len(acts),'nuovi_atti':new,
-            'allegati_nuovi':new_annex,'coppie_documentali_da_revisionare':pending,
+    return {'fascicoli_disponibili':issues,'atti_candidati':len(acts),
+            'atti_con_medicinale_del_campione_nel_titolo':len(pertinent),
+            'atti_gia_archiviati_tra_i_pertinenti':sum(code in known for code,_,_ in pertinent),
+            'nuovi_atti':new,'allegati_nuovi':new_annex,
+            'coppie_documentali_da_revisionare':pending,
+            'criterio_selezione':'Corrispondenza nome medicinale nel titolo; screening selettivo non esaustivo',
             'fonti':{'gazzetta':{'url':RECENT}}}
