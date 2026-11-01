@@ -195,7 +195,7 @@ if 'importato' in selection:
                'Gli aggiornamenti sono indipendenti; un errore AIFA non blocca EMA o Gazzetta. '
                '«Da verificare» indica che non esiste ancora un report di successo per quella pipeline.')
 if 'importato' in selection:
-    st.info('**Ambito:** campione locale importato. Le classi A/H sono snapshot datati; l’assenza dalle liste non significa classe C. Le corrispondenze candidate non sono verificate.')
+    st.info('**Ambito:** catalogo EMA e anagrafica AIFA acquisiti; relazioni documentali ancora parziali. Le classi A/H sono snapshot datati e le corrispondenze candidate non sono verificate.')
 else:
     st.warning('Modalità dimostrativa. Non utilizzare questi risultati per rappresentare la situazione regolatoria attuale.')
 
@@ -216,7 +216,7 @@ with pan:
         st.markdown('#### Copertura documentale')
         st.progress(min(coverage['percentuale_medicinali_con_link']/100,1),
                     text=f"{coverage['medicinali_con_link']} medicinali con collegamento EU–AIC documentato ({coverage['percentuale_medicinali_con_link']}%)")
-        st.caption('La copertura esprime la proporzione di medicinali del campione con almeno un link registrato; non misura la completezza dei provvedimenti né la qualità delle risposte future.')
+        st.caption('La copertura indica quanti medicinali EMA hanno almeno un collegamento documentato; non misura la completezza dei provvedimenti.')
         st.markdown('#### Registrazioni disponibili')
         show_table([
             {'Sezione':'Eventi regolatori del pilota','Record':counts['eventi_verificati']},
@@ -237,7 +237,7 @@ with pan:
     st.markdown('#### Cosa possiamo dimostrare')
     st.write('La pipeline acquisisce fonti ufficiali, registra metadati di provenienza, separa i match candidati dalle coppie documentate e conserva uno storico selettivo di atti e snapshot.')
     st.markdown('#### Cosa rimane da completare')
-    st.write('Estensione sistematica delle coppie UE–AIC, acquisizione completa delle determine e dei testi di indicazione/condizioni di rimborso, validazione delle decorrenze e costruzione del benchmark.')
+    st.write('Rimangono da verificare i collegamenti non documentati e le classificazioni AIFA A/H e C(nn). Per la tesi prepariamo ora un piccolo insieme di domande di valutazione.')
 
 with med_tab:
     st.subheader('Catalogo e schede dei medicinali')
@@ -338,6 +338,48 @@ with med_tab:
 
 with gu_tab:
     st.subheader('Determine e allegati Gazzetta Ufficiale')
+    # Riepilogo leggibile per la tesi: semplice confronto, senza conferme automatiche.
+    revision_path=DATA/'revisione_collegamenti_gu.json'
+    if 'importato' in selection and revision_path.is_file():
+        try:
+            revision=json.loads(revision_path.read_text(encoding='utf-8'))
+            items=revision.get('elementi',[])
+            if items:
+                st.markdown('#### Associazioni EU–AIC: confronto con EMA e AIFA')
+                st.caption('Le coppie sono estratte dai documenti GU. Il nome coincidente è '
+                           'un indizio, NON una verifica normativa o una classe attuale.')
+                c1,c2,c3=st.columns(3)
+                summary=revision.get('riepilogo',{})
+                c1.metric('Corrispondenze nominali',summary.get('CANDIDATO_NOME_EMA_DA_REVISIONARE',0))
+                c2.metric('Già documentate',summary.get('COLLEGAMENTO_GIA_DOCUMENTATO',0))
+                c3.metric('Altri casi',sum(v for k,v in summary.items()
+                               if k not in ('CANDIDATO_NOME_EMA_DA_REVISIONARE',
+                                            'COLLEGAMENTO_GIA_DOCUMENTATO')))
+                labels={'Tutte le coppie':None,
+                        'Corrispondenza per nome (da verificare)':'CANDIDATO_NOME_EMA_DA_REVISIONARE',
+                        'Già documentate':'COLLEGAMENTO_GIA_DOCUMENTATO',
+                        'Nomi ambigui':'NOME_EMA_AMBIGUO_DA_REVISIONARE',
+                        'AIC non presente':'AIC_NON_NEL_DATABASE_PRINCIPALE'}
+                selected=st.selectbox('Mostra',list(labels),key='gu_revision_filter')
+                filtered=[x for x in items if labels[selected] is None
+                           or x.get('stato_revisione')==labels[selected]]
+                rows=[]
+                for x in filtered:
+                    proposals=x.get('candidati_ema_per_nome') or []
+                    rows.append({
+                        'Medicinale AIFA':x.get('nome_aifa') or 'Non presente',
+                        'AIC':x.get('aic'),
+                        'Presentazione UE':x.get('codice_presentazione_ue'),
+                        'Medicinale EMA proposto':', '.join(p.get('nome','') for p in proposals),
+                        'Atto GU':x.get('atto_gu'),
+                        'Esito':x.get('stato_revisione'),
+                        'Fonte ufficiale':safe_url(x.get('fonte_ufficiale')) or '',
+                    })
+                st.dataframe(rows,hide_index=True,use_container_width=True,height=320)
+                st.caption(f'{len(rows)} coppie visualizzate. Nessun nuovo link viene '
+                           'aggiunto automaticamente al database.')
+        except (OSError,ValueError,KeyError,TypeError):
+            st.warning('Rapporto dei collegamenti non disponibile o non leggibile.')
     audit_path = DATA / 'audit_evidenze_gazzetta.json'
     if audit_path.is_file():
         try:
