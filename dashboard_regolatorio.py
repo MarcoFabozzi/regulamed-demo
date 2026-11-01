@@ -246,21 +246,29 @@ with med_tab:
         st.markdown('#### Ricerca nell\'anagrafica AIFA completa')
         if complete_archive.is_file():
             from aifa_archivio_completo import estrai_archivio, ricerca_confezioni
+            from collegamenti_aifa import annota_collegamenti
             @st.cache_resource(show_spinner=False)
             def aifa_db_completo(path,mtime):
                 folder=Path(tempfile.mkdtemp(prefix='regulamed_aifa_'))
                 target=folder/'aifa.sqlite'
-                estrai_archivio(path,target)
+                state_file=DATA/'stato_fonti'/'aifa_anagrafica.json'
+                expected=None
+                if state_file.is_file():
+                    doc=json.loads(state_file.read_text(encoding='utf-8'))
+                    expected=doc.get('statistiche',{}).get('archivio_completo',{}).get('sha256_archivio')
+                estrai_archivio(path,target,expected_sha256=expected)
                 return target
             search_aifa=st.text_input('Cerca confezione AIFA per nome, principio attivo o AIC',
                                        key='aifa_complete_search')
             if len(search_aifa.strip())>=2:
                 try:
                     db_aifa=aifa_db_completo(str(complete_archive),complete_archive.stat().st_mtime_ns)
-                    rows_aifa=ricerca_confezioni(db_aifa,search_aifa)
+                    rows_aifa=annota_collegamenti(db,ricerca_confezioni(db_aifa,search_aifa))
                     st.caption(f'{len(rows_aifa)} risultati mostrati (massimo 150). '
                                'Anagrafica integrale; non certifica classe o rimborso vigente.')
                     show_table(rows_aifa,height=320)
+                    st.caption('Documentato = link registrato con evidenza; candidato = proposta per nome, '
+                               'non verificata. Nessun collegamento non significa farmaco assente da EMA.')
                 except (OSError,ValueError,sqlite3.DatabaseError) as exc:
                     st.error(f'Archivio AIFA completo non leggibile: {exc}')
             else:
