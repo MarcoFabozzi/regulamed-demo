@@ -1,0 +1,22 @@
+{
+  "fonte": "aifa_anagrafica",
+  "esito": "OK",
+  "ultimo_successo_utc": "2026-11-01T11:01:23+00:00",
+  "precedente_successo_utc": null,
+  "statistiche": {
+    "confezioni_file": 160314,
+    "confezioni_pertinenti": 1435,
+    "nuove_confezioni": 1054,
+    "nuovi_match_candidati": 1056,
+    "aic_precedenti_non_nel_file": 0,
+    "nota": "L anagrafica non prova la classe vigente; le AIC assenti restano storiche"
+  },
+  "fonti": {
+    "aifa": {
+      "url": "https://drive.aifa.gov.it/farmaci/confezioni_fornitura.csv",
+      "bytes": 82660537,
+      "sha256": "de5f0f0977ce98bb053d94fa4e67115747160ac0bc73cfe66a42b10a678cf72d"
+    }
+  },
+  "nota": "Controllo della fonte completato, non certificazione di stato regolatorio corrente"
+}
