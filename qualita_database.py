@@ -228,7 +228,7 @@ def relazione_html(r):
     snaptable = f'<table><tr><th>Classe</th><th>Data lista</th><th>Record</th></tr>{snaps}</table>' if snaps else '<p>Nessuno snapshot A/H presente.</p>'
     srctable = f'<table><tr><th>Fonte</th><th>Acquisizione UTC</th><th>Riferimento</th><th>Nota</th></tr>{sources}</table>' if sources else '<p>Nessun metadato.</p>'
     status = 'superato' if r['integrita']['quick_check'] and r['integrita']['errori_foreign_key'] == 0 else 'da verificare'
-    return f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><title>RegulaMed - Stato di avanzamento</title><style>
+    return f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><title>FarmaQuery - Stato di avanzamento</title><style>
 body{{font:15px/1.6 Arial,Helvetica,sans-serif;color:#193044;background:#f4f7f9;margin:0}}
 main{{max-width:960px;margin:36px auto;padding:28px 44px;background:#fff;border-radius:16px;box-shadow:0 10px 30px #122e4317}}
 header{{background:linear-gradient(110deg,#132d42,#167467);color:white;border-radius:12px;padding:28px 34px}}
@@ -236,7 +236,7 @@ header h1{{margin:0;font-size:28px}}header p{{margin:3px 0;color:#e4f6f1}}h2{{co
 .grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}}.metric{{padding:16px;border:1px solid #e2ebef;border-radius:12px}}small{{display:block;color:#617988}}strong{{font-size:26px;color:#107e70;display:block}}
 table{{width:100%;border-collapse:collapse;font-size:13px}}th,td{{border-bottom:1px solid #e3eaee;padding:9px;text-align:left;vertical-align:top}}th{{background:#eef5f6}}.note{{background:#eef9f5;border-left:4px solid #128e76;padding:13px 18px}}.warn{{background:#fff8eb;border-left:4px solid #ce8a27;padding:13px 18px}}.fine{{color:#657c89;font-size:12px}}li{{margin:7px 0}}
 @media print{{body{{background:white}}main{{box-shadow:none;margin:0;padding:0}}.grid{{break-inside:avoid}}h2{{break-after:avoid}}}}</style></head>
-<body><main><header><h1>RegulaMed · Stato di avanzamento</h1><p>Integrazione di informazioni regolatorie EMA, AIFA e Gazzetta Ufficiale</p></header>
+<body><main><header><h1>FarmaQuery · Stato di avanzamento</h1><p>Integrazione di informazioni regolatorie EMA, AIFA e Gazzetta Ufficiale</p></header>
 <p class="fine">Report del {h(r['generato_utc'])} (UTC). Analisi del database locale, non certificazione normativa.</p>
 <h2>Obiettivo</h2><p>Costruire una base dati verificabile, con storia regolatoria selettiva e documenti di provenienza, da utilizzare successivamente nello studio sperimentale del Table-Augmented Generation.</p>
 <div class="grid">{cards}</div>
