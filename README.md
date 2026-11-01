@@ -4,34 +4,20 @@ Dashboard di consultazione in sola lettura di un campione di informazioni regola
 
 **Avvertenza:** demo accademica. Le classificazioni mostrate sono associate a fonti e date specifiche; non certificano la rimborsabilità vigente, non forniscono raccomandazioni mediche e non sostituiscono le fonti ufficiali.
 
-## Rinomina del progetto (FarmaQuery)
+## Identita del progetto e pubblicazione
 
-Il codice e i titoli dell'applicazione utilizzano **FarmaQuery**. Il repository puo' rimanere
-temporaneamente `MarcoFabozzi/regulamed-demo` finche' non viene completato il
-passaggio sul servizio Streamlit Community Cloud.
+Il repository pubblico e' stato rinominato in
+[MarcoFabozzi/farmaquery](https://github.com/MarcoFabozzi/farmaquery)
+e l'applicazione si presenta come **FarmaQuery**. Il codice di avvio resta
+`dashboard_regolatorio.py` per evitare cambiamenti non necessari al deployment.
 
-**Sequenza per completare il cambio di repository senza perdere il controllo del deployment:**
+Il sito viene distribuito separatamente tramite Streamlit Community Cloud.
+Il nome pubblico dell'app Streamlit e il relativo URL vanno controllati
+dal pannello di deployment, poiche' possono essere diversi dal nome GitHub.
 
-1. Su https://share.streamlit.io, aprire l'app esistente e scegliere **Delete** nel menu dell'app.
-   Questa operazione elimina il *deployment*, **non** il database salvato su GitHub.
-2. Nelle impostazioni GitHub del repository, cambiare **Repository name**
-   da `regulamed-demo` a `farmaquery`. GitHub conserva la storia del repository.
-3. Su Streamlit Community Cloud scegliere **Create app** dal repository
-   `MarcoFabozzi/farmaquery`, branch `main`, entrypoint `dashboard_regolatorio.py`.
-   Nel campo **App URL** richiedere `farmaquery.streamlit.app` **se disponibile**.
-4. Verificare la ricerca dei farmaci, la pagina di dettaglio e l'esito dei workflow
-   GitHub Actions dopo il cambio. Se esiste una copia locale Git,
-   aggiornare il remote a `https://github.com/MarcoFabozzi/farmaquery.git`.
-
-**Importante:** i workflow di aggiornamento accettano in via transitoria
-sia il vecchio sia il nuovo nome del repository; non modificare l'identificativo
-del repository nei workflow prima del passaggio. Dopo la migrazione riuscita,
-si potra' togliere il riferimento transitorio al vecchio nome.
-
-Il nome `farmaquery.streamlit.app` **non e' garantito** prima della verifica di
-disponibilita' nel pannello Streamlit. L'app Streamlit esistente va eliminata
-**prima** della rinomina del repository: consultare
-https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/rename-your-app
+I workflow GitHub Actions utilizzano `github.repository == 'MarcoFabozzi/farmaquery'`
+per gli aggiornamenti indipendenti. Il database e l'archivio AIFA restano
+nei rispettivi percorsi `risultati/`, senza rigenerazione dovuta alla rinomina.
 
 ## Avvio
 
@@ -71,7 +57,7 @@ Tutti aggiornano **in sequenza** il medesimo archivio `risultati/farmaci_automat
 
 **Collaudo:** i nuovi workflow devono superare almeno una prima esecuzione reale nella scheda Actions. Prima di allora, la loro presenza nel repository non prova che abbiano scaricato e pubblicato nuovi dati. La dashboard mostra "Da verificare" per una fonte senza rapporto di successo.
 
-Link: [Esecuzioni GitHub Actions](https://github.com/MarcoFabozzi/regulamed-demo/actions).
+Link: [Esecuzioni GitHub Actions](https://github.com/MarcoFabozzi/farmaquery/actions).
 
 
 ## Ampliamento controllato EMA (fase database)
