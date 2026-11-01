@@ -75,3 +75,8 @@ Il workflow [verifica-qualita.yml](.github/workflows/verifica-qualita.yml) e pro
 Dal novembre 2026 la procedura EMA importa **tutti** i record del catalogo ufficiale che superano il parser, senza limitarsi ai 300 del campione iniziale. Il numero effettivo varia con gli aggiornamenti EMA e va letto da `risultati/stato_fonti/ema.json`. Una risposta con meno di 2.000 record, un ID esistente mancante o un nome associato a un ID esistente cambiato blocca la pubblicazione per revisione manuale. Questo controllo è prudenziale e potrà essere adeguato se EMA modifica legittimamente il catalogo. Le confezioni AIFA, i collegamenti verificati e la Gazzetta non sono modificati da questa importazione.
 
 Il codice è predisposto, ma il conteggio definitivo sarà confermato solo dopo una nuova esecuzione riuscita del workflow EMA.
+
+
+## Anagrafica AIFA integrale in archivio separato
+
+L'aggiornamento `aifa_anagrafica` ora produce anche `risultati/aifa_confezioni_complete.sqlite.gz`, un archivio SQLite compresso delle confezioni univoche del CSV ufficiale (circa 160.314 nell'ultima acquisizione disponibile). L'archivio non sostituisce `farmaci_automatico.sqlite`, che conserva i record pertinenti ai collegamenti EMA e GU. La dashboard decomprime l'archivio integrale in una cache temporanea soltanto quando serve e permette ricerche parametrizzate per nome, principio attivo e AIC. Non deduce automaticamente associazioni né classi attuali. Il file compresso viene pubblicato solo dopo controllo integrità, assenza di AIC duplicate e test offline. Il conteggio effettivo sarà confermato soltanto dopo la prima esecuzione riuscita del nuovo workflow.
