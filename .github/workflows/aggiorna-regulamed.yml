@@ -3,7 +3,8 @@ name: RegulaMed - aggiornamento automatico EMA AIFA
 on:
   workflow_dispatch:
   schedule:
-    - cron: '23 5 * * *'
+    # Tentativo alle 05:23 UTC e, se fallisce, ritentativo ogni ora al minuto 23.
+    - cron: '23 * * * *'
 
 permissions:
   contents: write
@@ -26,22 +27,63 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Controlla dipendenze pipeline
+      - name: Controlla se serve aggiornare o ritentare
+        id: due
+        env:
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          test -f pipeline.py || { echo 'Manca pipeline.py: carica la versione collaudata dal PC'; exit 1; }
-          test -f aggiorna_automatico.py || { echo 'Manca aggiorna_automatico.py: carica la versione collaudata dal PC'; exit 1; }
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, time, timedelta, timezone
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc)
+          cutoff = datetime.combine(now.date(), time(5, 23), tzinfo=timezone.utc)
+          if now < cutoff:
+              cutoff -= timedelta(days=1)
+
+          report_path = Path('risultati/rapporto_automatico.json')
+          last_success = None
+          try:
+              report = json.loads(report_path.read_text(encoding='utf-8'))
+              last_success = datetime.fromisoformat(report['fine_utc'].replace('Z', '+00:00'))
+              if last_success.tzinfo is None or report.get('modalita') != 'FONTI_UFFICIALI':
+                  last_success = None
+          except (OSError, ValueError, KeyError, TypeError):
+              pass
+
+          manual = os.environ.get('EVENT_NAME') == 'workflow_dispatch'
+          should_run = manual or last_success is None or last_success < cutoff
+          print('Ora UTC:', now.isoformat())
+          print('Finestra giornaliera iniziata:', cutoff.isoformat())
+          print('Ultima importazione pubblicata:', last_success.isoformat() if last_success else 'assente')
+          print('Modalita:', 'manuale' if manual else 'pianificata')
+          print('Azione:', 'aggiorna/riprova' if should_run else 'gia aggiornata: nessun download')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write('run=' + ('true' if should_run else 'false') + '\n')
+          PY
+
+      - name: Controlla dipendenze pipeline
+        if: steps.due.outputs.run == 'true'
+        run: |
+          test -f pipeline.py || { echo 'Manca pipeline.py'; exit 1; }
+          test -f aggiorna_automatico.py || { echo 'Manca aggiorna_automatico.py'; exit 1; }
           python -m py_compile pipeline.py aggiorna_automatico.py verifica_snapshot.py
 
       - name: Salva database attualmente pubblicato
+        if: steps.due.outputs.run == 'true'
         run: |
           mkdir -p "$RUNNER_TEMP/regulamed"
           cp risultati/farmaci_automatico.sqlite "$RUNNER_TEMP/regulamed/prima.sqlite"
           cp risultati/rapporto_automatico.json "$RUNNER_TEMP/regulamed/prima.json"
 
       - name: Aggiorna database dalle cinque fonti
+        if: steps.due.outputs.run == 'true'
         run: python aggiorna_automatico.py --limite 30 --senza-pilota
 
       - name: Verifica integrita provenienza e storico
+        if: steps.due.outputs.run == 'true'
         id: verify
         run: |
           python verifica_snapshot.py \
@@ -50,17 +92,23 @@ jobs:
             "$RUNNER_TEMP/regulamed/prima.json" \
             risultati/rapporto_automatico.json
 
-      - name: Pubblica snapshot solo se le fonti sono cambiate
-        if: steps.verify.outputs.changed == 'true'
+      - name: Pubblica esito riuscito e snapshot verificato
+        if: steps.due.outputs.run == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add risultati/farmaci_automatico.sqlite risultati/rapporto_automatico.json
+          # Il report va aggiornato ANCHE se i dataset sono invariati:
+          # serve a segnare la data dell'ultimo successo e a fermare i ritentativi.
+          git add risultati/rapporto_automatico.json
+          # Il database viene pubblicato soltanto se cambiano i contenuti delle fonti.
+          if [ "${{ steps.verify.outputs.changed }}" = "true" ]; then
+            git add risultati/farmaci_automatico.sqlite
+          fi
           if ! git diff --cached --quiet; then
-            git commit -m 'data: aggiorna snapshot regolatorio verificato'
+            git commit -m 'data: aggiornamento regolatorio verificato'
             git push origin HEAD:main
           fi
 
-      - name: Nessuna modifica delle fonti
-        if: steps.verify.outputs.changed == 'false'
-        run: echo 'Le fonti non sono cambiate; database pubblicato invariato.'
+      - name: Aggiornamento giornaliero gia eseguito
+        if: steps.due.outputs.run == 'false'
+        run: echo 'Ultimo aggiornamento giornaliero riuscito; nessuna nuova importazione necessaria.'
