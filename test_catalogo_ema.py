@@ -46,6 +46,27 @@ class CatalogoTests(unittest.TestCase):
         importa_catalogo_ema(self.db,vals,'new',30)
         self.assertEqual(self.db.execute('SELECT COUNT(*) FROM ema_revisioni_snapshot WHERE ema_id=?',
             (rec(0)['ema_id'],)).fetchone()[0],2)
+    def test_full_catalogue_preserves_links_and_is_idempotent(self):
+        vals=[rec(i) for i in range(2357)]
+        first=importa_catalogo_ema(self.db,vals,'new',target=None)
+        self.assertEqual(first['medicinali_archiviati'],2357)
+        self.assertEqual(first['nuovi_medicinali'],2327)
+        self.assertEqual(first['modalita'],'CATALOGO_EMA_COMPLETO')
+        self.assertEqual(self.db.execute('SELECT COUNT(*) FROM link_verificati').fetchone()[0],1)
+        second=importa_catalogo_ema(self.db,vals,'new',target=None)
+        self.assertEqual(second['nuovi_medicinali'],0)
+        self.assertEqual(second['versioni_ema_osservate'],2357)
+
+    def test_truncated_full_catalogue_is_rejected(self):
+        with self.assertRaises(ValueError):
+            importa_catalogo_ema(self.db,[rec(i) for i in range(300)],'new',target=None)
+
+    def test_conflicting_duplicate_is_rejected(self):
+        vals=[rec(i) for i in range(2357)]
+        vals.append(rec(10,status='Withdrawn'))
+        with self.assertRaises(ValueError):
+            importa_catalogo_ema(self.db,vals,'new',target=None)
+
     def test_missing_id_rejected(self):
         with self.assertRaises(ValueError):
             importa_catalogo_ema(self.db,[rec(i) for i in range(1,101)],'new')
