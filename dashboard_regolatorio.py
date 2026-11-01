@@ -28,8 +28,7 @@ st.markdown("""
 .regula-hero {background:linear-gradient(115deg,#103d55 0%,#147d76 75%,#1a9c87 100%);
               color:white;padding:26px 30px;border-radius:22px;
               box-shadow:0 12px 30px rgba(17,71,81,.13);}
-.regula-hero .eyebrow {font-size:.76rem;letter-spacing:.09em;color:#c2f4e4;font-weight:700;}
-.regula-hero h1 {font-size:2.25rem;line-height:1.2;margin:9px 0 7px;color:#fff;}
+.regula-hero h1 {font-size:2.25rem;line-height:1.2;margin:0 0 9px;color:#fff;}
 .regula-hero p {margin:0;color:#e6f6f5;font-size:.95rem;}
 h3 {color:#16475a!important;margin-top:1.3rem!important;}
 div[data-testid="stMetric"] {background:linear-gradient(155deg,#ffffff,#e4f7f1);
@@ -78,7 +77,6 @@ div[data-testid="stButton"] button:hover {background:#dff5ee;border-color:#169b8
 }
 </style>
 <div class="regula-hero">
-<div class="eyebrow">TESI TRIENNALE · ARCHIVIO FARMACI</div>
 <h1>💊 RegulaMed</h1>
 <p>Ricerca medicinali e confezioni dalle fonti ufficiali EMA, AIFA e Gazzetta Ufficiale.</p>
 </div>
