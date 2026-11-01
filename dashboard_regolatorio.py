@@ -281,9 +281,14 @@ try:
                 aic=escape(str(package['aic'] or ''))
                 active=escape(str(package['principio_attivo'] or 'Non disponibile'))
                 description=escape(str(package['descrizione'] or 'Non disponibile'))
-                cls=escape(str(package['classe_da_anagrafica'] or 'N/D'))
+                registered_class=str(package['classe_da_anagrafica'] or '').strip()
+                historic_classes=history.get(str(package['aic']),[])
+                # Unico snapshot: utile come dato storico, MAI come classe corrente.
+                historic_fallback=(historic_classes[0].split(' (')[0]+' (storica)'
+                                   if len(historic_classes)==1 else 'N/D')
+                cls=escape(registered_class or historic_fallback)
                 admin=escape(str(package['stato_amministrativo'] or 'Non disponibile'))
-                snapshots=escape(', '.join(history.get(str(package['aic']),[])) or 'Nessuno')
+                snapshots=escape(', '.join(historic_classes) or 'Nessuno')
                 # Il tag HTML details e' espandibile senza altri clic o ricaricamenti.
                 extra=(
                     '<details><summary>ℹ️ Dettagli</summary>'
@@ -309,9 +314,9 @@ try:
                 '<tbody>'+''.join(table_rows)+'</tbody></table></div>',
                 unsafe_allow_html=True
             )
-            st.caption('Classe = valore nell’anagrafica AIFA acquisita, non verifica della '
-                       'rimborsabilità attuale. N/D = dato assente. Gli snapshot A/H '
-                       'sono storici e sono indicati con la rispettiva data.')
+            st.caption('La classe proviene dall’anagrafica AIFA, oppure è indicata come storica '
+                       'quando disponibile soltanto in uno snapshot A/H. N/D = non disponibile. '
+                       'La classificazione attuale e la rimborsabilità non sono certificate.')
             if len(rows)>100:
                 st.caption('Visualizzate le prime 100 confezioni.')
         else:
