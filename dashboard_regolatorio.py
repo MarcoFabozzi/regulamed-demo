@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""RegulaMed: dashboard essenziale in sola lettura (tesi triennale)."""
+"""FarmaQuery: dashboard essenziale in sola lettura (tesi triennale)."""
 from __future__ import annotations
 
 from contextlib import closing
@@ -20,7 +20,7 @@ DATA=BASE/'risultati'
 DB=DATA/'farmaci_automatico.sqlite'
 AIFA=DATA/'aifa_confezioni_complete.sqlite.gz'
 
-st.set_page_config(page_title='RegulaMed',page_icon='💊',layout='centered')
+st.set_page_config(page_title='FarmaQuery',page_icon='💊',layout='centered')
 st.markdown("""
 <style>
 .stApp {background: linear-gradient(180deg, #e9f8f5 0, #ffffff 350px);}
@@ -77,7 +77,7 @@ div[data-testid="stButton"] button:hover {background:#dff5ee;border-color:#169b8
 }
 </style>
 <div class="regula-hero">
-<h1>💊 RegulaMed</h1>
+<h1>💊 FarmaQuery</h1>
 <p>Ricerca medicinali e confezioni dalle fonti ufficiali EMA, AIFA e Gazzetta Ufficiale.</p>
 </div>
 """,unsafe_allow_html=True)
@@ -108,7 +108,7 @@ def ultimo(fonte):
 @st.cache_resource(show_spinner=False)
 def archivio_aifa(path,version):
     from aifa_archivio_completo import estrai_archivio
-    temp=Path(tempfile.mkdtemp(prefix='regulamed_aifa_'))/'aifa.sqlite'
+    temp=Path(tempfile.mkdtemp(prefix='farmaquery_aifa_'))/'aifa.sqlite'
     state=DATA/'stato_fonti'/'aifa_anagrafica.json'
     expected=None
     if state.is_file():
@@ -237,7 +237,7 @@ def scheda_confezione(aic):
 
     st.markdown('#### Fonte e aggiornamento')
     st.write('**Origine della scheda:**', 'Archivio nazionale AIFA completo' if archive_source
-             else 'Database principale RegulaMed')
+             else 'Database principale FarmaQuery')
     st.write('**Ultima acquisizione riuscita dell’anagrafica AIFA:**',ultimo('aifa_anagrafica'))
     st.link_button('Consulta le liste ufficiali AIFA',
                    'https://www.aifa.gov.it/liste-dei-farmaci')
