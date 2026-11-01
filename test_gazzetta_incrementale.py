@@ -40,6 +40,26 @@ class GazzettaTests(unittest.TestCase):
         candidates = {'26A00001': ('2026-11-01', 'Determinazione relativa ad altra sostanza')}
         self.assertEqual(gu.atti_pertinenti(candidates, ['Wegovy']), [])
 
+    def test_title_generic_then_text_scan(self):
+        acts={
+            '26A00011':('2026-10-29','Determina contenente medicinali autorizzati'),
+            '26A00012':('2026-10-28','Riclassificazione Wegovy'),
+            '26A00013':('2026-10-27','Provvedimento farmaceutico generale'),
+        }
+        queue,remaining,named=gu.queue_screening(acts,['Wegovy'],set(),set(),2)
+        self.assertEqual(queue[0][0],'26A00012')
+        self.assertEqual(len(queue),2)
+        self.assertEqual(remaining,3)
+        self.assertEqual(named,1)
+        self.assertIn('Wegovy',gu.matcher_medicinali(['Wegovy'])('Farmaco Wegovy in confezione'))
+        self.assertEqual(gu.matcher_medicinali(['Wegovy'])('Wegovyplus'),[])
+
+    def test_screening_skips_already_examined(self):
+        acts={'26A00011':('2026-10-29','Medicinale X'),
+              '26A00012':('2026-10-28','Medicinale Wegovy')}
+        queue,_,_=gu.queue_screening(acts,['Wegovy'],{'26A00012'},{'26A00011'},80)
+        self.assertEqual(queue,[])
+
     def test_reject_external_link(self):
         with self.assertRaises(ValueError):
             gu.safe('https://untrusted.example/serie_generale')
