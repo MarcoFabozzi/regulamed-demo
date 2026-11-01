@@ -1,14 +1,15 @@
 {
   "fonte": "ema",
   "esito": "OK",
-  "ultimo_successo_utc": "2026-11-01T10:15:24+00:00",
-  "precedente_successo_utc": "2026-11-01T08:18:55+00:00",
+  "ultimo_successo_utc": "2026-11-01T12:18:27+00:00",
+  "precedente_successo_utc": "2026-11-01T10:15:24+00:00",
   "statistiche": {
     "catalogo_sorgente": 2357,
-    "target": 300,
-    "nuovi_medicinali": 270,
-    "medicinali_archiviati": 300,
-    "versioni_ema_osservate": 300,
+    "modalita": "CATALOGO_EMA_COMPLETO",
+    "target": 2357,
+    "nuovi_medicinali": 2057,
+    "medicinali_archiviati": 2357,
+    "versioni_ema_osservate": 2357,
     "nota": "Versioni osservate nel dataset, non eventi normativi o date di prima autorizzazione"
   },
   "fonti": {
