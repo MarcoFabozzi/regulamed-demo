@@ -1,4 +1,4 @@
-name: RegulaMed - collaudo ricerca AIFA
+name: FarmaQuery - collaudo ricerca AIFA
 
 on:
   workflow_dispatch:
