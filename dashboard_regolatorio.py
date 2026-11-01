@@ -250,6 +250,14 @@ with med_tab:
         a.write('**Principio attivo**'); a.write(med['principio_attivo'] or 'Non disponibile')
         b.write('**ID EMA**');b.code(ema_id)
         c.write('**Decisione UE nel dataset**');c.write(med['data_decisione_ue'] or 'Non disponibile')
+        if exists(db,'ema_revisioni_snapshot'):
+            revisions=query(db,'''SELECT prima_osservazione_utc,ultima_osservazione_utc,
+                       sha256_riga FROM ema_revisioni_snapshot
+                       WHERE ema_id=? ORDER BY prima_osservazione_utc DESC LIMIT 30''',(ema_id,))
+            with st.expander(f'Snapshot EMA osservati ({len(revisions)} versioni mostrate)'):
+                show_table(revisions,height=210)
+                st.caption('Versioni osservate durante i download EMA: non corrispondono '
+                           'necessariamente ad atti normativi o prime autorizzazioni.')
         if safe_url(med.get('url_ema')):
             st.link_button('Apri scheda EMA',med['url_ema'])
         details, texttab, chron=st.tabs(['Confezioni e classificazioni','Indicazioni EMA','Eventi e determine'])
