@@ -69,7 +69,7 @@ def safe(u):
 
 def fetch(u,limit=3_000_000):
     safe(u)
-    req=Request(u,headers={'User-Agent':'RegulaMed/1.0 academic public regulatory data',
+    req=Request(u,headers={'User-Agent':'FarmaQuery/1.0 academic public regulatory data',
                            'Accept':'text/html,text/plain'})
     for attempt in range(4):
         try:
