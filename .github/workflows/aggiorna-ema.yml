@@ -57,7 +57,7 @@ jobs:
 
       - name: Test migrazione catalogo e storico EMA
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_catalogo_ema.py
+        run: python -m unittest -v tests.test_catalogo_ema
 
       - name: Update EMA and validate snapshot
         if: steps.due.outputs.run == 'true'
