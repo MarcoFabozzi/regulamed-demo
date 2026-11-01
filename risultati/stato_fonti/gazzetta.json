@@ -1,14 +1,17 @@
 {
   "fonte": "gazzetta",
   "esito": "OK",
-  "ultimo_successo_utc": "2026-11-01T08:19:53+00:00",
-  "precedente_successo_utc": null,
+  "ultimo_successo_utc": "2026-11-01T08:52:15+00:00",
+  "precedente_successo_utc": "2026-11-01T08:19:53+00:00",
   "statistiche": {
     "fascicoli_disponibili": 25,
     "atti_candidati": 213,
-    "nuovi_atti": 0,
-    "allegati_nuovi": 0,
-    "coppie_documentali_da_revisionare": 0
+    "atti_con_medicinale_del_campione_nel_titolo": 3,
+    "atti_gia_archiviati_tra_i_pertinenti": 0,
+    "nuovi_atti": 3,
+    "allegati_nuovi": 2,
+    "coppie_documentali_da_revisionare": 21,
+    "criterio_selezione": "Corrispondenza nome medicinale nel titolo; screening selettivo non esaustivo"
   },
   "fonti": {
     "gazzetta": {
