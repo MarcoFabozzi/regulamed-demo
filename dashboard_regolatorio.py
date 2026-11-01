@@ -68,7 +68,7 @@ c3.metric('Atti Gazzetta',gu)
 st.caption('* Confezioni collegate al database principale. L’anagrafica AIFA completa contiene oltre 160.000 confezioni.')
 
 st.markdown('### Cerca un medicinale')
-term=st.text_input('Nome, principio attivo, codice EMA o AIC',placeholder='Es. Leqembi, Wegovy, semaglutide')
+term=st.text_input('Nome, principio attivo, codice EMA o AIC',placeholder='Es. Tachipirina, Cardirene, Leqembi')
 if term.strip():
     pattern='%'+term.strip().replace('\\','\\\\').replace('%','\\%').replace('_','\\_')+'%'
     medicines=query("""SELECT ema_id,nome,principio_attivo,stato_ema,data_decisione_ue,url_ema,indicazione_ema
@@ -110,7 +110,7 @@ if term.strip():
             with st.expander(f'Possibili associazioni AIFA da verificare ({len(candidates)} mostrate)'):
                 st.dataframe(candidates,hide_index=True,use_container_width=True)
     else:
-        st.info('Nessun medicinale EMA trovato. Puoi comunque cercare nelle confezioni AIFA.')
+        st.info('Nessuna scheda nel catalogo EMA importato. Il medicinale potrebbe essere autorizzato a livello nazionale: consulta i risultati AIFA sotto.')
 
     if AIFA.is_file():
         from aifa_archivio_completo import ricerca_confezioni
@@ -118,9 +118,17 @@ if term.strip():
         try:
             file_aifa=archivio_aifa(str(AIFA),AIFA.stat().st_mtime_ns)
             packages=annota_collegamenti(DB,ricerca_confezioni(file_aifa,term,limit=50))
-            with st.expander(f'Risultati nell’anagrafica AIFA completa ({len(packages)} mostrati)',expanded=not matches):
-                if packages:st.dataframe(packages,hide_index=True,use_container_width=True)
-                else:st.write('Nessuna confezione trovata.')
+            st.markdown('#### Confezioni AIFA - archivio nazionale')
+            st.caption('Risultati disponibili anche per medicinali senza scheda nel catalogo EMA.')
+            if packages:
+                for item in packages:
+                    if not str(item.get('principio_attivo') or '').strip():
+                        item['principio_attivo']='Non disponibile nel file acquisito'
+                st.dataframe(packages,hide_index=True,use_container_width=True)
+                st.caption('Se il principio attivo manca, non significa che il farmaco ne sia privo. '
+                           'Serve completare l’importazione del file ufficiale con i principi attivi.')
+            else:
+                st.info('Nessuna confezione trovata nell’ultimo archivio AIFA disponibile.')
         except (OSError,ValueError,sqlite3.DatabaseError) as exc:
             st.warning(f'Archivio AIFA momentaneamente non disponibile: {exc}')
 
