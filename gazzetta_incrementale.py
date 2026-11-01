@@ -148,7 +148,7 @@ def atti_pertinenti(acts, nomi):
     """Seleziona da TUTTO il sommario; nessun taglio arbitrario ai primi 100 atti."""
     def matches(title):
         return any(
-            len(name) >= 3 and re.search(r'(?<!\\w)' + re.escape(name) + r'(?!\\w)', title, re.I)
+            len(name) >= 3 and re.search(r'(?<!\w)' + re.escape(name) + r'(?!\w)', title, re.I)
             for name in nomi
         )
     return [(code, when, title) for code, (when, title) in acts.items()
