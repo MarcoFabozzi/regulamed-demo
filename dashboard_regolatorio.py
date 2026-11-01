@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 from urllib.parse import urlsplit
 import json
 import sqlite3
+import tempfile
 import streamlit as st
 from qualita_database import (DEFAULT_DB, audit, inventario, relazione_md, csv_protetto,
                               connessione_sola_lettura, presenti, relazione_html)
@@ -240,6 +241,34 @@ with pan:
 
 with med_tab:
     st.subheader('Catalogo e schede dei medicinali')
+    complete_archive=DATA/'aifa_confezioni_complete.sqlite.gz'
+    if 'importato' in selection:
+        st.markdown('#### Ricerca nell\'anagrafica AIFA completa')
+        if complete_archive.is_file():
+            from aifa_archivio_completo import estrai_archivio, ricerca_confezioni
+            @st.cache_resource(show_spinner=False)
+            def aifa_db_completo(path,mtime):
+                folder=Path(tempfile.mkdtemp(prefix='regulamed_aifa_'))
+                target=folder/'aifa.sqlite'
+                estrai_archivio(path,target)
+                return target
+            search_aifa=st.text_input('Cerca confezione AIFA per nome, principio attivo o AIC',
+                                       key='aifa_complete_search')
+            if len(search_aifa.strip())>=2:
+                try:
+                    db_aifa=aifa_db_completo(str(complete_archive),complete_archive.stat().st_mtime_ns)
+                    rows_aifa=ricerca_confezioni(db_aifa,search_aifa)
+                    st.caption(f'{len(rows_aifa)} risultati mostrati (massimo 150). '
+                               'Anagrafica integrale; non certifica classe o rimborso vigente.')
+                    show_table(rows_aifa,height=320)
+                except (OSError,ValueError,sqlite3.DatabaseError) as exc:
+                    st.error(f'Archivio AIFA completo non leggibile: {exc}')
+            else:
+                st.caption('Inserisci almeno due caratteri per cercare tra tutte le confezioni AIFA.')
+        else:
+            st.info('L’archivio AIFA integrale sarà disponibile dopo il primo aggiornamento '
+                    'dell’anagrafica completa riuscito.')
+    st.divider()
     q=st.text_input('Cerca per denominazione, principio attivo o codice EMA',placeholder='Es. Wegovy, lecanemab, EMEA/H/C/',key='med_search')
     if q:
         f=q.casefold().strip()
