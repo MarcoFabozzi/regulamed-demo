@@ -66,7 +66,8 @@ def _fallback(group,reason):
         if state.get('esito')!='OK' or state.get('fonte')!=group:
             raise ValueError('Stato precedente non valido')
         all_urls={key:state['fonti'][key]['url'] for key in keys}
-        previous_time=state.get('ultima_scoperta_indice_utc')
+        previous_time=(state.get('ultima_scoperta_indice_utc')
+                       or state.get('statistiche',{}).get('ultima_scoperta_indice_utc'))
     else:
         if not LEGACY_REPORT.exists():
             raise RuntimeError('Nessun URL AIFA precedente attendibile') from reason
@@ -76,7 +77,7 @@ def _fallback(group,reason):
         all_urls={key:manifest['fonti'][key]['url'] for key in keys}
         previous_time=manifest.get('ultima_scoperta_fonti_utc') or manifest['fine_utc']
     if not previous_time:
-        raise ValueError('Ultima scoperta URL mancante') from reason
+        raise ValueError('Ultima scoperta URL mancante: non prorogo la validità degli indirizzi') from reason
     ts=datetime.fromisoformat(previous_time.replace('Z','+00:00'))
     age=datetime.now(timezone.utc)-ts
     if ts.tzinfo is None or age<timedelta(days=0) or age>timedelta(days=MAX_FALLBACK_DAYS):
