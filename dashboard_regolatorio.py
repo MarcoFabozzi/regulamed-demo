@@ -49,9 +49,16 @@ div[data-testid="stButton"] button:hover {background:#dff5ee;border-color:#169b8
 .regula-packages td {padding:11px 9px;vertical-align:top;line-height:1.45;
   border-bottom:1px solid #e5efeb;white-space:normal;overflow-wrap:anywhere;}
 .regula-packages tr:nth-child(even) {background:#f5fbf9;}
-.regula-packages th:first-child,.regula-packages td:first-child {width:21%;}
-.regula-packages th:nth-child(2),.regula-packages td:nth-child(2) {width:25%;}
-.regula-packages th:nth-child(3),.regula-packages td:nth-child(3) {width:54%;}
+.regula-packages th:first-child,.regula-packages td:first-child {width:15%;}
+.regula-packages th:nth-child(2),.regula-packages td:nth-child(2) {width:22%;}
+.regula-packages th:nth-child(3),.regula-packages td:nth-child(3) {width:39%;}
+.regula-packages th:nth-child(4),.regula-packages td:nth-child(4) {width:10%;}
+.regula-packages th:nth-child(5),.regula-packages td:nth-child(5) {width:14%;}
+.regula-packages details summary {cursor:pointer;color:#0c716d;font-weight:650;}
+.regula-packages .regula-more {margin-top:8px;padding:8px;background:#eef9f5;
+  border-radius:8px;line-height:1.75;overflow-wrap:anywhere;}
+.regula-packages a {color:#08766f;text-decoration:underline;}
+
 @media(max-width:650px) {
   .regula-packages {font-size:.76rem;}
   .regula-packages th,.regula-packages td {padding:9px 6px;}
@@ -254,25 +261,57 @@ try:
                 conn.row_factory=sqlite3.Row
                 conn.execute('PRAGMA query_only=ON')
                 rows=[dict(r) for r in conn.execute(
-                    "SELECT aic,nome,principio_attivo,descrizione FROM "+source_table+
+                    "SELECT aic,nome,principio_attivo,descrizione,classe_da_anagrafica,stato_amministrativo FROM "+source_table+
                     " WHERE nome=? ORDER BY aic LIMIT 101",(name,))]
             st.markdown('#### Confezioni di '+name)
             st.caption('Le descrizioni lunghe continuano su più righe, nella stessa colonna.')
+            # Gli snapshot A/H sono storici: non sovrascrivono la classe da anagrafica.
+            ids=[str(r['aic']) for r in rows[:100]]
+            history={}
+            if ids:
+                placeholders=','.join('?' for _ in ids)
+                for record in query(
+                    'SELECT aic,classe,MAX(data_riferimento) AS data_riferimento '
+                    'FROM classi_snapshot WHERE aic IN ('+placeholders+') '
+                    'GROUP BY aic,classe',ids):
+                    history.setdefault(record['aic'],[]).append(
+                        record['classe']+' ('+record['data_riferimento']+')')
             table_rows=[]
             for package in rows[:100]:
                 aic=escape(str(package['aic'] or ''))
                 active=escape(str(package['principio_attivo'] or 'Non disponibile'))
                 description=escape(str(package['descrizione'] or 'Non disponibile'))
+                cls=escape(str(package['classe_da_anagrafica'] or 'N/D'))
+                admin=escape(str(package['stato_amministrativo'] or 'Non disponibile'))
+                snapshots=escape(', '.join(history.get(str(package['aic']),[])) or 'Nessuno')
+                # Il tag HTML details e' espandibile senza altri clic o ricaricamenti.
+                extra=(
+                    '<details><summary>ℹ️ Dettagli</summary>'
+                    '<div class="regula-more">'
+                    '<strong>Codice AIC:</strong> '+aic+'<br>'
+                    '<strong>Denominazione:</strong> '+escape(str(package['nome'] or ''))+'<br>'
+                    '<strong>Stato amministrativo nel file:</strong> '+admin+'<br>'
+                    '<strong>Classe da anagrafica:</strong> '+cls+'<br>'
+                    '<strong>Snapshot A/H (storici):</strong> '+snapshots+'<br>'
+                    '<strong>Fonte:</strong> <a href="https://www.aifa.gov.it/liste-dei-farmaci" '
+                    'target="_blank" rel="noopener noreferrer">Elenchi ufficiali AIFA</a>'
+                    '</div></details>'
+                )
                 table_rows.append(
-                    f'<tr><td>{aic}</td><td>{active}</td><td>{description}</td></tr>'
+                    f'<tr><td>{aic}</td><td>{active}</td><td>{description}</td>'
+                    f'<td>{cls}</td><td>{extra}</td></tr>'
                 )
             st.markdown(
                 '<div class="regula-packages-scroll">'
                 '<table class="regula-packages">'
-                '<thead><tr><th>AIC</th><th>Principio attivo</th><th>Confezione</th></tr></thead>'
+                '<thead><tr><th>AIC</th><th>Principio attivo</th><th>Confezione</th>'
+                '<th>Classe</th><th>Info</th></tr></thead>'
                 '<tbody>'+''.join(table_rows)+'</tbody></table></div>',
                 unsafe_allow_html=True
             )
+            st.caption('Classe = valore nell’anagrafica AIFA acquisita, non verifica della '
+                       'rimborsabilità attuale. N/D = dato assente. Gli snapshot A/H '
+                       'sono storici e sono indicati con la rispettiva data.')
             if len(rows)>100:
                 st.caption('Visualizzate le prime 100 confezioni.')
         else:
