@@ -46,7 +46,7 @@ def check_path(base, raw):
     return resolved if resolved.is_relative_to(base) and resolved.is_file() else None
 
 
-def genera(db_path=DB_DEFAULT, min_ema=300):
+def genera(db_path=DB_DEFAULT, min_ema=2000):
     db_path = Path(db_path).resolve()
     if not db_path.exists():
         raise FileNotFoundError(db_path)
@@ -147,19 +147,33 @@ def genera(db_path=DB_DEFAULT, min_ema=300):
                     failed.append('Testi Gazzetta mancanti o fuori dalla cartella risultati')
             metrics['gu_allegati_mancanti'] = 0
             metrics['gu_allegati_hash_errato'] = 0
+            metrics['gu_allegati_diversi_solo_per_fine_riga'] = 0
             if 'gu_allegati' in tables:
                 for r in db.execute('SELECT testo_file,sha256 FROM gu_allegati'):
                     p=check_path(db_path.parent,r[0])
                     if not p:
                         metrics['gu_allegati_mancanti']+=1
-                    elif sha256(p.read_bytes()).hexdigest() != r[1]:
-                        # Alcuni testi storici potrebbero aver subito normalizzazione
-                        # di fine riga: segnalarlo per revisione, senza inventare prove.
+                        continue
+                    raw=p.read_bytes()
+                    if sha256(raw).hexdigest()==r[1]:
+                        continue
+                    try:
+                        # Il produttore GU registra SHA256 del testo UTF-8 normalizzato
+                        # tramite Path.read_text / Path.write_text. Non e' l'hash raw
+                        # dei byte se il checkout converte CRLF in LF o viceversa.
+                        with p.open('r',encoding='utf-8',newline=None) as handle:
+                            normalized=handle.read()
+                        same=sha256(normalized.encode('utf-8')).hexdigest()==r[1]
+                    except (OSError,UnicodeError):
+                        same=False
+                    if same:
+                        metrics['gu_allegati_diversi_solo_per_fine_riga']+=1
+                    else:
                         metrics['gu_allegati_hash_errato']+=1
                 if metrics['gu_allegati_mancanti']:
                     failed.append('Allegati GU non accessibili')
                 if metrics['gu_allegati_hash_errato']:
-                    warnings.append('Hash di alcuni allegati GU da verificare')
+                    warnings.append('Hash del contenuto UTF-8 di alcuni allegati GU non coerente: revisione necessaria')
             if 'gu_coppie_eu_aic' in tables:
                 metrics['coppie_gu_formato_invalido']=sum(
                     1 for r in db.execute('SELECT eu,aic FROM gu_coppie_eu_aic')
@@ -203,7 +217,7 @@ def genera(db_path=DB_DEFAULT, min_ema=300):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--db',type=Path,default=DB_DEFAULT)
-    parser.add_argument('--min-ema',type=int,default=300)
+    parser.add_argument('--min-ema',type=int,default=2000)
     parser.add_argument('--output',type=Path)
     parser.add_argument('--strict',action='store_true')
     args=parser.parse_args()
