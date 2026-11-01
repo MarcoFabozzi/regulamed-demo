@@ -53,14 +53,14 @@ Le nuove versioni EMA si archiviano in `ema_revisioni_snapshot` con hash del rec
 
 Per evitare corruzioni, se il dataset non contiene più un EMA ID preesistente o ne modifica il nome, il processo fallisce senza pubblicare il database. Le nuove associazioni AIFA non sono dedotte automaticamente dall'EMA: verranno candidate solo quando sarà disponibile un nuovo download AIFA validato. L'archivio AIFA può quindi restare parziale anche dopo l'espansione EMA.
 
-Test della migrazione, senza rete: `python -m unittest -v test_catalogo_ema.py`. Sono inclusi nel workflow EMA. Il codice è presente su GitHub, ma **l'espansione sarà effettiva soltanto dopo una prima esecuzione del workflow EMA completata con successo**, verificando il report `risultati/stato_fonti/ema.json` e il conteggio nel database.
+Test della migrazione, senza rete: `python -m unittest -v tests.test_catalogo_ema`. Sono inclusi nel workflow EMA. Il codice è presente su GitHub, ma **l'espansione sarà effettiva soltanto dopo una prima esecuzione del workflow EMA completata con successo**, verificando il report `risultati/stato_fonti/ema.json` e il conteggio nel database.
 
 
 ## Tre flussi AIFA separati
 
 Il workflow combinato AIFA non è più pianificato. Il modulo `aifa_componenti.py` separa anagrafica confezioni (CSV diretto ufficiale), liste A/H (due file con la stessa data di riferimento) ed elenco storico C(nn). Ogni componente ha proprio workflow e report in `risultati/stato_fonti/`, ritenta ogni ora dopo i fallimenti e aggiorna solo i propri dati. I collegamenti EU-AIC già documentati non vengono alterati. Le classi A/H e C(nn) sono informazioni storiche, non certificazione di rimborsabilità vigente.
 
-Test offline: `python -m unittest -v test_aifa_componenti.py`. Il collaudo su GitHub Actions delle tre nuove pipeline è ancora necessario.
+Test offline: `python -m unittest -v tests.test_aifa_componenti`. Il collaudo su GitHub Actions delle tre nuove pipeline è ancora necessario.
 
 
 ## Audit offline della qualita del database
@@ -90,3 +90,8 @@ La pipeline non si limita più ai titoli che nominano direttamente un medicinale
 ## Perimetro finale della base dati (tesi triennale)
 
 La base informativa è sufficiente per iniziare la sperimentazione accademica: catalogo EMA acquisito (2.357 medicinali), anagrafica AIFA integrale in archivio separato (160.314 confezioni), 60 atti GU nel database e un rapporto di confronto su 100 coppie EU–AIC. La sezione **Gazzetta e allegati** della dashboard mostra una tabella filtrabile dei collegamenti già documentati e delle corrispondenze nominali da verificare. Le 90 corrispondenze per nome **non** vengono trasformate in associazioni confermate. La fase successiva sarà un benchmark piccolo e riproducibile per Text-to-SQL, RAG e TAG, non la ricostruzione esaustiva di tutto il diritto farmaceutico italiano.
+
+
+## Test automatici
+
+I 7 file di test sono organizzati nella cartella [`tests/`](tests/), separata dal codice applicativo. GitHub Actions li esegue prima degli aggiornamenti e degli audit pertinenti. Per eseguirli tutti in locale, dalla radice del repository: `python -m unittest discover -s tests -t . -v`. Non eliminare la cartella `tests/`: i workflow dipendono da questi controlli.
