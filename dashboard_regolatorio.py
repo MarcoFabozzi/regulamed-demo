@@ -138,6 +138,20 @@ def stato_aggiornamento(folder):
 
 
 
+def leggi_stato_fonte(folder, fonte):
+    path = folder / 'risultati' / 'stato_fonti' / (fonte + '.json')
+    try:
+        obj = json.loads(path.read_text(encoding='utf-8'))
+        if obj.get('esito') != 'OK' or obj.get('fonte') != fonte:
+            return None
+        dt = datetime.fromisoformat(obj['ultimo_successo_utc'].replace('Z', '+00:00'))
+        if dt.tzinfo is None:
+            return None
+        return dt.astimezone(ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y %H:%M')
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
 counts=report['tabelle']; coverage=report['copertura']; evidences=report['evidenze_gazzetta']
 last=report['ultima_importazione'] or {}
 st.markdown('''<div class="hero"><div class="eyebrow">Tesi sperimentale · Data integration</div>
@@ -162,6 +176,15 @@ if stato:
 else:
     st.info('Data dell’ultima importazione ufficiale non disponibile o non verificabile.')
 
+if 'importato' in selection:
+    st.markdown('#### Aggiornamenti indipendenti per fonte')
+    ema_col, aifa_col, gu_col = st.columns(3)
+    ema_col.metric('EMA · ultimo successo', leggi_stato_fonte(BASE, 'ema') or 'Da verificare')
+    aifa_col.metric('AIFA · ultimo successo', leggi_stato_fonte(BASE, 'aifa') or 'Da verificare')
+    gu_col.metric('Gazzetta · ultimo successo', leggi_stato_fonte(BASE, 'gazzetta') or 'Da verificare')
+    st.caption('I tre orari corrispondono a download/acquisizioni riuscite e pubblicate. '
+               'Gli aggiornamenti sono indipendenti; un errore AIFA non blocca EMA o Gazzetta. '
+               '«Da verificare» indica che non esiste ancora un report di successo per quella pipeline.')
 if 'importato' in selection:
     st.info('**Ambito:** campione locale importato. Le classi A/H sono snapshot datati; l’assenza dalle liste non significa classe C. Le corrispondenze candidate non sono verificate.')
 else:
@@ -336,7 +359,7 @@ with src_tab:
     show_table(acqu,height=340)
     st.markdown('#### Snapshot A/H archiviati')
     show_table(report['snapshot_ah'],height=220)
-    st.warning('L’aggiornamento programmato è attualmente unico per EMA e AIFA (anagrafica, A, H e C(nn)): se manca una fonte, l’intero snapshot EMA–AIFA non viene pubblicato. La Gazzetta Ufficiale viene gestita separatamente e non dispone ancora di un aggiornamento programmato.')
+    st.info('Le acquisizioni automatiche EMA, AIFA e Gazzetta Ufficiale sono indipendenti, con controlli e ultimo successo separati. Ogni fonte conserva i propri dati se un suo tentativo fallisce. La Gazzetta conserva evidenze documentali da revisionare, non classificazioni correnti confermate.')
     st.warning('Le acquisizioni ripetute possono conservare più record di provenienza per dataset. La data di download non coincide con la data di validità normativa.')
     st.markdown('#### Fonti istituzionali')
     st.markdown('• [EMA – Download medicine data](https://www.ema.europa.eu/en/medicines/download-medicine-data)')
