@@ -18,6 +18,6 @@ jobs:
       - name: Sintassi e test collegamenti
         run: |
           python -m py_compile aifa_archivio_completo.py collegamenti_aifa.py verifica_ricerca_aifa.py dashboard_regolatorio.py
-          python -m unittest -v test_aifa_archivio_completo.py test_collegamenti_aifa.py
+          python -m unittest -v tests.test_aifa_archivio_completo tests.test_collegamenti_aifa
       - name: Verifica archivio completo e campione principale
         run: python verifica_ricerca_aifa.py
