@@ -18,8 +18,35 @@ DB=DATA/'farmaci_automatico.sqlite'
 AIFA=DATA/'aifa_confezioni_complete.sqlite.gz'
 
 st.set_page_config(page_title='RegulaMed',page_icon='💊',layout='centered')
-st.title('💊 RegulaMed')
-st.caption('Consultazione di dati EMA, AIFA e Gazzetta Ufficiale · Prototipo di tesi triennale')
+st.markdown("""
+<style>
+.stApp {background: linear-gradient(180deg, #e9f8f5 0, #ffffff 350px);}
+.block-container {padding-top: 1.5rem; max-width: 980px;}
+.regula-hero {background:linear-gradient(115deg,#103d55 0%,#147d76 75%,#1a9c87 100%);
+              color:white;padding:26px 30px;border-radius:22px;
+              box-shadow:0 12px 30px rgba(17,71,81,.13);}
+.regula-hero .eyebrow {font-size:.76rem;letter-spacing:.09em;color:#c2f4e4;font-weight:700;}
+.regula-hero h1 {font-size:2.25rem;line-height:1.2;margin:9px 0 7px;color:#fff;}
+.regula-hero p {margin:0;color:#e6f6f5;font-size:.95rem;}
+h3 {color:#16475a!important;margin-top:1.3rem!important;}
+div[data-testid="stMetric"] {background:linear-gradient(155deg,#ffffff,#e4f7f1);
+    border:1px solid #c6e9df;padding:12px 14px;border-radius:15px;
+    box-shadow:0 3px 12px rgba(10,88,86,.06);}
+div[data-testid="stMetricValue"] {color:#0c716d;font-weight:750;}
+div[data-testid="stMetricLabel"] {color:#315c68;}
+div[data-testid="stTextInput"] input {background:#f5fbf9;border-radius:10px;}
+@media(max-width:650px) {
+    .regula-hero {padding:20px 18px;border-radius:17px;}
+    .regula-hero h1 {font-size:1.85rem;}
+    div[data-testid="stMetric"] {padding:8px 7px;}
+}
+</style>
+<div class="regula-hero">
+<div class="eyebrow">TESI TRIENNALE · ARCHIVIO FARMACI</div>
+<h1>💊 RegulaMed</h1>
+<p>Ricerca medicinali e confezioni dalle fonti ufficiali EMA, AIFA e Gazzetta Ufficiale.</p>
+</div>
+""",unsafe_allow_html=True)
 
 if not DB.is_file():
     st.error('Database non disponibile. Controllare il file risultati/farmaci_automatico.sqlite.')
@@ -60,14 +87,25 @@ def archivio_aifa(path,version):
 ema=query('SELECT COUNT(*) AS n FROM ema_medicinali')[0]['n']
 gu=query('SELECT COUNT(*) AS n FROM gazzetta_atti')[0]['n']
 aifa_main=query('SELECT COUNT(*) AS n FROM aifa_confezioni')[0]['n']
-st.markdown('### Archivio disponibile')
+aifa_total=aifa_main
+aifa_label='Confezioni AIFA nel DB'
+if AIFA.is_file():
+    state=DATA/'stato_fonti'/'aifa_anagrafica.json'
+    try:
+        doc=json.loads(state.read_text(encoding='utf-8'))
+        n=int(doc['statistiche']['archivio_completo']['confezioni_totali'])
+        if doc.get('esito')=='OK' and n>=aifa_main:
+            aifa_total=n
+            aifa_label='Confezioni AIFA'
+    except (OSError,KeyError,TypeError,ValueError):
+        pass
+st.markdown('### 📊 Archivio disponibile')
 c1,c2,c3=st.columns(3)
 c1.metric('Medicinali EMA',f'{ema:,}'.replace(',','.'))
-c2.metric('Confezioni AIFA*',f'{aifa_main:,}'.replace(',','.'))
+c2.metric(aifa_label,f'{aifa_total:,}'.replace(',','.'))
 c3.metric('Atti Gazzetta',gu)
-st.caption('* Confezioni collegate al database principale. L’anagrafica AIFA completa contiene oltre 160.000 confezioni.')
 
-st.markdown('### Cerca un medicinale')
+st.markdown('### 🔎 Cerca un medicinale')
 term=st.text_input('Nome, principio attivo, codice EMA o AIC',placeholder='Es. Tachipirina, Cardirene, Leqembi')
 if term.strip():
     pattern='%'+term.strip().replace('\\','\\\\').replace('%','\\%').replace('_','\\_')+'%'
@@ -132,23 +170,70 @@ if term.strip():
         except (OSError,ValueError,sqlite3.DatabaseError) as exc:
             st.warning(f'Archivio AIFA momentaneamente non disponibile: {exc}')
 
-st.markdown('### Provvedimenti della Gazzetta Ufficiale')
-acts=query("""SELECT codice,data_pubblicazione,titolo,url_ufficiale
-        FROM gazzetta_atti ORDER BY data_pubblicazione DESC,codice DESC LIMIT 100""")
-if acts:
-    choices={f"{x['data_pubblicazione']} · {x['codice']} · {(x['titolo'] or '')[:65]}":x for x in acts}
-    label=st.selectbox('Scegli un provvedimento',list(choices))
-    act=choices[label]
-    st.write(act['titolo'])
-    if (act['url_ufficiale'] or '').startswith('https://www.gazzettaufficiale.it/'):
-        st.link_button('Leggi sulla Gazzetta Ufficiale',act['url_ufficiale'])
-    pairs=query("""SELECT eu AS codice_ue,aic,stato FROM gu_coppie_eu_aic
-        WHERE codice=? ORDER BY aic""",(act['codice'],))
-    if pairs:
-        st.caption('Coppie EU–AIC estratte automaticamente: da verificare, non certificazioni regolatorie.')
-        st.dataframe(pairs,hide_index=True,use_container_width=True)
+st.markdown('### 📚 Elenco dei farmaci')
+st.caption('Sfoglia le denominazioni nazionali AIFA e seleziona un medicinale per vedere le confezioni.')
+if AIFA.is_file():
+    try:
+        list_db=archivio_aifa(str(AIFA),AIFA.stat().st_mtime_ns)
+    except (OSError,ValueError,sqlite3.DatabaseError) as exc:
+        st.warning(f'Archivio AIFA completo non accessibile: {exc}')
+        list_db=DB
+        source_table='aifa_confezioni'
+    else:
+        source_table='confezioni'
 else:
-    st.info('Nessun provvedimento acquisito.')
+    list_db=DB
+    source_table='aifa_confezioni'
+
+letter='Tutte'
+if not term.strip():
+    letter=st.selectbox('Sfoglia per iniziale',['Tutte']+list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+                        key='aifa_letter')
+conditions=["nome IS NOT NULL","TRIM(nome) <> ''"]
+params=[]
+if term.strip():
+    # La ricerca superiore filtra anche questo elenco per nome, AIC o principio attivo.
+    raw=term.strip().replace('\\','\\\\').replace('%','\\%').replace('_','\\_')
+    pattern='%'+raw+'%'
+    conditions.append("(nome LIKE ? ESCAPE '\\' OR aic LIKE ? ESCAPE '\\' OR principio_attivo LIKE ? ESCAPE '\\')")
+    params.extend((pattern,pattern,pattern))
+elif letter!='Tutte':
+    conditions.append("nome LIKE ?")
+    params.append(letter+'%')
+
+list_sql=("SELECT DISTINCT nome FROM "+source_table+
+          " WHERE "+' AND '.join(conditions)+
+          " ORDER BY nome COLLATE NOCASE LIMIT 41")
+try:
+    with closing(sqlite3.connect(list_db.as_uri()+'?mode=ro',uri=True)) as conn:
+        conn.row_factory=sqlite3.Row
+        conn.execute('PRAGMA query_only=ON')
+        drug_names=[r['nome'] for r in conn.execute(list_sql,params)]
+        visible=drug_names[:40]
+        if visible:
+            st.dataframe([{'Medicinale':name} for name in visible],
+                         hide_index=True,use_container_width=True,height=245)
+            if len(drug_names)>40:
+                st.caption('Mostrati i primi 40 nomi in ordine alfabetico. '
+                           'Usa la ricerca in alto o scegli un’iniziale per restringere l’elenco.')
+            selected_name=st.selectbox('Visualizza le confezioni di',visible,
+                                       key='aifa_selected_drug')
+            rows=[dict(r) for r in conn.execute(
+                "SELECT aic,nome,principio_attivo,descrizione FROM "+source_table+
+                " WHERE nome=? ORDER BY aic LIMIT 101",(selected_name,))]
+            if rows:
+                st.markdown('**Confezioni di '+selected_name+'**')
+                st.dataframe([{
+                    'AIC':r['aic'],
+                    'Principio attivo':r['principio_attivo'] or 'Non disponibile nel file acquisito',
+                    'Confezione':r['descrizione'] or 'Non disponibile'
+                } for r in rows[:100]],hide_index=True,use_container_width=True,height=270)
+                if len(rows)>100:
+                    st.caption('Visualizzate le prime 100 confezioni.')
+        else:
+            st.info('Nessun medicinale corrisponde al filtro selezionato.')
+except (sqlite3.DatabaseError,OSError,ValueError) as exc:
+    st.warning(f'Impossibile visualizzare l’elenco: {exc}')
 
 with st.expander('Stato degli aggiornamenti'):
     st.write('EMA:',ultimo('ema'))
