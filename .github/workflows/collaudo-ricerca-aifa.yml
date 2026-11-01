@@ -1,0 +1,23 @@
+name: RegulaMed - collaudo ricerca AIFA
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collaudo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sintassi e test collegamenti
+        run: |
+          python -m py_compile aifa_archivio_completo.py collegamenti_aifa.py verifica_ricerca_aifa.py dashboard_regolatorio.py
+          python -m unittest -v test_aifa_archivio_completo.py test_collegamenti_aifa.py
+      - name: Verifica archivio completo e campione principale
+        run: python verifica_ricerca_aifa.py
