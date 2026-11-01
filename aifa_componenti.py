@@ -135,6 +135,8 @@ def aggiorna_anagrafica(db,work):
     for aic,record in chosen.items():
         if aic in old and norm(old[aic])!=norm(record['nome']):
             raise ValueError('Denominazione AIC cambiata: '+aic+'; conservato database precedente')
+    from aifa_archivio_completo import crea_archivio, ARCHIVE_NAME
+    archive=crea_archivio(seen.values(),Path(work)/ARCHIVE_NAME,meta['sha256'],ANAGRAFICA)
     sid=pipeline.registra_fonte(db,'aifa',path,ANAGRAFICA,
         etichetta='FONTE_ISTITUZIONALE_ANAGRAFICA_NON_PROVA_CLASSE_VIGENTE')
     fresh=0
@@ -167,7 +169,7 @@ def aggiorna_anagrafica(db,work):
                  (ema_id,aic,criterio,stato) VALUES (?,?,?,'DA_VERIFICARE')""",
                  (ema_id,aic,criterion)).rowcount
             inserted+=count
-    return {'confezioni_file':len(seen),'confezioni_pertinenti':len(chosen),
+    return {'confezioni_file':len(seen),'archivio_completo':archive,'confezioni_pertinenti':len(chosen),
             'nuove_confezioni':fresh,'nuovi_match_candidati':inserted,
             'aic_precedenti_non_nel_file':len(set(old)-set(seen)),
             'nota':'L anagrafica non prova la classe vigente; le AIC assenti restano storiche',
