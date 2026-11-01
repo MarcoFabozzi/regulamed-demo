@@ -238,11 +238,26 @@ try:
                     "SELECT aic,nome,principio_attivo,descrizione FROM "+source_table+
                     " WHERE nome=? ORDER BY aic LIMIT 101",(name,))]
             st.markdown('#### Confezioni di '+name)
-            st.dataframe([{
+            st.caption('Tocca una riga della tabella per leggere la descrizione completa.')
+            shown=rows[:100]
+            selected_package=st.dataframe([{
                 'AIC':r['aic'],
                 'Principio attivo':r['principio_attivo'] or 'Non disponibile nel file acquisito',
                 'Confezione':r['descrizione'] or 'Non disponibile'
-            } for r in rows[:100]],hide_index=True,use_container_width=True,height=260)
+            } for r in shown],
+                hide_index=True,use_container_width=True,height=260,
+                column_config={'Confezione':st.column_config.TextColumn(
+                    'Confezione',width='large')},
+                on_select='rerun',selection_mode='single-row',
+                key='aifa_package_'+name)
+            package_rows=selected_package.selection.rows
+            if package_rows:
+                package=shown[package_rows[0]]
+                st.markdown('**Descrizione completa della confezione**')
+                st.write(package['descrizione'] or 'Non disponibile nel file acquisito')
+                st.caption('Codice AIC: '+str(package['aic']))
+                st.write('Principio attivo:',
+                         package['principio_attivo'] or 'Non disponibile nel file acquisito')
             if len(rows)>100:
                 st.caption('Visualizzate le prime 100 confezioni.')
         else:
