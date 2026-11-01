@@ -25,7 +25,7 @@ jobs:
       - name: Verifica sintassi
         run: python -m py_compile verifica_qualita_base_dati.py prepara_revisione_collegamenti.py
       - name: Test regressione revisioni, senza rete
-        run: python -m unittest -v test_prepara_revisione_collegamenti.py
+        run: python -m unittest -v tests.test_prepara_revisione_collegamenti
       - name: Audit strutturale e fonti, senza rete
         run: |
           python verifica_qualita_base_dati.py \
