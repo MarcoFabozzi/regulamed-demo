@@ -1,0 +1,1932 @@
+{
+  "generato_utc": "2026-11-01T13:46:35+00:00",
+  "totale_evidenze": 100,
+  "riepilogo": {
+    "AIC_NON_NEL_DATABASE_PRINCIPALE": 1,
+    "CANDIDATO_NOME_EMA_DA_REVISIONARE": 90,
+    "COLLEGAMENTO_GIA_DOCUMENTATO": 4,
+    "NOME_EMA_AMBIGUO_DA_REVISIONARE": 5
+  },
+  "nota": "Solo confronto documentale. Nessuna modifica al database e nessun link verificato creato.",
+  "elementi": [
+    {
+      "atto_gu": "25A04004",
+      "data_pubblicazione": "2025-07-18",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2025/07/18/25A04004/sg",
+      "codice_presentazione_ue": "EU/1/24/1891/001",
+      "aic": "051960019",
+      "nome_aifa": "LEQEMBI",
+      "principio_attivo_aifa": "",
+      "ema_documentato": "EMEA/H/C/005966",
+      "stato_revisione": "COLLEGAMENTO_GIA_DOCUMENTATO",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005966",
+          "nome": "Leqembi",
+          "principio_attivo": "Lecanemab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "25A04004",
+      "data_pubblicazione": "2025-07-18",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2025/07/18/25A04004/sg",
+      "codice_presentazione_ue": "EU/1/24/1891/002",
+      "aic": "051960021",
+      "nome_aifa": "LEQEMBI",
+      "principio_attivo_aifa": "",
+      "ema_documentato": "EMEA/H/C/005966",
+      "stato_revisione": "COLLEGAMENTO_GIA_DOCUMENTATO",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005966",
+          "nome": "Leqembi",
+          "principio_attivo": "Lecanemab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A02071",
+      "data_pubblicazione": "2026-05-06",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/05/06/26A02071/sg",
+      "codice_presentazione_ue": "EU/1/25/1926/001",
+      "aic": "052446010",
+      "nome_aifa": "KISUNLA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": "EMEA/H/C/006024",
+      "stato_revisione": "COLLEGAMENTO_GIA_DOCUMENTATO",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006024",
+          "nome": "Kisunla",
+          "principio_attivo": "donanemab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A02071",
+      "data_pubblicazione": "2026-05-06",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/05/06/26A02071/sg",
+      "codice_presentazione_ue": "EU/1/25/1926/002",
+      "aic": "052446022",
+      "nome_aifa": "KISUNLA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": "EMEA/H/C/006024",
+      "stato_revisione": "COLLEGAMENTO_GIA_DOCUMENTATO",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006024",
+          "nome": "Kisunla",
+          "principio_attivo": "donanemab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05307",
+      "data_pubblicazione": "2026-10-09",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/09/26A05307/sg",
+      "codice_presentazione_ue": "EU/1/24/1888/002",
+      "aic": "051922021",
+      "nome_aifa": "AHZANTIVE",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006607",
+          "nome": "Ahzantive",
+          "principio_attivo": "aflibercept"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05308",
+      "data_pubblicazione": "2026-10-09",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/09/26A05308/sg",
+      "codice_presentazione_ue": "EU/1/24/1851/003",
+      "aic": "051622037",
+      "nome_aifa": "ANZUPGO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006109",
+          "nome": "Anzupgo",
+          "principio_attivo": "Delgocitinib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05310",
+      "data_pubblicazione": "2026-10-10",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/10/26A05310/sg",
+      "codice_presentazione_ue": "EU/1/24/1896/013",
+      "aic": "052003136",
+      "nome_aifa": "AVTOZMA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006196",
+          "nome": "Avtozma",
+          "principio_attivo": "tocilizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05310",
+      "data_pubblicazione": "2026-10-10",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/10/26A05310/sg",
+      "codice_presentazione_ue": "EU/1/24/1896/014",
+      "aic": "052003148",
+      "nome_aifa": "AVTOZMA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006196",
+          "nome": "Avtozma",
+          "principio_attivo": "tocilizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05311",
+      "data_pubblicazione": "2026-10-10",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/10/26A05311/sg",
+      "codice_presentazione_ue": "EU/1/25/1949/002",
+      "aic": "052340027",
+      "nome_aifa": "DAZUBLYS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006219",
+          "nome": "Dazublys",
+          "principio_attivo": "trastuzumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05312",
+      "data_pubblicazione": "2026-10-10",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/10/26A05312/sg",
+      "codice_presentazione_ue": "EU/1/15/1007/005",
+      "aic": "044268050",
+      "nome_aifa": "GARDASIL 9",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/003852",
+          "nome": "Gardasil 9",
+          "principio_attivo": "human papillomavirus vaccine [types 6, 11, 16, 18, 31, 33, 45, 52, 58] (recombinant, adsorbed)"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05313",
+      "data_pubblicazione": "2026-10-12",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/12/26A05313/sg",
+      "codice_presentazione_ue": "EU/1/17/1257/003",
+      "aic": "046106035",
+      "nome_aifa": "HERZUMA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/002575",
+          "nome": "Herzuma",
+          "principio_attivo": "trastuzumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05315",
+      "data_pubblicazione": "2026-10-12",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/12/26A05315/sg",
+      "codice_presentazione_ue": "EU/1/24/1855/002",
+      "aic": "051464028",
+      "nome_aifa": "IQIRVO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006231",
+          "nome": "Iqirvo",
+          "principio_attivo": "Elafibranor"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05316",
+      "data_pubblicazione": "2026-10-12",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/12/26A05316/sg",
+      "codice_presentazione_ue": "EU/1/21/1590/008",
+      "aic": "049808088",
+      "nome_aifa": "LIBMYRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005947",
+          "nome": "Libmyris",
+          "principio_attivo": "adalimumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05316",
+      "data_pubblicazione": "2026-10-12",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/12/26A05316/sg",
+      "codice_presentazione_ue": "EU/1/21/1590/009",
+      "aic": "049808090",
+      "nome_aifa": "LIBMYRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005947",
+          "nome": "Libmyris",
+          "principio_attivo": "adalimumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05334",
+      "data_pubblicazione": "2026-10-13",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/13/26A05334/sg",
+      "codice_presentazione_ue": "EU/1/26/2042/001",
+      "aic": "053206013",
+      "nome_aifa": "VIJOICE",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "NOME_EMA_AMBIGUO_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005468",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        },
+        {
+          "ema_id": "EMEA/H/C/006539",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05334",
+      "data_pubblicazione": "2026-10-13",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/13/26A05334/sg",
+      "codice_presentazione_ue": "EU/1/26/2042/002",
+      "aic": "053206025",
+      "nome_aifa": "VIJOICE",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "NOME_EMA_AMBIGUO_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005468",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        },
+        {
+          "ema_id": "EMEA/H/C/006539",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05334",
+      "data_pubblicazione": "2026-10-13",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/13/26A05334/sg",
+      "codice_presentazione_ue": "EU/1/26/2042/003",
+      "aic": "053206037",
+      "nome_aifa": "VIJOICE",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "NOME_EMA_AMBIGUO_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005468",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        },
+        {
+          "ema_id": "EMEA/H/C/006539",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05334",
+      "data_pubblicazione": "2026-10-13",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/13/26A05334/sg",
+      "codice_presentazione_ue": "EU/1/26/2042/004",
+      "aic": "053206049",
+      "nome_aifa": "VIJOICE",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "NOME_EMA_AMBIGUO_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005468",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        },
+        {
+          "ema_id": "EMEA/H/C/006539",
+          "nome": "Vijoice",
+          "principio_attivo": "alpelisib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05335",
+      "data_pubblicazione": "2026-10-13",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/13/26A05335/sg",
+      "codice_presentazione_ue": "EU/1/26/2047/001",
+      "aic": "053205011",
+      "nome_aifa": "VISLYFA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006926",
+          "nome": "Vislyfa",
+          "principio_attivo": "ranibizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05335",
+      "data_pubblicazione": "2026-10-13",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/13/26A05335/sg",
+      "codice_presentazione_ue": "EU/1/26/2047/002",
+      "aic": "053205023",
+      "nome_aifa": "VISLYFA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006926",
+          "nome": "Vislyfa",
+          "principio_attivo": "ranibizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05338",
+      "data_pubblicazione": "2026-10-14",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/14/26A05338/sg",
+      "codice_presentazione_ue": "EU/1/23/1726/003",
+      "aic": "050666039",
+      "nome_aifa": "OPZELURA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005843",
+          "nome": "Opzelura",
+          "principio_attivo": "ruxolitinib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05339",
+      "data_pubblicazione": "2026-10-14",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/14/26A05339/sg",
+      "codice_presentazione_ue": "EU/1/23/1779/003",
+      "aic": "051043038",
+      "nome_aifa": "RIMMYRAH",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006055",
+          "nome": "Rimmyrah",
+          "principio_attivo": "ranibizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05340",
+      "data_pubblicazione": "2026-10-14",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/14/26A05340/sg",
+      "codice_presentazione_ue": "EU/1/18/1291/007",
+      "aic": "047626078",
+      "nome_aifa": "RIZMOIC",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/004256",
+          "nome": "Rizmoic",
+          "principio_attivo": "naldemedine tosilate"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05341",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05341/sg",
+      "codice_presentazione_ue": "EU/1/22/1628/003",
+      "aic": "050007032",
+      "nome_aifa": "SONDELBAY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "NOME_EMA_AMBIGUO_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005233",
+          "nome": "Sondelbay",
+          "principio_attivo": "teriparatide"
+        },
+        {
+          "ema_id": "EMEA/H/C/005827",
+          "nome": "Sondelbay",
+          "principio_attivo": "teriparatide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/013",
+      "aic": "049883135",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/014",
+      "aic": "049883147",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/015",
+      "aic": "049883150",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/016",
+      "aic": "049883162",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/017",
+      "aic": "049883174",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/018",
+      "aic": "049883186",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/019",
+      "aic": "049883198",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/020",
+      "aic": "049883200",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/021",
+      "aic": "049883212",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/022",
+      "aic": "049883224",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/023",
+      "aic": "049883236",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/024",
+      "aic": "049883248",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/025",
+      "aic": "049883251",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/026",
+      "aic": "049883263",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/027",
+      "aic": "049883275",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/028",
+      "aic": "049883287",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/029",
+      "aic": "049883299",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05342",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05342/sg",
+      "codice_presentazione_ue": "EU/1/21/1608/030",
+      "aic": "049883301",
+      "nome_aifa": "WEGOVY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/005422",
+          "nome": "Wegovy",
+          "principio_attivo": "semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05343",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05343/sg",
+      "codice_presentazione_ue": "EU/1/24/1812/002",
+      "aic": "051244022",
+      "nome_aifa": "WYOST",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006378",
+          "nome": "Wyost",
+          "principio_attivo": "denosumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05343",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05343/sg",
+      "codice_presentazione_ue": "EU/1/24/1812/003",
+      "aic": "051244034",
+      "nome_aifa": "WYOST",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006378",
+          "nome": "Wyost",
+          "principio_attivo": "denosumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05344",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05344/sg",
+      "codice_presentazione_ue": "EU/1/26/2036/001",
+      "aic": "053209019",
+      "nome_aifa": "ABLYMICO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006620",
+          "nome": "Ablymico",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05344",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05344/sg",
+      "codice_presentazione_ue": "EU/1/26/2036/002",
+      "aic": "053209021",
+      "nome_aifa": "ABLYMICO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006620",
+          "nome": "Ablymico",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05344",
+      "data_pubblicazione": "2026-10-15",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/15/26A05344/sg",
+      "codice_presentazione_ue": "EU/1/26/2036/003",
+      "aic": "053209033",
+      "nome_aifa": "ABLYMICO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006620",
+          "nome": "Ablymico",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05362",
+      "data_pubblicazione": "2026-10-16",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/16/26A05362/sg",
+      "codice_presentazione_ue": "EU/1/26/2044/001",
+      "aic": "053239012",
+      "nome_aifa": "BOEY",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006420",
+          "nome": "Boey",
+          "principio_attivo": "trenibotulinumtoxinE"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05363",
+      "data_pubblicazione": "2026-10-16",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/16/26A05363/sg",
+      "codice_presentazione_ue": "EU/1/25/2011/001",
+      "aic": "053189015",
+      "nome_aifa": "CENRIFKI",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006386",
+          "nome": "Cenrifki",
+          "principio_attivo": "tolebrutinib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05363",
+      "data_pubblicazione": "2026-10-16",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/16/26A05363/sg",
+      "codice_presentazione_ue": "EU/1/25/2011/002",
+      "aic": "053189027",
+      "nome_aifa": "CENRIFKI",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006386",
+          "nome": "Cenrifki",
+          "principio_attivo": "tolebrutinib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05363",
+      "data_pubblicazione": "2026-10-16",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/16/26A05363/sg",
+      "codice_presentazione_ue": "EU/1/25/2011/003",
+      "aic": "053189039",
+      "nome_aifa": "CENRIFKI",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006386",
+          "nome": "Cenrifki",
+          "principio_attivo": "tolebrutinib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05365",
+      "data_pubblicazione": "2026-10-16",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/16/26A05365/sg",
+      "codice_presentazione_ue": "EU/1/26/2046/001",
+      "aic": "053258012",
+      "nome_aifa": "ETCAMAH",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006494",
+          "nome": "Etcamah",
+          "principio_attivo": "camizestrant"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05366",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05366/sg",
+      "codice_presentazione_ue": "EU/1/26/2038/001",
+      "aic": "053145013",
+      "nome_aifa": "ITVISMA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006498",
+          "nome": "Itvisma",
+          "principio_attivo": "onasemnogene abeparvovec"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/001",
+      "aic": "053208017",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/002",
+      "aic": "053208029",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/003",
+      "aic": "053208031",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/004",
+      "aic": "053208043",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/005",
+      "aic": "053208056",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/006",
+      "aic": "053208068",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/007",
+      "aic": "053208070",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/008",
+      "aic": "053208082",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/009",
+      "aic": "053208094",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05367",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05367/sg",
+      "codice_presentazione_ue": "EU/1/26/2040/010",
+      "aic": "053208106",
+      "nome_aifa": "JASCAYD",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006405",
+          "nome": "Jascayd",
+          "principio_attivo": "nerandomilast"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05368",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05368/sg",
+      "codice_presentazione_ue": "EU/1/26/2037/001",
+      "aic": "053210011",
+      "nome_aifa": "LIRAGLUTIDE STADA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006615",
+          "nome": "Liraglutide STADA",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05368",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05368/sg",
+      "codice_presentazione_ue": "EU/1/26/2037/002",
+      "aic": "053210023",
+      "nome_aifa": "LIRAGLUTIDE STADA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006615",
+          "nome": "Liraglutide STADA",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05368",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05368/sg",
+      "codice_presentazione_ue": "EU/1/26/2037/003",
+      "aic": "053210035",
+      "nome_aifa": "LIRAGLUTIDE STADA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006615",
+          "nome": "Liraglutide STADA",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05368",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05368/sg",
+      "codice_presentazione_ue": "EU/1/26/2037/004",
+      "aic": "053210047",
+      "nome_aifa": "LIRAGLUTIDE STADA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006615",
+          "nome": "Liraglutide STADA",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05368",
+      "data_pubblicazione": "2026-10-17",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/17/26A05368/sg",
+      "codice_presentazione_ue": "EU/1/26/2037/005",
+      "aic": "053210050",
+      "nome_aifa": "LIRAGLUTIDE STADA",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006615",
+          "nome": "Liraglutide STADA",
+          "principio_attivo": "liraglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/001",
+      "aic": "053180016",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/002",
+      "aic": "053180028",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/003",
+      "aic": "053180030",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/004",
+      "aic": "053180042",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/005",
+      "aic": "053180055",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/006",
+      "aic": "053180067",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/007",
+      "aic": "053180079",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/008",
+      "aic": "053180081",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/009",
+      "aic": "053180093",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/010",
+      "aic": "053180105",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/011",
+      "aic": "053180117",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/012",
+      "aic": "053180129",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/013",
+      "aic": "053180131",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/014",
+      "aic": "053180143",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/015",
+      "aic": "053180156",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/016",
+      "aic": "053180168",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/017",
+      "aic": "053180170",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05369",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05369/sg",
+      "codice_presentazione_ue": "EU/1/26/2039/018",
+      "aic": "053180182",
+      "nome_aifa": "PALBOCICLIB VIATRIS",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006624",
+          "nome": "Palbociclib Viatris",
+          "principio_attivo": "Palbociclib"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05370",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05370/sg",
+      "codice_presentazione_ue": "EU/1/26/2041/001",
+      "aic": "053079012",
+      "nome_aifa": null,
+      "principio_attivo_aifa": null,
+      "ema_documentato": null,
+      "stato_revisione": "AIC_NON_NEL_DATABASE_PRINCIPALE",
+      "candidati_ema_per_nome": [],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05371",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05371/sg",
+      "codice_presentazione_ue": "EU/1/26/2043/001",
+      "aic": "053179014",
+      "nome_aifa": "REXATILUX",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006634",
+          "nome": "Rexatilux",
+          "principio_attivo": "ranibizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05371",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05371/sg",
+      "codice_presentazione_ue": "EU/1/26/2043/002",
+      "aic": "053179026",
+      "nome_aifa": "REXATILUX",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006634",
+          "nome": "Rexatilux",
+          "principio_attivo": "ranibizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05372",
+      "data_pubblicazione": "2026-10-19",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/19/26A05372/sg",
+      "codice_presentazione_ue": "EU/1/19/1361/010",
+      "aic": "047821107",
+      "nome_aifa": "SKYRIZI",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/004759",
+          "nome": "Skyrizi",
+          "principio_attivo": "risankizumab"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05512",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05512/sg",
+      "codice_presentazione_ue": "EU/1/25/2014/001",
+      "aic": "052903010",
+      "nome_aifa": "MYQORZO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006228",
+          "nome": "Myqorzo",
+          "principio_attivo": "aficamten"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05512",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05512/sg",
+      "codice_presentazione_ue": "EU/1/25/2014/002",
+      "aic": "052903022",
+      "nome_aifa": "MYQORZO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006228",
+          "nome": "Myqorzo",
+          "principio_attivo": "aficamten"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05512",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05512/sg",
+      "codice_presentazione_ue": "EU/1/25/2014/003",
+      "aic": "052903034",
+      "nome_aifa": "MYQORZO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006228",
+          "nome": "Myqorzo",
+          "principio_attivo": "aficamten"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05512",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05512/sg",
+      "codice_presentazione_ue": "EU/1/25/2014/004",
+      "aic": "052903046",
+      "nome_aifa": "MYQORZO",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006228",
+          "nome": "Myqorzo",
+          "principio_attivo": "aficamten"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05513",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05513/sg",
+      "codice_presentazione_ue": "EU/1/25/1992/001",
+      "aic": "052735014",
+      "nome_aifa": "KYINSU",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006279",
+          "nome": "Kyinsu",
+          "principio_attivo": "insulin icodec;semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05513",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05513/sg",
+      "codice_presentazione_ue": "EU/1/25/1992/002",
+      "aic": "052735026",
+      "nome_aifa": "KYINSU",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006279",
+          "nome": "Kyinsu",
+          "principio_attivo": "insulin icodec;semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05513",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05513/sg",
+      "codice_presentazione_ue": "EU/1/25/1992/003",
+      "aic": "052735038",
+      "nome_aifa": "KYINSU",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006279",
+          "nome": "Kyinsu",
+          "principio_attivo": "insulin icodec;semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05513",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05513/sg",
+      "codice_presentazione_ue": "EU/1/25/1992/004",
+      "aic": "052735040",
+      "nome_aifa": "KYINSU",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006279",
+          "nome": "Kyinsu",
+          "principio_attivo": "insulin icodec;semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05513",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05513/sg",
+      "codice_presentazione_ue": "EU/1/25/1992/005",
+      "aic": "052735053",
+      "nome_aifa": "KYINSU",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006279",
+          "nome": "Kyinsu",
+          "principio_attivo": "insulin icodec;semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    },
+    {
+      "atto_gu": "26A05513",
+      "data_pubblicazione": "2026-10-22",
+      "fonte_ufficiale": "https://www.gazzettaufficiale.it/eli/id/2026/10/22/26A05513/sg",
+      "codice_presentazione_ue": "EU/1/25/1992/006",
+      "aic": "052735065",
+      "nome_aifa": "KYINSU",
+      "principio_attivo_aifa": "",
+      "ema_documentato": null,
+      "stato_revisione": "CANDIDATO_NOME_EMA_DA_REVISIONARE",
+      "candidati_ema_per_nome": [
+        {
+          "ema_id": "EMEA/H/C/006279",
+          "nome": "Kyinsu",
+          "principio_attivo": "insulin icodec;semaglutide"
+        }
+      ],
+      "avvertenza": "L abbinamento per nome non conferma la presentazione UE o lo stato regolatorio."
+    }
+  ]
+}

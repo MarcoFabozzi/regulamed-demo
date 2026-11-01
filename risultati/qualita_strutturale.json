@@ -1,11 +1,9 @@
 {
-  "generato_utc": "2026-11-01T10:43:41+00:00",
+  "generato_utc": "2026-11-01T13:46:35+00:00",
   "stato": "OK",
   "controlli_bloccanti": [],
   "avvertenze": [
-    "Hash di alcuni allegati GU da verificare",
     "La percentuale di medicinali con link EU-AIC documentato è ancora bassa",
-    "aifa_anagrafica: non esiste ancora un rapporto di successo",
     "aifa_ah: non esiste ancora un rapporto di successo",
     "aifa_cnn: non esiste ancora un rapporto di successo"
   ],
@@ -13,17 +11,17 @@
     "errori_foreign_key": 0,
     "conteggi": {
       "acquisizioni": 7,
-      "aifa_confezioni": 381,
+      "aifa_confezioni": 10606,
       "classi_snapshot": 54,
       "cnn_elenco_storico": 41,
-      "ema_medicinali": 300,
-      "ema_revisioni_snapshot": 300,
+      "ema_medicinali": 2357,
+      "ema_revisioni_snapshot": 2357,
       "eventi_verificati": 4,
-      "gazzetta_atti": 6,
-      "gu_allegati": 4,
-      "gu_coppie_eu_aic": 25,
+      "gazzetta_atti": 60,
+      "gu_allegati": 33,
+      "gu_coppie_eu_aic": 100,
       "link_verificati": 10,
-      "match_candidati": 371
+      "match_candidati": 10720
     },
     "riferimenti_orfani": {
       "link_senza_ema": 0,
@@ -41,19 +39,20 @@
     "stato_ema_non_nello_storico": 0,
     "gu_file_mancanti": 0,
     "gu_allegati_mancanti": 0,
-    "gu_allegati_hash_errato": 2,
+    "gu_allegati_hash_errato": 0,
+    "gu_allegati_diversi_solo_per_fine_riga": 2,
     "coppie_gu_formato_invalido": 0,
     "medicinali_con_link_documentato": 3,
-    "percentuale_copertura_documentata": 1.0
+    "percentuale_copertura_documentata": 0.13
   },
   "fonti": {
     "ema": {
       "stato": "OK",
-      "ultima_acquisizione_utc": "2026-11-01T10:15:24+00:00"
+      "ultima_acquisizione_utc": "2026-11-01T12:18:27+00:00"
     },
     "aifa_anagrafica": {
-      "stato": "NON_ANCORA_VERIFICATO",
-      "ultima_acquisizione_utc": null
+      "stato": "OK",
+      "ultima_acquisizione_utc": "2026-11-01T12:27:02+00:00"
     },
     "aifa_ah": {
       "stato": "NON_ANCORA_VERIFICATO",
@@ -65,7 +64,7 @@
     },
     "gazzetta": {
       "stato": "OK",
-      "ultima_acquisizione_utc": "2026-11-01T10:01:32+00:00"
+      "ultima_acquisizione_utc": "2026-11-01T13:39:16+00:00"
     }
   },
   "nota": "Solo qualita strutturale e provenienza locale: non verifica la classe vigente."
