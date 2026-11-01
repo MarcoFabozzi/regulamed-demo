@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Controlli scientifici e strutturali RegulaMed, SOLO LETTURA, senza rete.
+"""Controlli scientifici e strutturali FarmaQuery, SOLO LETTURA, senza rete.
 
 Blocca la pubblicazione solo per errori verificabili; segnala a parte lacune
 di copertura, fonti non aggiornate e casi che richiedono revisione umana.
