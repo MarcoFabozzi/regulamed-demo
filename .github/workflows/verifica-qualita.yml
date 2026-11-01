@@ -1,0 +1,40 @@
+name: RegulaMed - verifica qualita database
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '12 7 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regulamed-single-snapshot-writer
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.repository == 'MarcoFabozzi/regulamed-demo'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verifica sintassi
+        run: python -m py_compile verifica_qualita_base_dati.py
+      - name: Audit strutturale e fonti, senza rete
+        run: |
+          python verifica_qualita_base_dati.py \
+            --db risultati/farmaci_automatico.sqlite \
+            --output risultati/qualita_strutturale.json --strict
+      - name: Pubblica audit solo dopo successo
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add risultati/qualita_strutturale.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'qa: report integrita e provenienza database'
+            git push origin HEAD:main
+          fi
