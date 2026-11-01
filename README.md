@@ -1,8 +1,37 @@
-# RegulaMed — prototipo di tesi
+# FarmaQuery — prototipo di tesi
 
 Dashboard di consultazione in sola lettura di un campione di informazioni regolatorie su medicinali EMA, AIFA e Gazzetta Ufficiale.
 
 **Avvertenza:** demo accademica. Le classificazioni mostrate sono associate a fonti e date specifiche; non certificano la rimborsabilità vigente, non forniscono raccomandazioni mediche e non sostituiscono le fonti ufficiali.
+
+## Rinomina del progetto (FarmaQuery)
+
+Il codice e i titoli dell'applicazione utilizzano **FarmaQuery**. Il repository puo' rimanere
+temporaneamente `MarcoFabozzi/regulamed-demo` finche' non viene completato il
+passaggio sul servizio Streamlit Community Cloud.
+
+**Sequenza per completare il cambio di repository senza perdere il controllo del deployment:**
+
+1. Su https://share.streamlit.io, aprire l'app esistente e scegliere **Delete** nel menu dell'app.
+   Questa operazione elimina il *deployment*, **non** il database salvato su GitHub.
+2. Nelle impostazioni GitHub del repository, cambiare **Repository name**
+   da `regulamed-demo` a `farmaquery`. GitHub conserva la storia del repository.
+3. Su Streamlit Community Cloud scegliere **Create app** dal repository
+   `MarcoFabozzi/farmaquery`, branch `main`, entrypoint `dashboard_regolatorio.py`.
+   Nel campo **App URL** richiedere `farmaquery.streamlit.app` **se disponibile**.
+4. Verificare la ricerca dei farmaci, la pagina di dettaglio e l'esito dei workflow
+   GitHub Actions dopo il cambio. Se esiste una copia locale Git,
+   aggiornare il remote a `https://github.com/MarcoFabozzi/farmaquery.git`.
+
+**Importante:** i workflow di aggiornamento accettano in via transitoria
+sia il vecchio sia il nuovo nome del repository; non modificare l'identificativo
+del repository nei workflow prima del passaggio. Dopo la migrazione riuscita,
+si potra' togliere il riferimento transitorio al vecchio nome.
+
+Il nome `farmaquery.streamlit.app` **non e' garantito** prima della verifica di
+disponibilita' nel pannello Streamlit. L'app Streamlit esistente va eliminata
+**prima** della rinomina del repository: consultare
+https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/rename-your-app
 
 ## Avvio
 
@@ -38,7 +67,7 @@ Tutti aggiornano **in sequenza** il medesimo archivio `risultati/farmaci_automat
 - AIFA aggiorna anagrafica campione, liste A/H storiche e C(nn) dal sito ufficiale. Se un CSV non è disponibile, **solo AIFA** fallisce; EMA e GU restano indipendenti.
 - Gazzetta esamina i sommari recenti di Serie Generale per medicinali del campione, acquisisce il testo disponibile e gli eventuali allegati HTML. Nuove coppie EU/AIC sono **evidenze da revisionare**, mai match automaticamente verificati. Non è una ricerca completa di tutti gli atti, né un certificato di rimborsabilità corrente.
 - Se una fonte fallisce, rimane online l'ultimo archivio valido. Errori di rete e formati non riconosciuti non sono aggirati con dati inventati.
-- Il workflow storico [aggiorna-regulamed.yml](.github/workflows/aggiorna-regulamed.yml) non è più pianificato, ma resta richiamabile manualmente per compatibilità: **non usarlo** come aggiornamento ordinario.
+- Il workflow storico [aggiorna-farmaquery.yml](.github/workflows/aggiorna-farmaquery.yml) non è più pianificato, ma resta richiamabile manualmente per compatibilità: **non usarlo** come aggiornamento ordinario.
 
 **Collaudo:** i nuovi workflow devono superare almeno una prima esecuzione reale nella scheda Actions. Prima di allora, la loro presenza nel repository non prova che abbiano scaricato e pubblicato nuovi dati. La dashboard mostra "Da verificare" per una fonte senza rapporto di successo.
 
