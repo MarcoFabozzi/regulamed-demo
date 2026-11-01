@@ -285,6 +285,31 @@ with med_tab:
 
 with gu_tab:
     st.subheader('Determine e allegati Gazzetta Ufficiale')
+    audit_path = DATA / 'audit_evidenze_gazzetta.json'
+    if audit_path.is_file():
+        try:
+            audit_doc = json.loads(audit_path.read_text(encoding='utf-8'))
+            counts_audit = audit_doc.get('riepilogo', {})
+            st.markdown('#### Controllo documentale delle coppie EU–AIC')
+            g1,g2,g3=st.columns(3)
+            g1.metric('Coerenti nel testo, da revisionare',
+                      counts_audit.get('COERENTE_NEL_TESTO_DA_REVISIONARE',0))
+            g2.metric('Da verificare con priorità',
+                      counts_audit.get('REVISIONE_PRIORITARIA',0))
+            g3.metric('Anomalie documentali',
+                      counts_audit.get('ANOMALIA_DOCUMENTALE',0))
+            st.caption('Controllo automatico di integrità, vicinanza dei codici e possibili conflitti. '
+                       'Non equivale a una verifica giuridica della classificazione o rimborsabilità.')
+            with st.expander('Apri risultati della revisione documentale'):
+                show_table([{'atto':x.get('atto'),'EU':x.get('presentazione_ue'),
+                             'AIC':x.get('aic'),'esito':x.get('esito_controllo_automatico'),
+                             'motivi':', '.join(x.get('motivi',[]))}
+                            for x in audit_doc.get('coppie',[])],height=320)
+        except (OSError,ValueError,KeyError,TypeError):
+            st.warning('Il rapporto di audit Gazzetta non è leggibile.')
+    else:
+        st.info('L’audit dettagliato delle coppie EU–AIC comparirà dopo il prossimo '
+                'aggiornamento Gazzetta completato e verificato.')
     if not exists(db,'gazzetta_atti'):
         st.info('Il database selezionato non contiene ancora gli atti della Gazzetta. Esegui `importa_gazzetta.py` e `integra_allegati.py` sullo stesso archivio.')
     else:
