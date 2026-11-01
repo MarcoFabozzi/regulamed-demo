@@ -106,8 +106,18 @@ except Exception as exc:
     st.error(f'Impossibile leggere l’archivio: {exc}')
     st.stop()
 
+def formatta_data_italiana(valore):
+    """Formatta solo date ISO valide, senza supporre una pubblicazione."""
+    if not isinstance(valore, str) or not valore:
+        return 'Non disponibile'
+    try:
+        return datetime.strptime(valore, '%Y-%m-%d').strftime('%d/%m/%Y')
+    except ValueError:
+        return 'Non disponibile'
+
+
 def stato_aggiornamento(folder):
-    """Ultimo import riuscito, non ultimo tentativo GitHub Actions."""
+    """Legge il manifest dell'ultimo import riuscito, non l'ultimo tentativo."""
     path = folder / 'risultati' / 'rapporto_automatico.json'
     try:
         obj = json.loads(path.read_text(encoding='utf-8'))
@@ -115,13 +125,17 @@ def stato_aggiornamento(folder):
         if dt.tzinfo is None or obj.get('modalita') != 'FONTI_UFFICIALI':
             raise ValueError('provenienza o timestamp non verificabile')
         days = max(0, (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)).total_seconds()/86400)
+        data_pubblicazione = obj.get('data_pubblicazione_liste_ah_verificata')
         return {
             'ora': dt.astimezone(ZoneInfo('Europe/Rome')).strftime('%d/%m/%Y alle %H:%M'),
             'eta_giorni': days,
-            'classe_ah': obj.get('data_liste_ah') or 'non disponibile'
+            'classe_ah': formatta_data_italiana(obj.get('data_liste_ah')),
+            'pubblicazione_ah': formatta_data_italiana(data_pubblicazione)
+                               if data_pubblicazione else 'Non verificata',
         }
-    except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
+    except (OSError, ValueError, KeyError, TypeError):
         return None
+
 
 
 counts=report['tabelle']; coverage=report['copertura']; evidences=report['evidenze_gazzetta']
@@ -132,16 +146,19 @@ st.markdown('''<div class="hero"><div class="eyebrow">Tesi sperimentale · Data 
 <div class="chip">Database documentale · Nessuna risposta generata da LLM</div></div>''',unsafe_allow_html=True)
 stato = stato_aggiornamento(BASE) if 'importato' in selection else None
 if stato:
-    a, b = st.columns([2, 1])
-    a.metric('Ultima importazione riuscita (ora italiana)', stato['ora'])
-    b.metric('Riferimento elenchi AIFA A/H', stato['classe_ah'])
+    a, b, c = st.columns([2, 1, 1])
+    a.metric('Ultima acquisizione completa riuscita', stato['ora'])
+    b.metric('AIFA A/H: data di riferimento', stato['classe_ah'])
+    c.metric('AIFA A/H: pubblicazione', stato['pubblicazione_ah'])
+    st.caption('**Acquisizione** = download e importazione completati. '
+               '**Riferimento** = data alla quale si riferiscono gli elenchi A/H. '
+               '**Pubblicazione** = quando gli elenchi sono stati resi disponibili, '
+               'mostrata soltanto con una fonte verificata. '
+               'Queste date non certificano lo stato normativo vigente.')
     if stato['eta_giorni'] > 2:
-        st.warning('I dati dell’archivio sono stati importati oltre 48 ore fa. '
-                   'L’aggiornamento automatico potrebbe essere in ritardo: '
-                   'controlla GitHub Actions. La data non certifica la situazione normativa corrente.')
-    else:
-        st.caption('Data dell’ultimo aggiornamento riuscito pubblicato, non dell’ultimo tentativo. '
-                   'Le fonti AIFA possono avere date di riferimento precedenti.')
+        st.warning('L’ultima acquisizione completa risale a oltre 48 ore fa. '
+                   'Potrebbero esserci stati errori di aggiornamento; consulta GitHub Actions. '
+                   'La Gazzetta Ufficiale non è ancora aggiornata automaticamente.')
 else:
     st.info('Data dell’ultima importazione ufficiale non disponibile o non verificabile.')
 
@@ -307,14 +324,19 @@ with src_tab:
     if last:
         a,b,c=st.columns(3)
         a.metric('Tipo importazione',last.get('modalita') or 'N/D')
-        b.metric('Ultima importazione (UTC)',last.get('fine_utc') or 'N/D')
-        c.metric('Riferimento liste A/H',last.get('data_liste_ah') or 'N/D')
+        b.metric('Importazione completata (UTC)',last.get('fine_utc') or 'N/D')
+        c.metric('A/H: data di riferimento',formatta_data_italiana(last.get('data_liste_ah')))
+        st.caption('Data di pubblicazione degli elenchi A/H: '
+                   + (stato['pubblicazione_ah'] if stato else 'non verificata')
+                   + '. Il giorno del download non coincide necessariamente con la pubblicazione '
+                     'né con l’efficacia normativa degli atti.')
     st.markdown('#### Acquisizioni archiviate')
     acqu=[{k:r.get(k) for k in ('tipo','origine','data_acquisizione','data_riferimento','etichetta','sha256')}
           for r in report['acquisizioni']]
     show_table(acqu,height=340)
     st.markdown('#### Snapshot A/H archiviati')
     show_table(report['snapshot_ah'],height=220)
+    st.warning('L’aggiornamento programmato è attualmente unico per EMA e AIFA (anagrafica, A, H e C(nn)): se manca una fonte, l’intero snapshot EMA–AIFA non viene pubblicato. La Gazzetta Ufficiale viene gestita separatamente e non dispone ancora di un aggiornamento programmato.')
     st.warning('Le acquisizioni ripetute possono conservare più record di provenienza per dataset. La data di download non coincide con la data di validità normativa.')
     st.markdown('#### Fonti istituzionali')
     st.markdown('• [EMA – Download medicine data](https://www.ema.europa.eu/en/medicines/download-medicine-data)')
