@@ -68,32 +68,16 @@ def normalize(v):
 
 
 def update_ema(db, work):
-    src = etl.EMA_MEDICINES_JSON
-    p = work / 'ema.json'
-    meta = etl.salva_dataset(src, p, etl.MAX_BYTES['ema'])
-    rows = list(pipeline.lista_ema(p))
-    if len(rows) < 100:
-        raise ValueError('Dataset EMA insolitamente piccolo')
-    lookup = {r['ema_id']: r for r in rows}
-    existing = db.execute('SELECT ema_id,nome FROM ema_medicinali').fetchall()
-    if not existing or len(existing) < 20:
-        raise ValueError('Manca il campione EMA gia validato')
-    missing = [key for key, _ in existing if key not in lookup]
-    if missing:
-        raise ValueError(f'{len(missing)} medicinali EMA preesistenti non piu nel dataset: revisione necessaria')
-    for key, name in existing:
-        if normalize(name) != normalize(lookup[key]['nome']):
-            raise ValueError(f'Nome EMA cambiato per {key}: revisione richiesta')
-    sid = source_id(db, 'ema', p, src)
-    for key, _ in existing:
-        r = lookup[key]
-        db.execute('''UPDATE ema_medicinali SET principio_attivo=?, stato_ema=?,
-            data_decisione_ue=?, indicazione_ema=?, url_ema=?, acquisizione_id=? WHERE ema_id=?''',
-            (r['principio_attivo'],r['stato_ema'],r['data_decisione_ue'],
-             r['indicazione_ema'],r['url_ema'],sid,key))
-    return {'file_record':len(rows),'aggiornati':len(existing),
-            'nota_data':'data_decisione_ue: campo decisione CE del dataset EMA, non necessariamente prima autorizzazione',
-            'fonti':{'ema':dict(url=src, **meta)}}
+    from catalogo_ema import importa_catalogo_ema
+    src=etl.EMA_MEDICINES_JSON
+    p=work/'ema.json'
+    meta=etl.salva_dataset(src,p,etl.MAX_BYTES['ema'])
+    rows=list(pipeline.lista_ema(p))
+    if len(rows)<100:
+        raise ValueError('Catalogo EMA troppo piccolo')
+    sid=source_id(db,'ema',p,src)
+    result=importa_catalogo_ema(db,rows,sid,target=300)
+    return {**result,'fonti':{'ema':dict(url=src,**meta)}}
 
 
 def discover_aifa():
