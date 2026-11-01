@@ -29,6 +29,25 @@ class AIFAComponentsTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             aifa.assert_urls({'aifa_cnn':'https://example.org/lista_Cnn_2026.csv'}, ('aifa_cnn',))
 
+    def test_fallback_uses_discovery_timestamp_from_statistics(self):
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        import json
+        from datetime import datetime, timezone
+        with TemporaryDirectory() as folder:
+            state_dir=Path(folder)
+            now=datetime.now(timezone.utc).isoformat(timespec='seconds')
+            (state_dir/'aifa_cnn.json').write_text(json.dumps({
+                'esito':'OK','fonte':'aifa_cnn',
+                'statistiche':{'ultima_scoperta_indice_utc':now},
+                'fonti':{'aifa_cnn':{'url':
+                    'https://www.aifa.gov.it/documents/20142/847358/lista_farmaci_valutati_inserimento_classe_Cnn_14.10.2026.csv'}}
+            }),encoding='utf-8')
+            with patch.object(aifa,'STATES',state_dir):
+                urls,details=aifa._fallback('aifa_cnn',RuntimeError('offline'))
+            self.assertEqual(details['metodo_scoperta'],'url_ufficiali_precedenti')
+            self.assertIn('aifa_cnn',urls)
+
     def test_cnn_date_filename(self):
         self.assertEqual(aifa._date_cnn_from_url(
             'https://www.aifa.gov.it/documents/20142/847358/lista_farmaci_valutati_inserimento_classe_Cnn_14.10.2026.csv'),
