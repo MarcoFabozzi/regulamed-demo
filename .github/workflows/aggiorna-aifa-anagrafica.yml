@@ -53,11 +53,15 @@ jobs:
 
       - name: Check Python source files
         if: steps.due.outputs.run == 'true'
-        run: python -m py_compile pipeline.py aggiorna_automatico.py aifa_componenti.py aifa_archivio_completo.py aggiorna_indipendente.py gazzetta_incrementale.py
+        run: python -m py_compile pipeline.py aggiorna_automatico.py aifa_componenti.py aifa_principi_attivi.py aifa_archivio_completo.py aggiorna_indipendente.py gazzetta_incrementale.py
 
       - name: Test separazione fonti AIFA
         if: steps.due.outputs.run == 'true'
         run: python -m unittest -v tests.test_aifa_componenti
+
+      - name: Test arricchimento principi attivi AIFA
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v tests.test_aifa_principi_attivi
 
       - name: Test archivio AIFA completo (senza rete)
         if: steps.due.outputs.run == 'true'
