@@ -61,3 +61,10 @@ Test della migrazione, senza rete: `python -m unittest -v test_catalogo_ema.py`.
 Il workflow combinato AIFA non è più pianificato. Il modulo `aifa_componenti.py` separa anagrafica confezioni (CSV diretto ufficiale), liste A/H (due file con la stessa data di riferimento) ed elenco storico C(nn). Ogni componente ha proprio workflow e report in `risultati/stato_fonti/`, ritenta ogni ora dopo i fallimenti e aggiorna solo i propri dati. I collegamenti EU-AIC già documentati non vengono alterati. Le classi A/H e C(nn) sono informazioni storiche, non certificazione di rimborsabilità vigente.
 
 Test offline: `python -m unittest -v test_aifa_componenti.py`. Il collaudo su GitHub Actions delle tre nuove pipeline è ancora necessario.
+
+
+## Audit offline della qualita del database
+
+Il file `verifica_qualita_base_dati.py` esamina in sola lettura l'ultimo SQLite pubblicato e gli allegati GU presenti nel repository. Controlla `PRAGMA integrity_check`, chiavi esterne, ID orfani, conflitti delle classi A/H nella stessa data, completezza dello storico EMA, hash e percorsi degli allegati, formati EU/AIC e ultimo successo per fonte. Distingue errori bloccanti (strutturali) da avvertenze (AIFA non aggiornato, bassa copertura documentale). Non valuta la rimborsabilita vigente.
+
+Il workflow [verifica-qualita.yml](.github/workflows/verifica-qualita.yml) e programmato una volta al giorno, senza scaricare nuove fonti. Pubblica `risultati/qualita_strutturale.json` solo se tutti i controlli bloccanti sono superati. Il rapporto appare nella scheda *Qualita e report* della dashboard. Da collaudare con una prima esecuzione manuale GitHub Actions; un workflow salvato non equivale ad audit riuscito.
