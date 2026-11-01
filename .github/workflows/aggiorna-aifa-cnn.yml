@@ -57,7 +57,7 @@ jobs:
 
       - name: Test separazione fonti AIFA
         if: steps.due.outputs.run == 'true'
-        run: python -m unittest -v test_aifa_componenti.py
+        run: python -m unittest -v tests.test_aifa_componenti
 
       - name: Update AIFA and validate snapshot
         if: steps.due.outputs.run == 'true'
