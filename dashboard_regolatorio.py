@@ -35,6 +35,10 @@ div[data-testid="stMetric"] {background:linear-gradient(155deg,#ffffff,#e4f7f1);
 div[data-testid="stMetricValue"] {color:#0c716d;font-weight:750;}
 div[data-testid="stMetricLabel"] {color:#315c68;}
 div[data-testid="stTextInput"] input {background:#f5fbf9;border-radius:10px;}
+div[data-testid="stButton"] button {border-radius:11px;border:1px solid #cce8e2;
+    background:#f4fbf9;color:#164c5c;font-weight:550;}
+div[data-testid="stButton"] button:hover {background:#dff5ee;border-color:#169b85;color:#105c5b;}
+
 @media(max-width:650px) {
     .regula-hero {padding:20px 18px;border-radius:17px;}
     .regula-hero h1 {font-size:1.85rem;}
@@ -171,7 +175,7 @@ if term.strip():
             st.warning(f'Archivio AIFA momentaneamente non disponibile: {exc}')
 
 st.markdown('### 📚 Elenco dei farmaci')
-st.caption('Sfoglia le denominazioni nazionali AIFA e seleziona un medicinale per vedere le confezioni.')
+st.caption('Tocca il nome di un farmaco per visualizzare le confezioni AIFA.')
 if AIFA.is_file():
     try:
         list_db=archivio_aifa(str(AIFA),AIFA.stat().st_mtime_ns)
@@ -189,10 +193,17 @@ letter='Tutte'
 if not term.strip():
     letter=st.selectbox('Sfoglia per iniziale',['Tutte']+list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),
                         key='aifa_letter')
+
+# La selezione rimane coerente con la ricerca e con la pagina corrente.
+filter_id=(term.strip().casefold(),letter)
+if st.session_state.get('aifa_filter_id')!=filter_id:
+    st.session_state['aifa_filter_id']=filter_id
+    st.session_state['aifa_page']=0
+    st.session_state['aifa_selected_name']=None
+
 conditions=["nome IS NOT NULL","TRIM(nome) <> ''"]
 params=[]
 if term.strip():
-    # La ricerca superiore filtra anche questo elenco per nome, AIC o principio attivo.
     raw=term.strip().replace('\\','\\\\').replace('%','\\%').replace('_','\\_')
     pattern='%'+raw+'%'
     conditions.append("(nome LIKE ? ESCAPE '\\' OR aic LIKE ? ESCAPE '\\' OR principio_attivo LIKE ? ESCAPE '\\')")
@@ -201,35 +212,51 @@ elif letter!='Tutte':
     conditions.append("nome LIKE ?")
     params.append(letter+'%')
 
+page_size=8
+page=max(0,int(st.session_state.get('aifa_page',0)))
 list_sql=("SELECT DISTINCT nome FROM "+source_table+
           " WHERE "+' AND '.join(conditions)+
-          " ORDER BY nome COLLATE NOCASE LIMIT 41")
+          " ORDER BY nome COLLATE NOCASE LIMIT ? OFFSET ?")
 try:
     with closing(sqlite3.connect(list_db.as_uri()+'?mode=ro',uri=True)) as conn:
         conn.row_factory=sqlite3.Row
         conn.execute('PRAGMA query_only=ON')
-        drug_names=[r['nome'] for r in conn.execute(list_sql,params)]
-        visible=drug_names[:40]
+        drug_names=[r['nome'] for r in conn.execute(
+            list_sql,[*params,page_size+1,page*page_size])]
+        visible=drug_names[:page_size]
+        has_next=len(drug_names)>page_size
         if visible:
-            st.dataframe([{'Medicinale':name} for name in visible],
-                         hide_index=True,use_container_width=True,height=245)
-            if len(drug_names)>40:
-                st.caption('Mostrati i primi 40 nomi in ordine alfabetico. '
-                           'Usa la ricerca in alto o scegli un’iniziale per restringere l’elenco.')
-            selected_name=st.selectbox('Visualizza le confezioni di',visible,
-                                       key='aifa_selected_drug')
-            rows=[dict(r) for r in conn.execute(
-                "SELECT aic,nome,principio_attivo,descrizione FROM "+source_table+
-                " WHERE nome=? ORDER BY aic LIMIT 101",(selected_name,))]
-            if rows:
-                st.markdown('**Confezioni di '+selected_name+'**')
-                st.dataframe([{
-                    'AIC':r['aic'],
-                    'Principio attivo':r['principio_attivo'] or 'Non disponibile nel file acquisito',
-                    'Confezione':r['descrizione'] or 'Non disponibile'
-                } for r in rows[:100]],hide_index=True,use_container_width=True,height=270)
-                if len(rows)>100:
-                    st.caption('Visualizzate le prime 100 confezioni.')
+            for index,name in enumerate(visible):
+                if st.button('💊 '+name,key=f'aifa_drug_{page}_{index}',
+                             use_container_width=True):
+                    st.session_state['aifa_selected_name']=name
+                if st.session_state.get('aifa_selected_name')==name:
+                    rows=[dict(r) for r in conn.execute(
+                        "SELECT aic,nome,principio_attivo,descrizione FROM "+source_table+
+                        " WHERE nome=? ORDER BY aic LIMIT 101",(name,))]
+                    st.markdown('**Confezioni di '+name+'**')
+                    st.dataframe([{
+                        'AIC':r['aic'],
+                        'Principio attivo':r['principio_attivo'] or 'Non disponibile nel file acquisito',
+                        'Confezione':r['descrizione'] or 'Non disponibile'
+                    } for r in rows[:100]],hide_index=True,use_container_width=True,height=230)
+                    if len(rows)>100:
+                        st.caption('Visualizzate le prime 100 confezioni.')
+            prev_col,page_col,next_col=st.columns([1,1,1])
+            with prev_col:
+                if st.button('← Precedenti',disabled=(page==0),
+                             use_container_width=True,key='aifa_prev'):
+                    st.session_state['aifa_page']=page-1
+                    st.session_state['aifa_selected_name']=None
+                    st.rerun()
+            with page_col:
+                st.caption(f'Pagina {page+1}')
+            with next_col:
+                if st.button('Successivi →',disabled=not has_next,
+                             use_container_width=True,key='aifa_next'):
+                    st.session_state['aifa_page']=page+1
+                    st.session_state['aifa_selected_name']=None
+                    st.rerun()
         else:
             st.info('Nessun medicinale corrisponde al filtro selezionato.')
 except (sqlite3.DatabaseError,OSError,ValueError) as exc:
