@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aggiornatore separato EMA / AIFA / Gazzetta - RegulaMed.
+"""Aggiornatore separato EMA / AIFA / Gazzetta - FarmaQuery.
 Solo fonti pubbliche ufficiali. Nessuna promozione di match o classe corrente.
 Esegue tutte le modifiche su una COPIA SQLite; l'app online legge l'ultimo snapshot verificato.
 """
@@ -191,7 +191,7 @@ def run(source, db_path=DEFAULT_DB):
     state_path=db_path.parent/'stato_fonti'/(source+'.json')
     state_path.parent.mkdir(parents=True,exist_ok=True)
     old=valid_state(state_path)
-    with tempfile.TemporaryDirectory(prefix='.regulamed_'+source+'_',dir=db_path.parent) as t:
+    with tempfile.TemporaryDirectory(prefix='.farmaquery_'+source+'_',dir=db_path.parent) as t:
         work=Path(t)
         staged=work/'snapshot.sqlite'
         with closing(sqlite3.connect(db_path)) as src, closing(sqlite3.connect(staged)) as dst:
