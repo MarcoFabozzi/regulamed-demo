@@ -63,6 +63,17 @@ jobs:
         if: steps.due.outputs.run == 'true'
         run: python aggiorna_indipendente.py --source gazzetta
 
+      - name: Test audit documentale (senza rete)
+        if: steps.due.outputs.run == 'true'
+        run: python -m unittest -v test_valida_evidenze_gazzetta.py
+
+      - name: Verifica coppie EU-AIC e integrita allegati
+        if: steps.due.outputs.run == 'true'
+        run: |
+          python valida_evidenze_gazzetta.py \
+            --db risultati/farmaci_automatico.sqlite \
+            --output risultati/audit_evidenze_gazzetta.json --strict
+
       - name: Publish Gazzetta Ufficiale on success
         if: steps.due.outputs.run == 'true'
         run: |
@@ -70,7 +81,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add risultati/farmaci_automatico.sqlite risultati/stato_fonti/gazzetta.json
           if [ 'gazzetta' = 'gazzetta' ]; then
-            git add risultati/gazzetta_testi/
+            git add risultati/gazzetta_testi/ risultati/audit_evidenze_gazzetta.json
           fi
           if ! git diff --cached --quiet; then
             git commit -m 'data: gazzetta fonte aggiornata e validata'
