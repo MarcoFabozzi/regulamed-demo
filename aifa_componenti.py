@@ -21,6 +21,7 @@ ROOT=Path(__file__).resolve().parent
 LEGACY_REPORT=ROOT/'risultati'/'rapporto_automatico.json'
 STATES=ROOT/'risultati'/'stato_fonti'
 ANAGRAFICA='https://drive.aifa.gov.it/farmaci/confezioni_fornitura.csv'
+PRINCIPI='https://drive.aifa.gov.it/farmaci/PA_confezioni.csv'
 MAX_FALLBACK_DAYS=14
 GROUPS={'aifa_ah':('aifa_a','aifa_h'),'aifa_cnn':('aifa_cnn',)}
 
@@ -120,12 +121,18 @@ def aggiorna_anagrafica(db,work):
     source_rows=list(pipeline.lista_aifa(path))
     if len(source_rows)<1000:
         raise ValueError('Dataset anagrafica AIFA troppo piccolo o danneggiato')
+    # Il principio attivo e' pubblicato in un secondo CSV AIFA, collegato per AIC.
+    from aifa_principi_attivi import principi_per_aic, arricchisci_confezioni
+    pa_path=Path(work)/'aifa_principi_attivi.csv'
+    pa_meta=etl.salva_dataset(PRINCIPI,pa_path,100_000_000)
+    pa_map,pa_rows=principi_per_aic(pa_path)
     seen={}
     for record in source_rows:
         aic=record['aic']
         if aic in seen and record!=seen[aic]:
             raise ValueError('AIC duplicata con dati discordanti: '+aic)
         seen[aic]=record
+    coverage_pa=arricchisci_confezioni(seen,pa_map)
     ema_names={norm(row[0]) for row in db.execute('SELECT nome FROM ema_medicinali')}
     old={r[0]:r[1] for r in db.execute('SELECT aic,nome FROM aifa_confezioni')}
     checked={r[0] for r in db.execute('SELECT DISTINCT aic FROM link_verificati')}
@@ -170,11 +177,13 @@ def aggiorna_anagrafica(db,work):
                  (ema_id,aic,criterio,stato) VALUES (?,?,?,'DA_VERIFICARE')""",
                  (ema_id,aic,criterion)).rowcount
             inserted+=count
-    return {'confezioni_file':len(seen),'archivio_completo':archive,'confezioni_pertinenti':len(chosen),
+    return {'confezioni_file':len(seen),'principi_attivi_righe_file':pa_rows,
+            'copertura_principi_attivi':coverage_pa,'archivio_completo':archive,'confezioni_pertinenti':len(chosen),
             'nuove_confezioni':fresh,'nuovi_match_candidati':inserted,
             'aic_precedenti_non_nel_file':len(set(old)-set(seen)),
             'nota':'L anagrafica non prova la classe vigente; le AIC assenti restano storiche',
-            'fonti':{'aifa':dict(url=ANAGRAFICA,**meta)}}
+            'fonti':{'aifa':dict(url=ANAGRAFICA,**meta),
+                     'aifa_principi_attivi':dict(url=PRINCIPI,**pa_meta)}}
 
 
 def aggiorna_ah(db,work):
