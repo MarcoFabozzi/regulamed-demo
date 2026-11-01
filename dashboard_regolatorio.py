@@ -429,7 +429,7 @@ try:
                 snapshots=escape(', '.join(historic_classes) or 'Nessuno')
                 # Il tag HTML details e' espandibile senza altri clic o ricaricamenti.
                 extra=(
-                    '<a class="regula-detail-link" href="?aic='+aic+'">'
+                    '<a class="regula-detail-link" href="?aic='+aic+'" target="_self">'
                     '🔎 Apri scheda</a>'
                 )
                 table_rows.append(
